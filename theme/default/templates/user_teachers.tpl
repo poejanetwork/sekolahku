@@ -59,22 +59,22 @@
 	<div class="content m-0">
 	    
 		<div class="row">
-			<a href='javascript:void(0)' data-menu="menu-visi" class="col-4">
-				<div class="card card-style text-center py-3 mx-0 mb-0">
-					<i class="fa fa-flag font-24 color-teal-dark opacity-60"></i>
-					<p class="font-13 font-500 mb-n1 mt-2 color-theme">Visi & Misi</p>
-				</div>
-			</a>
 			<a href='{"?p=rules"|surl}' class="col-4">
 				<div class="card card-style text-center py-3 mx-0 mb-0">
 					<i class="fa fa-shield-alt font-24 color-brown-dark opacity-60"></i>
-					<p class="font-13 font-500 mb-n1 mt-2 color-theme">Peraturan</p>
+					<p class="font-13 font-500 mb-n1 mt-2 color-theme">{$lang.rules}</p>
+				</div>
+			</a>
+			<a href='{"?p=classes"|surl}' class="col-4">
+				<div class="card card-style text-center py-3 mx-0 mb-0">
+					<i class="fa fa-school font-24 color-teal-dark opacity-60"></i>
+					<p class="font-13 font-500 mb-n1 mt-2 color-theme">{$lang.class}</p>
 				</div>
 			</a>
 			<a href='{"?p=bukusaku"|surl}' class="col-4">
 				<div class="card card-style text-center py-3 mx-0 mb-0">
 					<i class="fa fa-book font-24 text-success opacity-60"></i>
-					<p class="font-13 font-500 mb-n1 mt-2 color-theme">Buku Saku</p>
+					<p class="font-13 font-500 mb-n1 mt-2 color-theme">{$lang.bukusaku}</p>
 				</div>
 			</a>
 		</div>
@@ -82,19 +82,19 @@
 			<a href='{"?p=library"|surl}' class="col-4">
 				<div class="card card-style text-center py-3 mx-0 mb-0">
 					<i class="fa fa-book-reader color-yellow-dark font-24 opacity-60"></i>
-					<p class="font-13 font-500 mb-n1 mt-2 color-theme">Perpustakaan</p>
+					<p class="font-13 font-500 mb-n1 mt-2 color-theme">{$lang.libraries}</p>
 				</div>
 			</a>
 			<a href='{"?p=schedule"|surl}' class="col-4">
 				<div class="card card-style text-center py-3 mx-0 mb-0">
 					<i class="fa fa-calendar-alt font-24 color-blue-dark opacity-60"></i>
-					<p class="font-13 font-500 mb-n1 mt-2 color-theme">Jadwal</p>
+					<p class="font-13 font-500 mb-n1 mt-2 color-theme">{$lang.schedule}</p>
 				</div>
 			</a>
 			<a href='{"?p=notes"|surl}' class="col-4">
 				<div class="card card-style text-center py-3 mx-0 mb-0">
 					<i class="fa fa-handshake font-24 color-green-dark opacity-60"></i>
-					<p class="font-13 font-500 mb-n1 mt-2 color-theme">Catatan</p>
+					<p class="font-13 font-500 mb-n1 mt-2 color-theme">{$lang.notes}</p>
 				</div>
 			</a>
 		</div>
@@ -106,7 +106,7 @@
 	<div class="content" data-menu="menu-video">
 		<div class="d-flex">
 			<div>
-				<img src="{$settings.siteurl}/{$theme}/assets/images/icons/smataruna_.png" width="50" class="me-3">
+				<img src="{$settings.siteurl}/{$theme}/assets/images/icons/logo.png" width="50" class="me-3">
 			</div>
 			<div>
 				<h2 class="mb-0 pt-1">{$settings.sitename}</h2>

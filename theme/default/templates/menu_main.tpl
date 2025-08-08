@@ -1,11 +1,7 @@
 
     {if $user}
     <div class="menu-logo text-center">
-        {if $user.avatar==""}
-            <a href='{"?p=edit_account&avatar"|surl}'><img src="{$settings.siteurl}/{$theme}/assets/images/avatars/5s.png" width="80" class="rounded-circle bg-highlight"></a>
-        {else}
-            <img src="{$settings.siteurl}/uploads/avatar/{$user.avatar}" width="80" class="rounded-circle bg-highlight">
-        {/if}
+        <img src='{$user.avatar|default:"{$settings.siteurl}/{$theme}/assets/images/avatars/default_avatar.png"}' width="80" class="rounded-circle bg-highlight">
         <h6 class="pt-3 font-600 text-uppercase">{$user.fullname}</h6>
         <p class="font-11 mt-n2 mb-2">{if $user.login_as=="user"}Siswa{else}Pengajar{/if}<br/>{$user.nisp}</p>
     </div>

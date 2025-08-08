@@ -255,12 +255,27 @@ document["addEventListener"]('DOMContentLoaded', () => {
                 perMove: 1
             })["mount"]()
         };
-        const _0x7231x34 = document["querySelectorAll"]('a[href=\"#\"]');
-        _0x7231x34["forEach"]((_0x7231xb) => {
-            return _0x7231xb["addEventListener"]('click', (_0x7231xa) => {
-                _0x7231xa["preventDefault"]();
-                return false
-            })
+        document.querySelectorAll('a').forEach((_link) => {
+            _link.addEventListener('click', (e) => {
+                const href = _link.getAttribute('href');
+                const target = _link.getAttribute('target');
+                if (
+                    href === '#' ||
+                    href === '' ||
+                    href === '#' ||
+                    href === 'javascript:void(0)'
+                ) {
+                    e.preventDefault();
+                    return false;
+                }
+                if (target === '_blank') {
+                    return;
+                }
+                const preloader = document.getElementById('preloader');
+                if (preloader) {
+                    preloader.classList.remove('preloader-hide');
+                }
+            });
         });
         var _0x7231x35 = document["querySelectorAll"]('.hide-map');
         if (_0x7231x35["length"]) {

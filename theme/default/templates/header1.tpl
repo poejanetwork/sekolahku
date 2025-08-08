@@ -37,13 +37,16 @@
         <a href='{"?p=category"|surl}' class="{if $pagetitle|stristr:'category' || $pagetitle|stristr:'alumni' || $pagetitle|stristr:'teachers'}active-nav{/if}"><i data-feather="grid" data-feather-line="1" data-feather-size="21" data-feather-color="brown-dark" data-feather-bg="brown-fade-light"></i><span>{$lang.category}</span></a>
         <a href="{$settings.siteurl}" class="{if $pagetitle|stristr:'home' || $pagetitle|stristr:'profil' || $pagetitle|stristr:'rules' || $pagetitle|stristr:'login' || $pagetitle|stristr:'support' || $pagetitle|stristr:'result'}active-nav{/if}"><i data-feather="home" data-feather-line="1" data-feather-size="21" data-feather-color="blue-dark" data-feather-bg="blue-fade-light"></i><span class="mx-1">{$lang.dashboard}</span></a>
         <a href='{"?p=news"|surl}' class="ms-1 {if $pagetitle|stristr:'news'}active-nav{/if}"><i data-feather="radio" data-feather-line="1" data-feather-size="21" data-feather-color="green-dark" data-feather-bg="green-fade-light"></i><span>{$lang.news}</span></a>
-        <a href='{"?p=account"|surl}' class="ms-1 me-3 {if $pagetitle|stristr:'account' || $pagetitle|stristr:'view_account' || $pagetitle|stristr:'bukusaku'}active-nav{/if}"><i data-feather="user" data-feather-line="1" data-feather-size="21" data-feather-color="mint-light" data-feather-bg="mint-fade-light"></i><span>{$lang.account}</span></a>
+        <a href='{"?p=account"|surl}' class="ms-1 me-3 {if $pagetitle|stristr:'account' || $pagetitle|stristr:'view_account' || $pagetitle|stristr:'bukusaku' || $pagetitle|stristr:'classes'}active-nav{/if}"><i data-feather="user" data-feather-line="1" data-feather-size="21" data-feather-color="mint-light" data-feather-bg="mint-fade-light"></i><span>{$lang.account}</span></a>
     </div>
 <!-- page content-->
+<div id="page-loader" class="loader-overlay d-none">
+  <div class="spinner"></div>
+</div>
 <div class="page-content">
     <div class="page-title page-title-small">
         <h2><a href="javascript:void(0)" data-back-button><i class="fa fa-arrow-left"></i></a> {$pagename}</h2>
-        <a href="javascript:void(0)" data-menu="menu-main" class="bg-fade-gray1-dark shadow-xl preload-img" data-src="{$settings.siteurl}/{$theme}/assets/images/avatars/5s.png"></a>
+        <a href="javascript:void(0)" data-menu="menu-main" class="bg-fade-gray1-dark shadow-xl preload-img" data-src="{$settings.siteurl}/{$theme}/assets/images/avatars/default_avatar.png"></a>
     </div>
     <div class="card header-card shape-rounded" data-card-height="210">
         <div class="card-overlay bg-highlight opacity-95"></div>

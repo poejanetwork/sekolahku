@@ -92,7 +92,7 @@
 	<div class="content" data-menu="menu-video">
 		<div class="d-flex">
 			<div>
-				<img src="{$settings.siteurl}/{$theme}/assets/images/icons/smataruna_.png" width="50" class="me-3">
+				<img src="{$settings.siteurl}/{$theme}/assets/images/icons/logo.png" width="50" class="me-3">
 			</div>
 			<div>
 				<h2 class="mb-0 pt-1">{$settings.sitename}</h2>
