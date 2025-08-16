@@ -15,7 +15,7 @@
 			</div>
 			<div>
 				<h3 class="mb-0 pt-1">{$n.fullname}</h3>
-				<p class="color-highlight text-uppercase font-11 mt-n1">{$n.major_id}</p>
+				<p class="color-highlight text-uppercase font-11 mt-n1">{$n.major_name}</p>
 			</div>
 		</div>
 	</div>

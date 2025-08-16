@@ -1,4 +1,11 @@
 {include file="header1.tpl"}
+<div class="card card-style mb-3 bg-10" data-card-height="110">
+	<div class="card-center ps-3">
+		<h1 class="color-white mb-n1 font-25">Daftar Kelas</h1>
+		<p class="opacity-50 color-white mb-0">Seluruh kelas {$settings.sitename}</p>
+	</div>
+	<div class="card-overlay bg-black opacity-90"></div>
+</div>
 <div class="content">
     {foreach from=$list_classes item=item name=p}
     <a href='{"?p=classes&{$item.id}"|surl}' class="card card-style mb-3 mx-0">

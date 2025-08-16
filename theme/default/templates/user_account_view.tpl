@@ -4,11 +4,7 @@
 	<div class="content">
 		<div class="d-flex">
 			<div>
-				{if $user.avatar==""}
-					<a href='{"?p=edit_account&avatar"|surl}'><img src="{$settings.siteurl}/plugins/admin/assets/images/default_avatar.png" width="50" class="me-3 rounded-xl bg-highlight"></a>
-				{else}
-					<img src="{$user.avatar}" width="50" class="me-3 bg-highlight rounded-xl">
-				{/if}
+				<img src='{$account_view.avatar|default:"{$settings.siteurl}/theme/default/assets/images/avatars/default_avatar.png"}' width="50" class="me-3 bg-highlight rounded-xl">
 			</div>
 			<div>
 				<h2 class="mb-0 pt-1">{$account_view.fullname}</h2>
@@ -28,33 +24,57 @@
 		<div class="clearfix mb-3"></div>
 		<div data-bs-parent="#tab-group-2" class="collapse show" id="data-identitas">
 			<div class="content m-0 mt-3">
-				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">Kelas</strong><a href="javascript:void(0)">{$account_view.class_id}</a><i class="fa fa-id-badge color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">Kelas</strong><a href="javascript:void(0)">{$account_view.class_name}</a><i class="fa fa-id-badge color-teal-dark opacity-75"></i></div>
 				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">NIS</strong><a href="javascript:void(0)">{$account_view.nis}</a><i class="fa fa-id-card color-teal-dark opacity-75"></i></div>
 				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">NISN</strong><a href="javascript:void(0)">{$account_view.nisn}</a><i class="fa fa-id-card color-teal-dark opacity-75"></i></div>
 			</div>
 		</div>
 		<div data-bs-parent="#tab-group-2" class="collapse" id="data-profile">
 			<div class="content m-0 mt-3">
-				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.religion}</strong><a href="javascript:void(0)">{$account_view.religion_id}</a><i class="fa fa-venus-mars color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.religion}</strong><a href="javascript:void(0)">{$account_view.religion_name}</a><i class="fa fa-id-badge color-teal-dark opacity-75"></i></div>
 				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.sex}</strong><a href="javascript:void(0)">{if $account_view.sex=="L"}Laki-laki{else}Perempuan{/if}</a><i class="fa fa-venus-mars color-teal-dark opacity-75"></i></div>
 				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">Tempat / Tanggal Lahir</strong><a href="javascript:void(0)">{$account_view.birthday_place} / {$account_view.birthday|date_format:"%e %B %Y"}</a><i class="fa fa-map-marker-alt color-teal-dark opacity-75"></i></div>
-				<div class="vcard-field lh-lg mt-1 border-0"><strong class="font-12 color-teal-dark">Email</strong><a href="mailto:{$account_view.email}">{$account_view.email}</a><i class="fa fa-email color-teal-dark opacity-75"></i></div>
-				<div class="vcard-field lh-lg mt-1 border-0"><strong class="font-12 color-teal-dark">No. HP</strong><a href="tel:{$account_view.phone}">+{$account_view.phone}</a><i class="fa fa-phone color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">Email</strong><a href="mailto:{$account_view.email}">{$account_view.email}</a><i class="fa fa-envelope color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">No. HP</strong><a href="tel:{$account_view.phone}">+{$account_view.phone}</a><i class="fa fa-phone color-teal-dark opacity-75"></i></div>
 				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">Alamat</strong><a href="javascript:void(0)">{$account_view.address_user} RT.{$account_view.rt} RW.{$account_view.rw} Dusun {$account_view.sub_village} Desa {$account_view.village} Kec. {$account_view.sub_district} Kota/Kab. {$account_view.district} Kode Pos {$account_view.postal_code}</a><i class="fa fa-address-card color-teal-dark opacity-75"></i></div>
 			</div>
 		</div>
 		<div data-bs-parent="#tab-group-2" class="collapse" id="data-lain">
 			<div class="content m-0 mt-3">
 				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.parents_father_name}</strong><a href="javascript:void(0)">{$account_view.parents_father_name}</a><i class="fa fa-id-card color-teal-dark opacity-75"></i></div>
-				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.parents_father_job}</strong><a href="javascript:void(0)">{$account_view.parents_father_job_id}</a><i class="fa fa-id-card color-teal-dark opacity-75"></i></div>
-				<div class="vcard-field lh-lg mt-1 border-0"><strong class="font-12 color-teal-dark">{$lang.parents_father_phone}</strong><a href="tel:{$account_view.parents_father_phone}">+{$account_view.parents_father_phone}</a><i class="fa fa-phone color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.parents_father_job}</strong><a href="javascript:void(0)">{$account_view.parents_father_job_name}</a><i class="fa fa-id-card-alt color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.parents_father_phone}</strong><a href="tel:{$account_view.parents_father_phone}">+{$account_view.parents_father_phone}</a><i class="fa fa-phone color-teal-dark opacity-75"></i></div>
 				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.parents_mother_name}</strong><a href="javascript:void(0)">{$account_view.parents_mother_name}</a><i class="fa fa-id-card color-teal-dark opacity-75"></i></div>
-				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.parents_mother_job}</strong><a href="javascript:void(0)">{$account_view.parents_mother_job_id}</a><i class="fa fa-id-card color-teal-dark opacity-75"></i></div>
-				<div class="vcard-field lh-lg mt-1 border-0"><strong class="font-12 color-teal-dark">{$lang.parents_mother_phone}</strong><a href="tel:{$account_view.parents_mother_phone}">+{$account_view.parents_mother_phone}</a><i class="fa fa-phone color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.parents_mother_job}</strong><a href="javascript:void(0)">{$account_view.parents_mother_job_name}</a><i class="fa fa-id-card-alt color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.parents_mother_phone}</strong><a href="tel:{$account_view.parents_mother_phone}">+{$account_view.parents_mother_phone}</a><i class="fa fa-phone color-teal-dark opacity-75"></i></div>
 				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.address_parents}</strong><a href="javascript:void(0)">{$account_view.address_parent}</a><i class="fa fa-address-card color-teal-dark opacity-75"></i></div>
 			</div>
 		</div>
 	</div>    
+</div>
+
+<div class="card card-style">
+	<div class="content mb-0">
+		<h3 class="float-start font-16">{$lang.achievement}</h3>
+		<div class="clearfix"></div>
+	{if $account_view.achievements|@count > 0}
+  		{foreach $account_view.achievements as $ach}
+		<a href='{"?p=news&{$ach.news_id}"|surl}' class="d-flex">
+			<div>
+				<span class="icon icon-m bg-green-dark rounded-m shadow-xl"><i class="fa fa-trophy font-20 color-yellow-light"></i></span>
+			</div>
+			<div class="align-self-center ps-3">
+				<h5 class="font-600 font-14 mb-n2">{$ach.title}</h5>
+				<span class="color-theme font-11">Tahun: {$ach.year}</span>
+			</div>
+			
+		</a>
+		<div class="divider mt-3 mb-3"></div>
+  		{/foreach}
+	{else}
+	<p>Belum ada prestasi yang tercatat.</p>
+	{/if}
+	</div>
 </div>
 
 <div class="card preload-img entered loaded" data-ll-status="loaded">
@@ -108,8 +128,8 @@
 			</div>
 			<div class="align-self-center ps-3 flex-grow-1">
 				<h5 class="font-400 font-14 mb-n2">{$nkp_user[p].description}</h5>
-				<span class="color-highlight font-12"><i class="fa fa-arrow-right pe-1"></i> {if $nkp_user[p].description_other}{$nkp_user[p].description_other}{else}&nbsp;{/if}</span>
-				<div class="color-gray-dark font-11 d-block text-end color-gray"><i class="fa fa-calendar pe-1 color-dark-dark"></i> {$nkp_user[p].created_at|date_format:"%e %B %Y"} <i class="fa fa-user px-1 color-dark-dark"></i> {$nkp_user[p].tfullname}</div>
+				<span class="color-highlight font-12">{if $nkp_user[p].notes}<i class="fa fa-arrow-right pe-1"></i>{$nkp_user[p].notes}{else}&nbsp;{/if}</span>
+				<div class="color-gray-dark font-11 d-block text-end color-gray"><i class="fa fa-calendar pe-1 color-dark-dark"></i> {$nkp_user[p].created_at} <i class="fa fa-user px-1 color-dark-dark"></i> {$nkp_user[p].tfullname}</div>
 			</div>
 		</div>
 		<div class="divider mt-3 mb-3"></div>

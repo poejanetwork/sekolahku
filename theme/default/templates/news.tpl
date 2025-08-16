@@ -23,17 +23,25 @@
 		</ul>
 	</nav>
 {else if $newsid}
+<div class="card card-style rounded-l bg-14 mb-n5" data-card-height="350">
+	<div class="card-bottom p-3 pb-5 mb-3">
+		<span class="badge bg-red-dark text-uppercase px-2 py-1">Technology</span>
+		<span class="d-block text-end font-10 pe-3 opacity-60 mt-n4 color-white">Image Source: {$settings.sitename}</span>
+	</div>
+	<div class="card-overlay bg-gradient"></div>
+	<img class="card-bg owl-lazy" loading="lazy" src="{$newsid.thumbnail}">
+</div>
+
 <div class="card card-style">
 	<div class="content">
 		<h1 class="font-600 font-18 line-height-m">{$newsid.title}</h1>
-		<span class="d-block mb-3">{$newsid.created_at|date_format:"%e %B %Y, %H:%m:%s"}</span>
+		<span class="d-block mb-3">{$newsid.created_at}</span>
 		<a href='https://www.facebook.com/sharer/sharer.php?u={"?p=news&{$newsid.id}"|surl}' class="shareToFacebook icon icon-xs rounded-sm bg-facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
 		<a href='http://twitter.com/share?text={$newsid.title}%20{"?p=news&{$newsid.id}"|surl}' class="shareToTwitter icon icon-xs rounded-sm bg-twitter" target="_blank"><i class="fab fa-twitter"></i></a>
 		<a href='whatsapp://send?text={"?p=news&{$newsid.id}"|surl}' class="shareToWhatsApp icon icon-xs rounded-sm bg-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
 		<a href='https://www.linkedin.com/shareArticle?mini=true&amp;url={"?p=news&{$newsid.id}"|surl}&amp;title={$newsid.title}&amp;summary=&amp;source=' class="shareToLinkedIn icon icon-xs rounded-sm bg-linkedin" target="_blank"><i class="fab fa-linkedin-in"></i></a>
 		<a href='mailto:?body={"?p=news&{$newsid.id}"|surl}' class="shareToMail icon icon-xs rounded-sm bg-mail" target="_blank"><i class="fa fa-envelope"></i></a>
 	</div>
-	<img src="{$newsid.thumbnail}" class="img-fluid">
 	<span class="d-block text-end font-10 pe-3 opacity-60 mt-n4 color-white">Image Source: {$settings.sitename}</span>
 	<div class="content">
 		<p>

@@ -22,9 +22,9 @@
 	<div class="content mb-2 mt-3">
 		<div class="d-flex">
 			<div class="w-100 align-self-center">
-				<h6 class="font-14 font-500">{$lang.offender}<span class="float-end color-dark-dark">{$list_pelanggaran[p].nisn}</span></h6>
+				<a href='{"?p=account_view&id={$list_pelanggaran[p].student_id}"|surl}' class="font-14 font-500">{$lang.offender}<span class="float-end color-dark-dark">{$list_pelanggaran[p].student_name}</span></a>
 				<div class="divider mb-2 mt-1"></div>
-				<h6 class="font-14 font-500">{$lang.teachers}<span class="float-end color-dark-dark">{$list_pelanggaran[p].nip}</span></h6>
+				<h6 class="font-14 font-500">{$lang.teachers}<span class="float-end color-dark-dark">{$list_pelanggaran[p].teacher_name}</span></h6>
 				<div class="divider mb-2 mt-1"></div>
 				<h6 class="font-14 font-500">{$lang.date}<span class="float-end color-gray-dark">{$list_pelanggaran[p].created_at|date_format:"%e %B %Y"}</span></h6>
 			</div>

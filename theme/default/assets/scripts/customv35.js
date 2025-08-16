@@ -262,7 +262,6 @@ document["addEventListener"]('DOMContentLoaded', () => {
                 if (
                     href === '#' ||
                     href === '' ||
-                    href === '#' ||
                     href === 'javascript:void(0)'
                 ) {
                     e.preventDefault();
@@ -274,6 +273,14 @@ document["addEventListener"]('DOMContentLoaded', () => {
                 const preloader = document.getElementById('preloader');
                 if (preloader) {
                     preloader.classList.remove('preloader-hide');
+                    const menuMain = document.getElementById('menu-main');
+                    const menuHider = document["getElementsByClassName"]('menu-hider')[0];
+                    if (menuMain["classList"]["contains"]('menu-active')) {
+                        menuMain["classList"]["remove"]('menu-active')
+                    };
+                    if (menuHider["classList"]["contains"]('menu-active')) {
+                        menuHider["classList"]["remove"]('menu-active')
+                    };
                 }
             });
         });
@@ -476,6 +483,12 @@ document["addEventListener"]('DOMContentLoaded', () => {
                 })
             })
         };
+        window.addEventListener('pageshow', function () {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                preloader.classList.add('preloader-hide');
+            }
+        });
 
         function _0x7231x58() {
             const _0x7231x59 = document["querySelectorAll"]('.back-to-top-icon, .back-to-top-badge, .back-to-top');

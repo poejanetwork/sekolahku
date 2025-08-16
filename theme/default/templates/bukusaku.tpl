@@ -60,13 +60,13 @@
 			<a href='{"?p=rules"|surl}' class="col-4">
 				<div class="card card-style text-center py-3 mx-0 mb-0">
 					<i class="fa fa-shield-alt font-24 color-brown-dark"></i>
-					<p class="font-13 font-500 mb-n1 mt-2 color-theme">Peraturan</p>
+					<p class="font-13 font-500 mb-n1 mt-2 color-theme">{$lang.rules}</p>
 				</div>
 			</a>
-			<a href='{"?p=notes"|surl}' class="col-4">
+			<a href='{"?p=achievement"|surl}' class="col-4">
 				<div class="card card-style text-center py-3 mx-0 mb-0">
-					<i class="fa fa-handshake font-24 color-green-dark"></i>
-					<p class="font-13 font-500 mb-n1 mt-2 color-theme">Catatan</p>
+					<i class="fa fa-trophy font-24 color-yellow-light"></i>
+					<p class="font-13 font-500 mb-n1 mt-2 color-theme">{$lang.achievement}</p>
 				</div>
 			</a>
 			<a href="javascript:void(0)" class="col-4" data-menu="menu-table-nkp">

@@ -122,13 +122,9 @@
       <input type="hidden" value="do_login" name="act">
       <button type="button" class="btn btn-m mt-2 mb-4 btn-full bg-green-dark rounded-sm text-uppercase font-900 w-100" onclick='document.getElementById("form").submit()'>{$lang.login}</button>
 
-      <div class="divider"></div>
-
-      <a href="{$googleauth}" class="btn btn-icon btn-m mt-2 mb-4 btn-full rounded-s shadow-l bg-google text-uppercase font-900 text-left"><i class="fab fa-google text-center"></i>{$lang.login_google}</a>
 	  <div class="divider mt-4 mb-3"></div>
 	  <div class="d-flex">
-		<div class="w-50 font-11 pb-2 color-theme opacity-60 pb-3 text-start"><a href='{"?p=register"|surl}' class="color-theme">{$lang.register}</a></div>
-		<div class="w-50 font-11 pb-2 color-theme opacity-60 pb-3 text-end"><a href='{"?p=forgot_password"|surl}' class="color-theme">{$lang.forgot_pass}?</a></div>
+		<div class="w-100 pb-2 color-theme opacity-60 pb-3"><a href='{"?p=forgot_password"|surl}' class="color-theme">{$lang.forgot_pass}?</a></div>
 	</div>
 
   </div>

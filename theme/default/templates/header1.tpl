@@ -8,7 +8,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
 <meta name="description" content='{$settings.description}'>
 <meta name="keyword" content='{$settings.keywords}'>
+<meta name="copyright" href='{$sc_copyright_wa}'>
+<meta name="script" href='{$sc_copyright}'>
 <title>{$pagename} {$settings.sitename} | {$settings.description}</title>
+{if $pagetitle|stristr:'news' && $newsid}
+<link rel="canonical" href='{$settings.siteurl}/news/{$newsid.id}/{$newsid.slug}' />
+<meta property="og:locale" content="id_ID" />
+<meta property="og:type" content="article" />
+<meta property="article:publisher" content="{$settings.social_instagram}" />
+<meta property="article:published_time" content="{$newsid.created_at}" />
+<meta property="og:image" content="{$newsid.thumbnail}">
+<meta property="og:image:width" content="640" />
+<meta property="og:image:height" content="480" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:title" content="{$newsid.title}" />
+<meta property="og:description" content="{$newsid.title}">
+<meta property="og:url" content='{$settings.siteurl}/news/{$newsid.id}/{$newsid.slug}' />
+<meta property="og:site_name" content="{$settings.sitename}" />
+<meta name="twitter:card" value="summary">
+<meta name="author" content="Admin" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:creator" content="{$settings.social_twitter}" />
+<meta name="twitter:site" content="{$settings.social_twitter}" />
+<meta name="twitter:label1" content="Ditulis oleh" />
+<meta name="twitter:data1" content="Admin" />
+<meta name="twitter:label2" content="Estimasi waktu membaca" />
+<meta name="twitter:data2" content="1 menit" />
+{/if}
 <link rel="stylesheet" type="text/css" href="{$settings.siteurl}/{$theme}/assets/styles/bootstrapv35.css">
 <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900|Roboto:300,300i,400,400i,500,500i,700,700i,900,900i&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="{$settings.siteurl}/{$theme}/assets/fonts/css/fontawesome-all.min.css">  
@@ -37,7 +63,7 @@
         <a href='{"?p=category"|surl}' class="{if $pagetitle|stristr:'category' || $pagetitle|stristr:'alumni' || $pagetitle|stristr:'teachers'}active-nav{/if}"><i data-feather="grid" data-feather-line="1" data-feather-size="21" data-feather-color="brown-dark" data-feather-bg="brown-fade-light"></i><span>{$lang.category}</span></a>
         <a href="{$settings.siteurl}" class="{if $pagetitle|stristr:'home' || $pagetitle|stristr:'profil' || $pagetitle|stristr:'rules' || $pagetitle|stristr:'login' || $pagetitle|stristr:'support' || $pagetitle|stristr:'result'}active-nav{/if}"><i data-feather="home" data-feather-line="1" data-feather-size="21" data-feather-color="blue-dark" data-feather-bg="blue-fade-light"></i><span class="mx-1">{$lang.dashboard}</span></a>
         <a href='{"?p=news"|surl}' class="ms-1 {if $pagetitle|stristr:'news'}active-nav{/if}"><i data-feather="radio" data-feather-line="1" data-feather-size="21" data-feather-color="green-dark" data-feather-bg="green-fade-light"></i><span>{$lang.news}</span></a>
-        <a href='{"?p=account"|surl}' class="ms-1 me-3 {if $pagetitle|stristr:'account' || $pagetitle|stristr:'view_account' || $pagetitle|stristr:'bukusaku' || $pagetitle|stristr:'classes'}active-nav{/if}"><i data-feather="user" data-feather-line="1" data-feather-size="21" data-feather-color="mint-light" data-feather-bg="mint-fade-light"></i><span>{$lang.account}</span></a>
+        <a href='{"?p=account"|surl}' class="ms-1 me-3 {if $pagetitle|stristr:'account' || $pagetitle|stristr:'view_account' || $pagetitle|stristr:'bukusaku' || $pagetitle|stristr:'classes' || $pagetitle|stristr:'schedule'}active-nav{/if}"><i data-feather="user" data-feather-line="1" data-feather-size="21" data-feather-color="mint-light" data-feather-bg="mint-fade-light"></i><span>{$lang.account}</span></a>
     </div>
 <!-- page content-->
 <div id="page-loader" class="loader-overlay d-none">
@@ -46,10 +72,10 @@
 <div class="page-content">
     <div class="page-title page-title-small">
         <h2><a href="javascript:void(0)" data-back-button><i class="fa fa-arrow-left"></i></a> {$pagename}</h2>
-        <a href="javascript:void(0)" data-menu="menu-main" class="bg-fade-gray1-dark shadow-xl preload-img" data-src="{$settings.siteurl}/{$theme}/assets/images/avatars/default_avatar.png"></a>
+        <a href="javascript:void(0)" data-menu="menu-main" class="bg-fade-gray1-dark shadow-xl preload-img" data-src="{$user.avatar|default:"{$settings.siteurl}/{$theme}/assets/images/avatars/default_avatar.png"}"></a>
     </div>
     <div class="card header-card shape-rounded" data-card-height="210">
         <div class="card-overlay bg-highlight opacity-95"></div>
         <div class="card-overlay dark-mode-tint"></div>
-        <div class="card-bg preload-img" data-src="{$settings.siteurl}/{$theme}/assets/images/pictures/20s.jpg"></div>
+        <div class="card-bg preload-img" data-src="{$settings.siteurl}/{$theme}/assets/images/icons/logo.png"></div>
     </div>

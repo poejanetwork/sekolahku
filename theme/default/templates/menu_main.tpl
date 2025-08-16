@@ -1,26 +1,26 @@
 
     {if $user}
-    <div class="menu-logo text-center">
-        <img src='{$user.avatar|default:"{$settings.siteurl}/{$theme}/assets/images/avatars/default_avatar.png"}' width="80" class="rounded-circle bg-highlight">
-        <h6 class="pt-3 font-600 text-uppercase">{$user.fullname}</h6>
+    <div class="menu-logo text-center pt-2">
+        <img src='{$user.avatar|default:"{$settings.siteurl}/{$theme}/assets/images/avatars/default_avatar.png"}' width="50" class="rounded-circle bg-highlight">
+        <h6 class="pt-2 mb-0 font-600 text-uppercase">{$user.fullname}</h6>
         <p class="font-11 mt-n2 mb-2">{if $user.login_as=="user"}Siswa{else}Pengajar{/if}<br/>{$user.nisp}</p>
     </div>
 
     <div class="menu-items">
-        <h5 class="text-uppercase opacity-20 font-12 pl-3">Menu</h5>
+        <h5 class="text-uppercase opacity-20 font-12 pl-3">{$lang.menu}</h5>
         <a id="nav-welcome" href='{"?p=account"|surl}'>
             <i data-feather="home" data-feather-line="1" data-feather-size="16" data-feather-color="teal-dark" data-feather-bg="teal-fade-dark"></i>
-            <span>Dashboard</span>
+            <span>{$lang.dashboard}</span>
             <i class="fa fa-circle"></i>
         </a>
         <a id="nav-welcome" href='{"?p=profil"|surl}'>
             <i class="fa fa-school color-yellow-dark"></i>
-            <span>Profil</span>
+            <span>{$lang.profile}</span>
             <i class="fa fa-circle"></i>
         </a>
         <a href='{"?p=support"|surl}'>
             <i data-feather="mail" data-feather-line="1" data-feather-size="16" data-feather-color="green-dark" data-feather-bg="green-fade-dark"></i>
-            <span>Kontak Kami</span>
+            <span>{$lang.contact_us}</span>
             <i class="fa fa-circle"></i>
         </a>
         <a href="javascript:void(0)" data-menu="menu-language">
@@ -30,32 +30,27 @@
         </a>
         <a href='{"?p=logout"|surl}'>
             <i class="fa fa-sign-out-alt color-red-dark"></i>
-            <span>Logout</span>
+            <span>{$lang.logout}</span>
             <i class="fa fa-circle"></i>
         </a>
     </div>
     {else}
-    <div class="menu-logo text-center">
-        <a href="#"><img class="rounded-circle bg-highlight" width="80" src="{$settings.siteurl}/{$theme}/assets/images/avatars/5s.png"></a>
-        <h1 class="pt-3 font-800 font-28 text-uppercase">Tamu</h1>
-        <p class="font-11 mt-n2">{$settings.sitename}</p>
+    <div class="menu-logo text-center pt-2">
+        <a href="#"><img class="rounded-circle bg-highlight" width="50" src="{$settings.siteurl}/{$theme}/assets/images/avatars/default_avatar.png"></a>
+        <h1 class="pt-2 mb-0 font-800 font-28 text-uppercase">{$lang.guest}</h1>
+        <p class="font-11 mt-n2 mb-2">{$settings.sitename}</p>
     </div>
     
     <div class="menu-items">
-        <h5 class="text-uppercase opacity-20 font-12 pl-3">Menu</h5>
+        <h5 class="text-uppercase opacity-20 font-12 pl-3">{$lang.menu}</h5>
         <a id="nav-welcome" href='{"?p=login"|surl}'>
             <i data-feather="log-in" data-feather-line="1" data-feather-size="16" data-feather-color="teal-dark" data-feather-bg="teal-fade-dark"></i>
-            <span>Masuk</span>
-            <i class="fa fa-circle"></i>
-        </a>
-        <a id="nav-starters" href='{"?p=register"|surl}'>
-            <i data-feather="user-plus" data-feather-line="1" data-feather-size="18" data-feather-color="yellow-dark" data-feather-bg="yellow-fade-dark"></i>
-            <span>Daftar Baru</span>
+            <span>{$lang.login}</span>
             <i class="fa fa-circle"></i>
         </a>
         <a href='{"?p=support"|surl}' data-submenu="sub-contact">
             <i data-feather="mail" data-feather-line="1" data-feather-size="16" data-feather-color="green-dark" data-feather-bg="green-fade-dark"></i>
-            <span>Kontak Kami</span>
+            <span>{$lang.contact_us}</span>
             <i class="fa fa-circle"></i>
         </a>
         <a href="javascript:void(0)" data-menu="menu-language">

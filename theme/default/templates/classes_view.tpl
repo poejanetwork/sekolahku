@@ -30,7 +30,7 @@
     <h5 class="float-start font-16">Kelas {$class_detail.class_name} ({$class_detail.total_students} siswa)</h5>
     <div class="clearfix"></div>
     {foreach from=$class_detail.students item=student name=p}
-        <div class="d-flex">
+        <a href='{"?p=account_view&id={$student.id}"|surl}' class="d-flex">
             <div>
                 <img src='{$student.avatar|default:"{$settings.siteurl}/theme/default/assets/images/avatars/default_avatar.png"}' width="50" class="me-3">
             </div>
@@ -44,7 +44,7 @@
                 {/if}
                 <span class="color-theme d-block text-end">#{$smarty.foreach.p.iteration}</span>
             </div>
-        </div>
+        </a>
         <div class="divider mt-3 mb-3"></div>
     {/foreach}
                         
