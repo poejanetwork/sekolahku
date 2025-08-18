@@ -11,8 +11,8 @@ document["addEventListener"]('DOMContentLoaded', () => {
     var _0x7231x3 = "Azures";
     var _0x7231x4 = 1;
     var _0x7231x5 = false;
-    var _0x7231x6 = "https://www.enableds.com/products/azures/v35/";
-    var _0x7231x7 = "https://www.enableds.com/products/azures/v35/_service-worker.js";
+    var _0x7231x6 = window.location.origin;
+    var _0x7231x7 = window.location.origin+"/theme/default/assets/_service-worker.js";
 
     function init_template() {
         var _0x7231x9, _0x7231xa, _0x7231xb;
@@ -1435,72 +1435,6 @@ document["addEventListener"]('DOMContentLoaded', () => {
                             console["log"]('Form Submitted')
                         }
                     }
-                }
-            }
-        };
-        var _0x7231x108ppdb = document["querySelectorAll"]('.PPDB-form');
-        if (_0x7231x108ppdb["length"]) {
-            var result_ppdb = document.getElementById('result_ppdb');
-            var ppdb_fullname = document.getElementById('ppdb_fullname');
-            var ppdb_registration_number = document.getElementById('ppdb_registration_number');
-            var ppdb_cetak_formulir = document.getElementById('ppdb_cetak_formulir');
-            var _0x7231x109ppdb = document["getElementById"]('PPDBform');
-            var toastIDfail = document.getElementById('notification-fail');
-            var toastIDsuccess = document.getElementById('notification-success');
-            var errorMsgEl = document.getElementById('ErrorMsg');
-            var SuccessMsgEl = document.getElementById('SuccessMsg');
-            _0x7231x109ppdb["onsubmit"] = function(_0x7231xa) {
-                _0x7231xa["preventDefault"]();
-                var inputs = _0x7231x109ppdb.querySelectorAll('input, textarea, select');
-                var isValid = true;
-
-                inputs.forEach(function(input) {
-                    if (input.value.trim() === '') {
-                        isValid = false;
-                        _0x7231x109ppdb["setAttribute"]('data-form', 'invalid');
-                    } else {
-                        _0x7231x109ppdb["setAttribute"]('data-form', 'valid');
-                    }
-                });
-                if (!isValid) {
-                    toastIDfail = new bootstrap.Toast(toastIDfail);
-                    toastIDfail.show();
-                    errorMsgEl.innerHTML = "Gagal menyimpan, silahkan cek kembali data form dan pastikan semua form terisi.";
-                    return false;
-                }
-                    
-                if (_0x7231x109ppdb["getAttribute"]('data-form') === 'valid') {
-                    var formData = new FormData(_0x7231x109ppdb);
-                    var formDataUrl = _0x7231x109ppdb["getAttribute"]('data-action');
-                    var xhr = new XMLHttpRequest();
-                    xhr.open("POST", formDataUrl, true);
-                    xhr.onload = function () {
-                        if (xhr.status === 200) {
-                            try {
-                                var response = JSON.parse(xhr.responseText);
-                                if (response.result === 'success') {
-                                    toastIDsuccess = new bootstrap.Toast(toastIDsuccess);
-                                    toastIDsuccess.show();
-                                    SuccessMsgEl.innerHTML = response.msg;
-                                    ppdb_fullname.innerHTML = response.fullname;
-                                    ppdb_registration_number.innerHTML = response.registration_number;
-                                    ppdb_cetak_formulir.href = response.link;
-                                    result_ppdb.classList.remove("d-none");
-                                }else{
-                                    toastIDfail = new bootstrap.Toast(toastIDfail);
-                                    toastIDfail.show();
-                                    errorMsgEl.innerHTML = response.msg;
-                                }
-                            } catch (e) {
-                                console.log(e);
-                                console.error('Gagal parse JSON:', e);
-                                toastIDfail = new bootstrap.Toast(toastIDfail);
-                                toastIDfail.show();
-                                errorMsgEl.innerHTML = 'Gagal parse JSON:', e;
-                            }
-                        }
-                    };
-                    xhr.send(formData);
                 }
             }
         };

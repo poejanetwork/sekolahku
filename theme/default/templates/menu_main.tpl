@@ -9,8 +9,8 @@
     <div class="menu-items">
         <h5 class="text-uppercase opacity-20 font-12 pl-3">{$lang.menu}</h5>
         <a id="nav-welcome" href='{"?p=account"|surl}'>
-            <i data-feather="home" data-feather-line="1" data-feather-size="16" data-feather-color="teal-dark" data-feather-bg="teal-fade-dark"></i>
-            <span>{$lang.dashboard}</span>
+            <i data-feather="user" data-feather-line="1" data-feather-size="16" data-feather-color="mint-light" data-feather-bg="mint-fade-light"></i>
+            <span>{$lang.account}</span>
             <i class="fa fa-circle"></i>
         </a>
         <a id="nav-welcome" href='{"?p=profil"|surl}'>
@@ -62,9 +62,9 @@
     {/if}
     
     <div class="text-center pt-2">
-        <a href="mailto:{$settings.system_email}" class="icon icon-xs mr-1 rounded-s bg-mail" data-toggle="tooltip" data-placement="top" title="" data-original-title="Email"><i class="fa fa-envelope font-16"></i></a>
-        <a href="tel:{$settings.phone}" class="icon icon-xs mr-1 rounded-s bg-phone" data-toggle="tooltip" data-placement="top" title="" data-original-title="Phone"><i class="fa fa-phone font-16"></i></a>
-        <a href="https://t.me/" class="icon icon-xs mr-1 rounded-s bg-twitter" data-toggle="tooltip" data-placement="top" title="" data-original-title="Telegram"><i class="fab fa-telegram font-16"></i></a>
-        <a href="https://wa.me/" class="icon icon-xs mr-1 rounded-s bg-whatsapp" data-toggle="tooltip" data-placement="top" title="" data-original-title="Whatsapp"><i class="fab fa-whatsapp font-16"></i></a>
+        <a href="mailto:{$settings.system_email}" class="icon icon-xs mr-2 rounded-s bg-mail" data-toggle="tooltip" data-placement="top" title="" data-original-title="Email"><i class="fa fa-envelope font-16"></i></a>
+        <a href="tel:{$settings.phone}" class="icon icon-xs mr-2 rounded-s bg-phone" data-toggle="tooltip" data-placement="top" title="" data-original-title="Phone"><i class="fa fa-phone font-16"></i></a>
+        <a href="https://t.me/" class="icon icon-xs mr-2 rounded-s bg-twitter" data-toggle="tooltip" data-placement="top" title="" data-original-title="Telegram"><i class="fab fa-telegram font-16"></i></a>
+        <a href="https://wa.me/" class="icon icon-xs mr-2 rounded-s bg-whatsapp" data-toggle="tooltip" data-placement="top" title="" data-original-title="Whatsapp"><i class="fab fa-whatsapp font-16"></i></a>
         <p class="mb-0 pt-3 font-10 opacity-30">Copyright <span class="copyright-year"></span> {$settings.sitename}.</p>
     </div>

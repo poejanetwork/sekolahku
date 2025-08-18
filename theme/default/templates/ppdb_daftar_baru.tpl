@@ -101,7 +101,7 @@
 				<option value="L">Laki-laki</option>
 				<option value="P">Perempuan</option>
 			</select>
-			<label for="sex" class="color-highlight font-400 font-13">Jenis Kelamin</label>
+			<label for="sex" class="color-highlight font-400 font-13">{$lang.sex}</label>
 			<i class="fa fa-times disabled invalid color-red-dark"></i>
 			<i class="fa fa-check disabled valid color-green-dark"></i>
 			<em>({$lang.required})</em>
@@ -128,42 +128,24 @@
 			<em>({$lang.required})</em>
 		</div>
 		<div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-			<select id="religion" name="religion" class="form-control validate-text" >
-				<option value="budha">Budha</option>
-				<option value="hindu">Hindu</option>
-				<option value="islam">Islam</option>
-				<option value="katholik">Katholik</option>
-				<option value="konghucu">Konghucu</option>
-				<option value="kristen">Kristen/Protestan</option>
-				<option value="lainnya">Lainnya</option>
+			<select id="religion_id" name="religion_id" class="form-control validate-text" >
+				{foreach from=$allReligions key=key item=ar}
+				<option value="{$key}">{$ar}</option>
+				{/foreach}
 			</select>
-			<label for="religion" class="color-highlight font-400 font-13">{$lang.religion}</label>
+			<label for="religion_id" class="color-highlight font-400 font-13">{$lang.religion}</label>
 			<i class="fa fa-times disabled invalid color-red-dark"></i>
 			<i class="fa fa-check disabled valid color-green-dark"></i>
 			<em>({$lang.required})</em>
 		</div>
 		<div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-			<select id="special_treatment" name="special_treatment" class="form-control validate-text" >
-				<option value="autis">Autis</option>
-				<option value="bakat_istimewa">Bakat Istimewa</option>
-				<option value="cerdas_istimewa">Cerdas Istimewa</option>
-				<option value="down_sindrome">Down Sindrome</option>
-				<option value="hiper_aktif">Hiper aktif</option>
-				<option value="indigo">Indigo</option>
-				<option value="kesulitan_belajar">Kesulitan Belajar</option>
-				<option value="narkoba">Narkoba</option>
-				<option value="tidak_ada">Tidak ada</option>
-				<option value="tuna_daksa_ringan">Tuna Daksa Ringan</option>
-				<option value="tuna_daksa_sedang">Tuna Daksa Sedang</option>
-				<option value="tuna_ganda">Tuna ganda</option>
-				<option value="tuna_grahita_ringan">Tuna Grahita ringan</option>
-				<option value="tuna_grahita_sedang">Tuna Grahita Sedang</option>
-				<option value="tuna_laras">Tuna Laras</option>
-				<option value="tuna_netra">Tuna Netra</option>
-				<option value="tuna_rungu">Tuna Rungu</option>
-				<option value="tuna_wicara">Tuna Wicara</option>
+			<select id="special_treatment_id" name="special_treatment_id" class="form-control validate-text" >
+				<option value="">Tidak Ada</option>
+				{foreach from=$allSpecialNeeds key=key item=asn}
+				<option value="{$key}">{$asn}</option>
+				{/foreach}
 			</select>
-			<label for="special_treatment" class="color-highlight font-400 font-13">{$lang.special_treatment}</label>
+			<label for="special_treatment_id" class="color-highlight font-400 font-13">{$lang.special_treatment}</label>
 			<i class="fa fa-times disabled invalid color-red-dark"></i>
 			<i class="fa fa-check disabled valid color-green-dark"></i>
 			<em>({$lang.required})</em>
@@ -253,22 +235,13 @@
 			<em>({$lang.required})</em>
 		</div>
 		<div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-			<select id="parents_father_job" name="parents_father_job" class="form-control validate-text" >
-				<option value="buruh_harian_lepas">Buruh Harian Lepas</option>
-				<option value="karyawan_bumn">Karyawan BUMN</option>
-				<option value="karyawan_honorer">Karyawan Honorer</option>
-				<option value="karyawan_swasta">Karyawan Swasta</option>
-				<option value="nelayan">Nelayan</option>
-				<option value="pns">PNS</option>
-				<option value="pedagang">Pedagang</option>
-				<option value="petani">Petani</option>
-				<option value="pensiunan">Pensiunan</option>
-				<option value="tni/polri">TNI/Polri</option>
-				<option value="tenaga_profesional">Tenaga Profesional</option>
-				<option value="tukang">Tukang</option>
-				<option value="wiraswasta">Wiraswasta</option>
+			<select id="parents_father_job_id" name="parents_father_job" class="form-control validate-text" >
+				<option value="">Tidak Ada</option>
+				{foreach from=$allEmployements key=key item=ae}
+				<option value="{$key}">{$ae}</option>
+				{/foreach}
 			</select>
-			<label for="parents_father_job" class="color-highlight font-400 font-13">{$lang.parents_father_job}</label>
+			<label for="parents_father_job_id" class="color-highlight font-400 font-13">{$lang.parents_father_job}</label>
 			<i class="fa fa-times disabled invalid color-red-dark"></i>
 			<i class="fa fa-check disabled valid color-green-dark"></i>
 			<em>({$lang.required})</em>
@@ -288,23 +261,13 @@
 			<em>({$lang.required})</em>
 		</div>
 		<div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-			<select id="parents_mother_job" name="parents_mother_job" class="form-control validate-text" >
-				<option value="buruh_harian_lepas">Buruh Harian Lepas</option>
-				<option value="irt">Ibu Rumah Tangga</option>
-				<option value="karyawan_bumn">Karyawan BUMN</option>
-				<option value="karyawan_honorer">Karyawan Honorer</option>
-				<option value="karyawan_swasta">Karyawan Swasta</option>
-				<option value="nelayan">Nelayan</option>
-				<option value="pns">PNS</option>
-				<option value="pedagang">Pedagang</option>
-				<option value="petani">Petani</option>
-				<option value="pensiunan">Pensiunan</option>
-				<option value="tni/polri">TNI/Polri</option>
-				<option value="tenaga_profesional">Tenaga Profesional</option>
-				<option value="tukang">Tukang</option>
-				<option value="wiraswasta">Wiraswasta</option>
+			<select id="parents_mother_job_id" name="parents_mother_job_id" class="form-control validate-text" >
+				<option value="">Tidak Ada</option>
+				{foreach from=$allEmployements key=key item=ae}
+				<option value="{$key}" {if $key==$account_edit.parents_mother_job_id}selected{/if}>{$ae}</option>
+				{/foreach}
 			</select>
-			<label for="parents_mother_job" class="color-highlight font-400 font-13">{$lang.parents_mother_job}</label>
+			<label for="parents_mother_job_id" class="color-highlight font-400 font-13">{$lang.parents_mother_job}</label>
 			<i class="fa fa-times disabled invalid color-red-dark"></i>
 			<i class="fa fa-check disabled valid color-green-dark"></i>
 			<em>({$lang.required})</em>
@@ -332,7 +295,7 @@
 			</div>
 			
       		<input type="hidden" value="do_add" name="act">
-			<button type="submit" class="btn btn-full w-100 bg-highlight rounded-sm shadow-xl btn-m text-uppercase font-900 mb-3">Simpan Data Pendaftaran</button>		
+			<button type="submit" class="btn btn-full w-100 bg-highlight rounded-sm shadow-xl btn-m text-uppercase font-900 mb-3">Simpan Data Pendaftaran</button>
 		</div>
 	</div>
 </div>
@@ -378,6 +341,72 @@
 {include file="footer.tpl"}
 {literal}
 <script>
+var _0x7231x108ppdb = document["querySelectorAll"]('.PPDB-form');
+if (_0x7231x108ppdb["length"]) {
+	var result_ppdb = document.getElementById('result_ppdb');
+	var ppdb_fullname = document.getElementById('ppdb_fullname');
+	var ppdb_registration_number = document.getElementById('ppdb_registration_number');
+	var ppdb_cetak_formulir = document.getElementById('ppdb_cetak_formulir');
+	var _0x7231x109ppdb = document["getElementById"]('PPDBform');
+	var toastIDfail = document.getElementById('notification-fail');
+	var toastIDsuccess = document.getElementById('notification-success');
+	var errorMsgEl = document.getElementById('ErrorMsg');
+	var SuccessMsgEl = document.getElementById('SuccessMsg');
+	_0x7231x109ppdb["onsubmit"] = function(_0x7231xa) {
+		_0x7231xa["preventDefault"]();
+		var inputs = _0x7231x109ppdb.querySelectorAll('input, textarea, select');
+		var isValid = true;
+
+		inputs.forEach(function(input) {
+			if (input.value.trim() === '') {
+				isValid = false;
+				_0x7231x109ppdb["setAttribute"]('data-form', 'invalid');
+			} else {
+				_0x7231x109ppdb["setAttribute"]('data-form', 'valid');
+			}
+		});
+		if (!isValid) {
+			toastIDfail = new bootstrap.Toast(toastIDfail);
+			toastIDfail.show();
+			errorMsgEl.innerHTML = "Gagal menyimpan, silahkan cek kembali data form dan pastikan semua form terisi.";
+			return false;
+		}
+			
+		if (_0x7231x109ppdb["getAttribute"]('data-form') === 'valid') {
+			var formData = new FormData(_0x7231x109ppdb);
+			var formDataUrl = _0x7231x109ppdb["getAttribute"]('data-action');
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST", formDataUrl, true);
+			xhr.onload = function () {
+				if (xhr.status === 200) {
+					try {
+						var response = JSON.parse(xhr.responseText);
+						if (response.result === 'success') {
+							toastIDsuccess = new bootstrap.Toast(toastIDsuccess);
+							toastIDsuccess.show();
+							SuccessMsgEl.innerHTML = response.msg;
+							ppdb_fullname.innerHTML = response.fullname;
+							ppdb_registration_number.innerHTML = response.registration_number;
+							ppdb_cetak_formulir.href = response.link;
+							result_ppdb.classList.remove("d-none");
+						}else{
+							toastIDfail = new bootstrap.Toast(toastIDfail);
+							toastIDfail.show();
+							errorMsgEl.innerHTML = response.msg;
+						}
+					} catch (e) {
+						console.log(e);
+						console.error('Gagal parse JSON:', e);
+						toastIDfail = new bootstrap.Toast(toastIDfail);
+						toastIDfail.show();
+						errorMsgEl.innerHTML = 'Gagal parse JSON:', e;
+					}
+				}
+			};
+			xhr.send(formData);
+		}
+	}
+};
 document.addEventListener('DOMContentLoaded', function () {
     const select = document.getElementById('admission_type_id');
     const achievementDiv = document.getElementById('achievement_wrapper');
@@ -390,6 +419,39 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     toggleAchievement();
     select.addEventListener('change', toggleAchievement);
+});
+// Flag
+let isFormChanged = false;
+
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.querySelector("form");
+    
+    if (form) {
+        form.addEventListener("input", function() {
+            isFormChanged = true;
+        });
+    }
+
+    // back/refresh/close
+    window.addEventListener("beforeunload", function(e) {
+        if (isFormChanged) {
+            e.preventDefault();
+            e.returnValue = "";
+			preloader["classList"]["add"]('preloader-hide');
+        }
+    });
+
+    // link/menu
+    document.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", function(e) {
+            if (isFormChanged) {
+                if (!confirm("Data belum disimpan, apakah Anda yakin ingin meninggalkan halaman ini?")) {
+                    e.preventDefault();
+					preloader["classList"]["add"]('preloader-hide');
+                }
+            }
+        });
+    });
 });
 </script>
 {/literal}

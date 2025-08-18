@@ -14,36 +14,48 @@ Aplikasi ini menawarkan antarmuka yang ramah pengguna untuk menangani berbagai d
 
 ## Fitur Utama
 
-- Manajemen Data Siswa: Tambah, edit, dan hapus data siswa secara praktis dan mudah.
-- Manajemen Data Guru: Simpan informasi lengkap guru termasuk latar belakang dan riwayat kerja.
-- Penjadwalan Pelajaran: Buat dan sesuaikan jadwal kelas yang dapat diakses seluruh stakeholder.
+- Data Siswa: Kelola data siswa dengan mudah, tambah, edit, dan hapus secara praktis.
+- Data Guru: Simpan profil lengkap guru beserta riwayat kerja.
+- Data Induk Sekolah: Dokumentasikan informasi umum dan latar belakang sekolah.
+- Jadwal Pelajaran: Atur jadwal kelas yang fleksibel dan mudah diakses.
 - Absensi Digital: Pantau kehadiran siswa secara real-time.
-- Catatan Al-Qur’an: Fitur untuk mencatat kegiatan murojaah, tahsin, tilawah, dan ziyadah siswa.
-- Manajemen Keuangan : Pencatatan tabungan, pengeluaran, pemasukan, serta pelaporan DPP, SPP, dan pembayaran insidental
-
-## Instalasi Mobile Apps
-
-1. Unduh aplikasi dari [Google Play Store](https://play.google.com/store/apps/details?id=com.abu_puja.simmaster).
-2. Pasang aplikasi pada perangkat Android Anda.
-3. Ikuti instruksi konfigurasi saat pertama kali membuka aplikasi.
+- Quiz Online: Sediakan latihan soal dan kuis interaktif untuk siswa.
+- PPDB Online: Permudah proses pendaftaran siswa baru.
+- Berita Sekolah: Publikasikan informasi, pengumuman, dan kegiatan terbaru.
+- Prestasi: Catat dan tampilkan pencapaian siswa maupun sekolah.
+- Rombel (Rombongan Belajar): Atur kelas, jurusan, dan kelompok belajar siswa.
+- Buku Saku: Panduan digital berisi tata tertib dan informasi aturan sekolah.
+- Akses Guru & Siswa: Hak akses berbeda sesuai peran masing-masing.
+- Multi User: Mendukung akun Admin, Staf, Guru, dan Siswa.
+- Keamanan Sistem: Login aman, enkripsi data, dan pengaturan hak akses.
+- Notifikasi: Kirim pengingat otomatis untuk jadwal, nilai, dan pengumuman.
+- Tema Tampilan: Sesuaikan desain aplikasi dengan identitas sekolah.
+- Ekspor : Semua data dapat diekspor ke excel atau di print.
+- Riwayat Log: Lacak aktivitas pengguna untuk monitoring dan audit.
 
 ### Instalasi dari GitHub
 
 1. Download repository dari GitHub [halaman GitHub repository](https://github.com/poejanetwork/sekolahku).
 2. Ekstrak ke folder web server anda (htdocs, public_html, dll).
 3. Akses ke website anda contoh https://domainanda.com/install.php.
-4. Jalankan php composer.phar update untuk menginstal dependensi.
+4. Isi detail form dengan detail anda.
 5. Akses aplikasi melalui browser Anda.
 
 ### Instalasi Lokal (XAMPP / Apache / Nginx)
 
-Pastikan Anda telah menginstal XAMPP atau konfigurasi server web yang sesuai di lingkungan Linux Anda. Pastikan juga PHP minimal versi 7 dan MySQL telah terinstal.
+Pastikan Anda telah menginstal XAMPP atau konfigurasi server web yang sesuai di lingkungan anda. Pastikan juga PHP minimal versi 7 dan MySQL telah terinstal.
 
 1. Download repository dari GitHub [halaman GitHub repository](https://github.com/poejanetwork/sekolahku).
 2. Ekstrak ke folder web server anda (htdocs, public_html, dll).
 3. Akses ke website anda contoh https://domainanda.com/install.php.
-4. Jalankan php composer.phar update untuk menginstal dependensi.
+4. Isi detail form dengan detail anda.
 5. Akses aplikasi melalui browser Anda.
+
+## Instalasi Mobile Apps
+
+1. Unduh aplikasi dari [Google Play Store](https://play.google.com/store/apps/details?id=com.abu_puja.simmaster).
+2. Pasang aplikasi pada perangkat Android Anda.
+3. Ikuti instruksi konfigurasi saat pertama kali membuka aplikasi.
 
 ## Kontribusi
 

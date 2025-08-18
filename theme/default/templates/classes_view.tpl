@@ -30,21 +30,21 @@
     <h5 class="float-start font-16">Kelas {$class_detail.class_name} ({$class_detail.total_students} siswa)</h5>
     <div class="clearfix"></div>
     {foreach from=$class_detail.students item=student name=p}
-        <a href='{"?p=account_view&id={$student.id}"|surl}' class="d-flex">
+        <div class="d-flex">
             <div>
                 <img src='{$student.avatar|default:"{$settings.siteurl}/theme/default/assets/images/avatars/default_avatar.png"}' width="50" class="me-3">
             </div>
-            <div class="align-self-center ps-3">
+            <a href='{"?p=account_view&id={$student.id}"|surl}' class="align-self-center ps-3">
                 <h5 class="font-600 font-14 mb-n2">{$student.name}</h5>
                 <span class="color-theme font-11">NISN: {$student.nisn}</span>
-            </div>
+            </a>
             <div class="align-self-center ms-auto">
                 {if $student.is_manager == 1}
                 <h5 class="color-green-dark mb-0 text-end">Ketua Kelas</h5>
                 {/if}
-                <span class="color-theme d-block text-end">#{$smarty.foreach.p.iteration}</span>
+                <span class="color-theme d-block text-end">#{$smarty.foreach.p.iteration} {if $student.editable}<a class="badge text-uppercase px-1 py-1 bg-blue-dark" href='{"?p=account_edit&id={$student.id}"|surl}'>edit</a>{/if}</span>
             </div>
-        </a>
+        </div>
         <div class="divider mt-3 mb-3"></div>
     {/foreach}
                         

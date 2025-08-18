@@ -3,8 +3,9 @@
 <div class="card card-style">
 	<div class="content">
 		<div class="d-flex">
-			<div>
-				<img src='{$account_view.avatar|default:"{$settings.siteurl}/theme/default/assets/images/avatars/default_avatar.png"}' width="50" class="me-3 bg-highlight rounded-xl">
+			<div class="text-center">
+				<img src='{$account_view.avatar|default:"{$settings.siteurl}/theme/default/assets/images/avatars/default_avatar.png"}' width="50" class="mx-2 bg-highlight rounded-xl d-block">
+				{if $account_view.editable}<a class="badge text-uppercase px-1 py-1 bg-blue-dark" href='{"?p=account_edit&id={$account_view.id}"|surl}'>edit</a>{/if}
 			</div>
 			<div>
 				<h2 class="mb-0 pt-1">{$account_view.fullname}</h2>

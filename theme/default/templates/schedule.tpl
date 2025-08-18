@@ -1,35 +1,32 @@
 {include file="header1.tpl"}
 <div class="card card-style">
     <div class="content">
-        <div class="d-flex">
-            <div class="align-self-center">
-                <h4>Jadwal Pelajaran</h4>
-                <p class="line-height-s">
-                    Tahun Ajaran <strong class="color-theme">2025/2026</strong>
-                </p>
-            </div>
-            <div class="align-self-center ps-4">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check-circle" data-feather-line="1" data-feather-size="50" data-feather-color="green-dark" data-feather-bg="none" style="stroke-width: 1; width: 50px; height: 50px;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-            </div>
-        </div>
+        <h3 class="float-start font-16">{$lang.schedule} {$lang.lesson}</h3>
+        <div class="clearfix"></div>
+        <p class="line-height-s">
+            {$lang.years} Ajaran <strong class="color-theme">2025/2026</strong>
+        </p>
     </div>
 </div>
+<div class="content"><a href='{"?p=schedule&cetak"|surl}' target="_blank" class="btn btn-border btn-m btn-full mb-3 rounded-sm text-uppercase font-900 border-light border-5 bg-highlight"><i class="fa fa-print me-2"></i> Cetak {$lang.schedule}</a></div>
 {foreach from=$dayOrder item=do}
 {if isset($schedules[$do]) && $schedules[$do]|@count > 0}
 <div class="card card-style">
     <div class="content">
-        <h3 class="mb-3">Hari {$do}</h3>
-<div class="table-responsive">
-            <table class="table table-borderless text-center rounded-sm shadow-l">
+        <h3 class="mb-0 text-center">Hari {$do}</h3>
+    </div>
+    <div class="card-bodys">
+        <div class="table-responsive">
+            <table class="table table-bordered table-dark table-sm text-center rounded-sm shadow-l mb-0">
             <thead>
                 <tr>
-                    <th rowspan="2" scope="col" class="bg-dark-dark border-dark-dark color-white py-3 font-14 align-middle">Jam<br/>Ke</th>
-                    <th rowspan="2" scope="col" class="bg-dark-dark border-dark-dark color-white py-3 font-14 align-middle">Waktu<br/>Belajar</th>
-                    <th colspan="{$classNames|@count}" scope="col" class="bg-dark-dark border-dark-dark color-white py-3 font-14">Kelas</th>
+                    <th rowspan="2" scope="col" class="py-3 font-14 align-middle">Jam<br/>Ke</th>
+                    <th rowspan="2" scope="col" class="py-3 font-14 align-middle">Waktu<br/>Belajar</th>
+                    <th colspan="{$classNames|@count}" scope="col" class="py-3 font-14">Kelas</th>
                 </tr>
                 <tr>
                     {foreach from=$classNames item=cn}
-                    <th scope="col" class="bg-dark-dark border-dark-dark color-white py-3 font-14">{$cn}</th>
+                    <th scope="col" class="py-3 font-14">{$cn}</th>
                     {/foreach}
                 </tr>
             </thead>
@@ -52,7 +49,11 @@
                                 {foreach from=$subs item=s}
                                     {assign var=parts value=$s|split:":"}
                                     {if $parts[0] == $cid}
+                                        {if $parts[1] != 0}
                                         {$parts[1]|upper|escape}
+                                        {else}
+                                        -
+                                        {/if}
                                         {assign var=filled value=true}
                                         {break}
                                     {/if}

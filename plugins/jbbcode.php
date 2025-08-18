@@ -20,6 +20,21 @@ function parseBBCodeToHtml($bbcodeRaw)
         }
         return '';
     }, $bbcode);
+    // Remove " [font="..."]
+    $bbcode = preg_replace_callback('/\[font=(["\'])(.*?)\1([^\]]*)\]/i', function($m) {return '[font="' . $m[2] . $m[3] . '"]';}, $bbcode);
+    // Map BBCode [size=1..7]
+    $bbcode = preg_replace_callback('/\[size\s*=\s*([1-7])\s*\]/i', function ($m) {
+        $map = [
+            1 => '10px',
+            2 => '12px',
+            3 => '14px',
+            4 => '16px',
+            5 => '18px',
+            6 => '24px',
+            7 => '32px',
+        ];
+        return '[size=' . $map[(int) $m[1]] . ']';
+    }, $bbcode);
 
     $parser = new Parser();
     $parser->addCodeDefinitionSet(new \JBBCode\DefaultCodeDefinitionSet());
@@ -30,7 +45,7 @@ function parseBBCodeToHtml($bbcodeRaw)
     }
 
     // [center], [left], [right]
-    foreach (['center', 'left', 'right'] as $align) {
+    foreach (['center', 'left', 'right', 'justify'] as $align) {
         $parser->addCodeDefinition((new CodeDefinitionBuilder($align, "<div style=\"text-align:$align\">{param}</div>"))->build());
     }
 
