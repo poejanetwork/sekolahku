@@ -54,13 +54,23 @@
 	</div>    
 </div>
 
+<a href='{"?p=exam_account&id={$account_view.id}"|surl}' class="alert me-3 ms-3 mb-4 rounded-s bg-blue-dark d-block" role="alert">
+	<span class="alert-icon"><i class="fa fa-server font-18"></i></span>
+	<h4 class="font-15 font-600 color-white">Ujian</h4>
+	<strong class="alert-icon-text opacity-50">Lihat hasil ujian.</strong>
+	<p class="float-end mt-n2 color-white opacity-30"><i class="fa fa-user"></i></p>
+</a>
+
 <div class="card card-style">
 	<div class="content mb-0">
-		<h3 class="float-start font-16">{$lang.achievement}</h3>
+		<h3 class="float-start font-16"><i class="fa fa-trophy color-yellow-dark me-1"></i> {$lang.achievement}</h3>
 		<div class="clearfix"></div>
+		<p>
+			Informasi riwayat terkait prestasi siswa.
+		</p>
 	{if $account_view.achievements|@count > 0}
   		{foreach $account_view.achievements as $ach}
-		<a href='{"?p=news&{$ach.news_id}"|surl}' class="d-flex">
+		<a href='{"?p=news&read={$ach.news_id}"|surl}' class="d-flex">
 			<div>
 				<span class="icon icon-m bg-green-dark rounded-m shadow-xl"><i class="fa fa-trophy font-20 color-yellow-light"></i></span>
 			</div>
@@ -73,7 +83,7 @@
 		<div class="divider mt-3 mb-3"></div>
   		{/foreach}
 	{else}
-	<p>Belum ada prestasi yang tercatat.</p>
+	<p class="mb-3">Belum ada prestasi yang tercatat.</p>
 	{/if}
 	</div>
 </div>
@@ -82,9 +92,9 @@
 <div class="card-body">
 	<div class="card rounded-m mb-0">
 		<div class="content mb-0 mt-3">
-					<p class="font-600 color-highlight mb-0">NKP Anda</p>
 			<div class="d-flex">
 				<div class="pe-2 align-self-center text-center">
+					<p class="font-600 color-highlight mb-0">NKP</p>
 					<h1 class="mb-2">{$total_nkp} poin</h1>
 				</div>
 				<div class="w-100 align-self-center ps-2">
@@ -120,7 +130,7 @@
 	<h5 class="float-start font-16">Riwayat NKP</h5>
 	<div class="clearfix"></div>
 		<p>
-			Informasi riwayat terkait Nilai Kredit Pelanggarn (NKP) siswa.
+			Informasi riwayat terkait Nilai Kredit Pelanggaran (NKP) siswa.
 		</p>
 		{section name=p loop=$nkp_user}
 		<div class="d-flex">
@@ -138,10 +148,12 @@
 						
 	</div>
 </div>
+
 <nav aria-label="pagination-page">
 	<ul class="pagination pagination- justify-content-center">
 		{$pages}
 	</ul>
 </nav>
+
 {/if}
 {include file="footer.tpl"}

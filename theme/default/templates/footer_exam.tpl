@@ -3,30 +3,15 @@
         <p class="text-center font-12 mt-n1 mb-3 opacity-70">
             Pertama & Tetap yang Terbaik
         </p>
-        <div class="text-center mb-3">
-            <a href="https://facebook.com/" class="icon icon-xs rounded-sm shadow-l me-1 bg-facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://x.com" class="icon icon-xs rounded-sm shadow-l me-1 bg-twitter" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="tel:" class="icon icon-xs rounded-sm shadow-l me-1 bg-phone" target="_blank"><i class="fa fa-phone"></i></a>
-            <a href="javascript:void(0)" class="back-to-top icon icon-xs rounded-sm shadow-l bg-red-dark color-white"><i class="fa fa-arrow-up"></i></a>
-        </div>
         <p class="footer-copyright pb-3 mb-1">Copyright © {$settings.sitename} <span id="copyright-year">2025</span>. All Rights Reserved.</p>
     </div>
-    <div class="footer-card card shape-rounded bg-20" style="height:230px">
+    <div class="footer-card card shape-rounded bg-20" data-card-height="150">
         <div class="card-overlay bg-highlight opacity-90"></div>
     </div>
     </div>
 
 </div>    
 <!-- end of page content-->
-
-<div id="menu-main"
-    class="menu menu-box-right menu-box-detached rounded-m"
-    data-menu-width="260"
-    data-menu-effect="menu-over"
-    data-menu-active="nav-welcome">
-    {include file="menu_main.tpl"}
-</div>
-
 
 <div id="menu-highlights" 
          class="menu menu-box-bottom menu-box-detached rounded-m"

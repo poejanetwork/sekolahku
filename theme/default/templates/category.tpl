@@ -5,7 +5,7 @@
 					<div class="card card-style mb-0">
 						<div class="d-flex py-3 my-1">
 							<div class="align-self-center px-3">
-								<img src="{$settings.sitelogo}" class="ps-2 pe-1" width="50">
+								<img data-src="{$settings.sitelogo}" class="preload-img ps-2 pe-1" width="50">
 							</div>
 							<div class="align-self-center">
 								<h4 class="text-start color-theme font-600 font-17"> {$settings.sitename}</h4>
@@ -116,7 +116,7 @@
 
 {include file="footer.tpl"}
 
-<div id="menu-visi" class="menu menu-box-bottom menu-box-detached rounded-m" data-menu-height="350" data-menu-effect="menu-over">
+<div id="menu-visi" class="menu menu-box-bottom menu-box-detached rounded-m" data-menu-height="550" data-menu-effect="menu-over">
 
 <div class="card header-card shape-rounded" data-card-height="200">
 	<div class="card-overlay bg-highlight opacity-95"></div>
@@ -141,7 +141,7 @@
 </div>
 </div>
 
-<div id="menu-misi" class="menu menu-box-bottom menu-box-detached rounded-m" data-menu-height="360" data-menu-effect="menu-over" style="display: block; height: 360px;">
+<div id="menu-misi" class="menu menu-box-bottom menu-box-detached rounded-m" data-menu-height="550" data-menu-effect="menu-over">
 
 <div class="card header-card shape-rounded" data-card-height="200">
 	<div class="card-overlay bg-highlight opacity-95"></div>

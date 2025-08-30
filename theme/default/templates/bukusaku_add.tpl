@@ -74,7 +74,7 @@
 		</div>
 		<div class="d-block">
       		<input type="hidden" value="do_add" name="act">
-			<button type="submit" class="btn btn-full w-100 bg-highlight rounded-sm shadow-xl btn-m text-uppercase font-900 mb-3">Simpan Pelanggaran</button>		
+			<button type="submit" data-action="skip" class="btn btn-full w-100 bg-highlight rounded-sm shadow-xl btn-m text-uppercase font-900 mb-3">Simpan Pelanggaran</button>		
 		</div>
 	</div>
 </div>

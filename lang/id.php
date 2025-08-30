@@ -10,9 +10,12 @@ $lang = array(
     // menu
     "bind_telegram" => "Ikat Akun Telegram",
     "bukusaku" => "Buku Saku",
+    "back" => "Kembali",
     "category" => "Kategori",
     "class" => "Kelas",
+    "class_master" => "Wali Kelas",
     "contact_us" => "Kontak Kami",
+    "exam" => "Ujian",
     "faq" => "FAQ",
     "home" => "Rumah",
     "data" => "Data",
@@ -35,6 +38,7 @@ $lang = array(
     "save" => "Simpan",
     "security" => "Keamanan",
     "support" => "Dukungan",
+    "voting" => "Voting",
     "tickets" => "Tiket",
 
     "admission_type_id" => "Jenis pendaftaran",
@@ -234,6 +238,8 @@ $lang = array(
     "pagename_category" => "Kategori",
     "pagename_change_avatar" => "Ganti Profil",
     "pagename_edit_account" => "Edit Akun",
+    "pagename_exam" => "Ujian",
+    "pagename_exam_account" => "Hasil Ujian Siswa",
     "pagename_faq" => "Frequently Asked Question",
     "pagename_forgot_password" => "Lupa Kata Sandi",
     "pagename_gallery" => "Gallery",
@@ -250,6 +256,7 @@ $lang = array(
     "pagename_ppdb" => "Penerimaan Peserta Didik Baru",
     "pagename_page_not_found" => "Halaman tidak ditemukan",
     "pagename_security" => "Keamanan Akun",
+    "pagename_voting" => "Voting",
     "pagename_support" => "Kontak Kami",
 
     // time
@@ -339,6 +346,7 @@ $lang = array(
     "users" => "Users",
     "teachers" => "Pengajar",
     "offender" => "Pelanggar",
+    "violation" => "Pelanggaran",
     "valid_until" => "Berlaku hingga",
     "visitors_online" => "Pengunjung online",
     "yes" => "Ya",

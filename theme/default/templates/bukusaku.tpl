@@ -63,10 +63,10 @@
 					<p class="font-13 font-500 mb-n1 mt-2 color-theme">{$lang.rules}</p>
 				</div>
 			</a>
-			<a href='{"?p=achievement"|surl}' class="col-4">
+			<a href='javascript:void(0)' class="col-4" data-menu="menu-janji-taruna">
 				<div class="card card-style text-center py-3 mx-0 mb-0">
-					<i class="fa fa-trophy font-24 color-yellow-light"></i>
-					<p class="font-13 font-500 mb-n1 mt-2 color-theme">{$lang.achievement}</p>
+					<i class="fa fa-user-shield font-24 color-yellow-light"></i>
+					<p class="font-13 font-500 mb-n1 mt-2 color-theme">Janji Taruna</p>
 				</div>
 			</a>
 			<a href="javascript:void(0)" class="col-4" data-menu="menu-table-nkp">
@@ -80,11 +80,38 @@
 </div>
 
 <div class="card card-style">
+	<div class="content mb-0">
+		<h3 class="float-start font-16"><i class="fa fa-trophy color-yellow-dark me-1"></i> {$lang.achievement}</h3>
+		<div class="clearfix"></div>
+		<p>
+			Informasi riwayat terkait prestasi siswa.
+		</p>
+	{if $achievements|@count > 0}
+  		{foreach $achievements as $ach}
+		<a href='{"?p=news&read={$ach.news_id}"|surl}' class="d-flex">
+			<div>
+				<span class="icon icon-m bg-green-dark rounded-m shadow-xl"><i class="fa fa-trophy font-20 color-yellow-light"></i></span>
+			</div>
+			<div class="align-self-center ps-3">
+				<h5 class="font-600 font-14 mb-n2">{$ach.title}</h5>
+				<span class="color-theme font-11">Tahun: {$ach.year}</span>
+			</div>
+			
+		</a>
+		<div class="divider mt-3 mb-3"></div>
+  		{/foreach}
+	{else}
+	<p class="mb-3">Belum ada prestasi yang tercatat.</p>
+	{/if}
+	</div>
+</div>
+
+<div class="card card-style">
 	<div class="content">
-	<h5 class="font-16">Riwayat NKP</h5>
+	<h5 class="font-16"><i class="fa fa-gavel color-red-dark me-1"></i> {$lang.violation}</h5>
 	<div class="clearfix"></div>
 		<p>
-			Informasi riwayat terkait Nilai Kredit Pelanggarn (NKP) siswa.
+			Informasi riwayat terkait Nilai Kredit Pelanggaran (NKP) siswa.
 		</p>
 		{section name=p loop=$nkp_user}
 		<div class="d-flex">
@@ -93,7 +120,7 @@
 			</div>
 			<div class="align-self-center ps-3 flex-grow-1">
 				<h5 class="font-400 font-14 mb-n2">{$nkp_user[p].description}</h5>
-				<span class="color-theme font-12"><i class="fa fa-arrow-right pe-1"></i> {if $nkp_user[p].description_other}{$nkp_user[p].description_other}{else}&nbsp;{/if}</span>
+				{if $nkp_user[p].description_other}<span class="color-theme font-12"><i class="fa fa-arrow-right pe-1"></i> {$nkp_user[p].description_other}</span>{else}&nbsp;{/if}
 				<div class="color-gray-dark font-11 d-block text-end color-gray"><i class="fa fa-calendar pe-2"></i> {$nkp_user[p].created_at|date_format:"%e %B %Y"}</div>
 			</div>
 		</div>
@@ -108,7 +135,82 @@
 	</ul>
 </nav>
 {include file="footer.tpl"}
-<div id="menu-table-nkp" class="menu menu-box-bottom menu-box-detached rounded-m" data-menu-height="400" data-menu-effect="menu-over">
+
+<div id="menu-janji-taruna" class="menu menu-box-bottom menu-box-detached rounded-m" data-menu-height="500" data-menu-effect="menu-over">
+<div class="card preload-img entered loaded">
+	<div class="card-body pt-4 mt-3">
+		<h2 class="font-24 color-white line-height-l text-center">JANJI TARUNA</h2>
+		<p class="color-white opacity-70 text-center">
+			Kami Taruna/Taruni SMA Taruna Pekanbaru, berjanji:
+		</p>
+		<div class="card card-style mb-3 mx-0">
+			<div class="d-flex pt-3 pb-3">
+				<div class="ps-3 ms-2 align-self-center">
+					<h1 class="center-text mb-0 pt-2">
+						01
+					</h1>
+				</div>
+				<div class="align-self-center mt-1 ps-4">
+					<h6 class="color-theme font-600">Bertaqwa kepada Tuhan Yang Maha Esa</h6>
+				</div>
+			</div>
+		</div>
+		<div class="card card-style mb-3 mx-0">
+			<div class="d-flex pt-3 pb-3">
+				<div class="ps-3 ms-2 align-self-center">
+					<h1 class="center-text mb-0 pt-2">
+						02
+					</h1>
+				</div>
+				<div class="align-self-center mt-1 ps-4">
+					<h6 class="color-theme font-600">Menjaga nama baik pribadi, orang tua dan korps taruna dimana saja berada.</h6>
+				</div>
+			</div>
+		</div>
+		<div class="card card-style mb-3 mx-0">
+			<div class="d-flex pt-3 pb-3">
+				<div class="ps-3 ms-2 align-self-center">
+					<h1 class="center-text mb-0 pt-2">
+						03
+					</h1>
+				</div>
+				<div class="align-self-center mt-1 ps-4">
+					<h6 class="color-theme font-600">Menjunjung tinggi rasa kekeluargaan, kekompakan dan solidaritas korps taruna.</h6>
+				</div>
+			</div>
+		</div>
+		<div class="card card-style mb-3 mx-0">
+			<div class="d-flex pt-3 pb-3">
+				<div class="ps-3 ms-2 align-self-center">
+					<h1 class="center-text mb-0 pt-2">
+						04
+					</h1>
+				</div>
+				<div class="align-self-center mt-1 ps-4">
+					<h6 class="color-theme font-600">Patuh pada pembina dan taat pada aturan sekolah.</h6>
+				</div>
+			</div>
+		</div>
+		<div class="card card-style mb-3 mx-0">
+			<div class="d-flex pt-3 pb-3">
+				<div class="ps-3 ms-2 align-self-center">
+					<h1 class="center-text mb-0 pt-2">
+						05
+					</h1>
+				</div>
+				<div class="align-self-center mt-1 ps-4">
+					<h6 class="color-theme font-600">Berdisiplin, bertanggung jawab dan berprestasi demi kesuksesan masa depan.</h6>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="card-overlay bg-highlight opacity-90"></div>
+	<div class="card-overlay dark-mode-tint"></div>
+</div>
+    <a href="#" class="close-menu btn btn-m btn-margins rounded-sm btn-full shadow-l bg-highlight text-uppercase font-900">Tutup</a>
+</div>
+
+<div id="menu-table-nkp" class="menu menu-box-bottom menu-box-detached rounded-m" data-menu-height="500" data-menu-effect="menu-over">
 	<h2 class="text-start font-700 mt-3 mx-3">Tabel NKP</h2>
 	<div id="tab-group-2">
 		<div class="tab-controls tabs-small tabs-rounded mx-3" data-highlight="bg-red-dark">

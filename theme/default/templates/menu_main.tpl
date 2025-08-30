@@ -3,7 +3,7 @@
     <div class="menu-logo text-center pt-2">
         <img src='{$user.avatar|default:"{$settings.siteurl}/{$theme}/assets/images/avatars/default_avatar.png"}' width="50" class="rounded-circle bg-highlight">
         <h6 class="pt-2 mb-0 font-600 text-uppercase">{$user.fullname}</h6>
-        <p class="font-11 mt-n2 mb-2">{if $user.login_as=="user"}Siswa{else}Pengajar{/if}<br/>{$user.nisp}</p>
+        <p class="font-11 mt-n2 mb-2">{if $user.login_as=="student"}Siswa{else}Pengajar{/if}<br/>{$user.nisp}</p>
     </div>
 
     <div class="menu-items">

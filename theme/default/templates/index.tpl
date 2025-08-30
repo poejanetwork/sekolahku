@@ -10,14 +10,14 @@
                         <span class="badge bg-blue-dark text-uppercase p-2 rounded-s m-4">{$n.category}</span>
                     </div>
                     <div class="card-bottom px-3 mb-3">
-                        <a href='{"?p=news&{$n.id}"|surl}'>
+                        <a href='{"?p=news&read={$n.id}"|surl}'>
                             <h1 class="font-18 line-height-m color-white font-500 mb-0">
                                 {$n.title}
                             </h1>
                         </a>
                     </div>
                     <div class="card-overlay bg-gradient"></div>
-                    <img class="card-bg owl-lazy" loading="lazy" src="{$n.thumbnail}">
+                    <img class="preload-img card-bg owl-lazy" loading="lazy" data-src="{$n.thumbnail}">
                 </div>
             </div>
             {/foreach}
@@ -64,7 +64,7 @@
     </div>
 </div>
 
-<div class="card preload-img entered loaded" data-ll-status="loaded">
+<div class="card">
     <div class="card-body">
         <h4 class="color-white mb-3">Statistik</h4>
         <div class="card card-style ms-0 me-0 mb-2 bg-theme">
@@ -94,11 +94,11 @@
 </div>
 
 <div data-card-height="180" class="card card-style card-scale round-medium shadow-large">
-    <img src="{$settings.sitelogo}" class="card-image">
+    <img src="{$settings.sitelogo}" class="preload-img card-image">
     <div class="card-center ms-3">
 		<div class="d-flex">
 			<div>
-				<img src="{$settings.sitelogo}" width="50" class="me-3">
+				<img src="{$settings.sitelogo}" width="50"  class="preload-img me-3">
 			</div>
 			<div>
 				<h2 class="mb-0 pt-1 color-white">{$settings.sitename}</h2>
@@ -116,7 +116,7 @@
     <div class="card-overlay bg-black opacity-70"></div>
 </div>
 
-<div class="card card-style preload-img entered loaded" data-card-height="350" data-ll-status="loaded">
+<div class="card card-style" data-card-height="350">
     <div class="card-center text-center">
         <p class="line-height-xl font-19 font-300 color-white ps-3 pe-3 mb-2">
             Assalamualaikum Warahmatullah Wabarakatuh. Kami selaku pimpinan sekolah mengucapkan selamat datang dan selamat belajar bagi seluruh peserta didik.
@@ -128,8 +128,8 @@
 </div>
 {include file="footer.tpl"}
 
-<div id="menu-video" class="menu menu-box-modal rounded-m"
-        data-menu-height="430">
+<div id="menu-video" class="menu menu-box-bottom menu-box-detached rounded-m"
+        data-menu-height="500">
     <div class='responsive-iframe max-iframe'>
         <iframe src="https://www.youtube.com/embed/WJdW9pHH8AU" frameborder="0" allowfullscreen=""></iframe>
     </div>
@@ -137,5 +137,5 @@
     <p class="p-1 mb-1 text-justify">
         {$settings.school_description}
     </p>
-    <a href="javascript:void(0)" class="btn btn-center-xl btn-sm shadow-l rounded-s text-uppercase font-900 bg-green-dark">YAYASAN TARUNA MANDIRI PEKANBARU</a>
+    <a href="javascript:void(0)" class="btn btn-center-xl btn-sm shadow-l rounded-s text-uppercase font-900 bg-green-dark mb-5">YAYASAN TARUNA MANDIRI PEKANBARU</a>
 </div> 

@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "sekolah-abupuja",
+  "private_key_id": "7bb60c05af7f5b50ecc737c275a07fa2b6cc1c62",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDH20PwYLkn3/EB\nejuoURcEbFxarR+v0/g+KfC/9rPojv4ocMGaCHfMInJg02hsrqPJtWebZl8r62oh\nDWDP9XRW/6qlPuPGABzq+MhseC10II5bKewxKei+fDNAc9MMx7eEsE32e0/+TRmv\nmqlm3gdeOAZy7yz9cdrUhfEsNlvgqbvikzPziBCjrLelcxKirviQIPGegayW2gXd\nzQCMIDx+H755908qR7Pkg7VWKC0tFteDtWP0R8RaUbGDUAdmfJKqZqPksxO/sQYO\ndnM9I5LD2sj3zfapQKO1Byjp7wMd17xk/FvtB5f1W8swkxnWAiLkwDX3sEZOU7UX\nRMRNeNB7AgMBAAECggEAD1helw5WKSGgt6RTAFF5mvVXAf9Y938nCF7gBV1D4w9X\npHND6jfMOvhKH/Ubh3zBRrOPCPeLRywEMhV84XrPO/7Vc2qowoMvtTr06J8xnkEB\nrS5C3GODY1zV8pTyF4EeLin7UnmVYsk4t6sAZs2Vcz6KADktEyiyzK6cHfDujQlY\nWTXYUyl14zoHjblXMbssF+4XhjeU4k7WD45QLL6lLq5dRCwX0aI8jf3/w+NcPNPT\n6yZSFGLiASPSp4jA935vrrvCgOZPv+W0ccNQBaV6Dex9CKsukMTxJ0d0avtbZBfQ\n4W9wBD+g7gPv8Z+qF30YWutCcqSxCCWKu38Nr9PZwQKBgQD8nzTpXMepzNTeAKHn\nDfXzHQGv67IoSLiybtVHRBc9YTz2WKSPWNWAASUyGuB4gpYwAlF3mfyKMp0kqrbs\nfkLG/f1JmwxQcxr9pbVCVJaHScjX86l12l9yMfx/5Cq3o7Lni7MF0j6VkC1G75YF\nlGo5XlLxc7Z1ZqLFGpgNtubZtQKBgQDKh22t2C/dcYFs/RbsVyVkh1xVbAn3Y4L8\naxUKhl2NsnrMEjH8k3pvTD55Xh9oJDDYZZnJntLWpMNqfNnKt2qtSvbskaXqdjql\nISLHcqZLM7vqPezIpTANe0cdTJhsEJGnM5+Lo/XsIV91ueLXqDKUDi3pDFzvly29\nD0466yWfbwKBgQCfAwenLINxWkFTTEqcyaja0pNRTKbjvIKlriYJqc6HEEHzPnC2\n2k/pNs9W7pwEvw4SQiNNiVvxEVLg1aQ20HLwFsfsIPBrY0jGCBxEGEJ3/fWyGOm+\nCSqzEsvBJLnOxffCz6hsLZ6/PfWCBSUFdho26iyDVzauR2CFeOvlFg/RUQKBgAMp\nUAX5rO2Y+vs3jCcOSTAjiMZwlEs/S2kjRsXOSSGQGqia1BrsNmoMV6FPXdAjWHvY\nQilKiGH/WmmMH14xtMGVvPr+Xwek5s9zD/brDDt6SEGky9Bp+7EKLpb/fhWZwJxK\niwAEBC+2aaYNy8OwBXIYMpFDtyOqSXV9CqySxRiTAoGBAMS/wXYr0mke3hAvjVG3\n9IQFQJHYdrPBOf0zh881BLDwHFqr7i0wb8OUNyf+hBVHEsFAqq/HaahS56KrxwM5\n17EJgd905DKZgi9zSqdjgTFflNGc2Rpplo1xhqvrbbSmTJ7WxEMFlUwR58T5cGNC\nEvXmc0GEI6xaDTFQ9t/TbJog\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-fbsvc@sekolah-abupuja.iam.gserviceaccount.com",
+  "client_id": "104746792274720184495",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40sekolah-abupuja.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

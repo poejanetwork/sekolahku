@@ -50,14 +50,14 @@
 			<em>({$lang.required})</em>
 		</div>
 		<div class="input-style has-borders hnoas-icon input-style-always-active validate-field mb-4">
-			<input type="text" class="form-control validate-name" id="prev_school_name" name="prev_school_name" placeholder="{$lang.prev_school_name}" value="" autocomplete="off" >
+			<input type="text" class="form-control validate-name" id="prev_school_name" name="prev_school_name" placeholder="{$lang.prev_school_name}" value="" autocomplete="off" required>
 			<label for="prev_school_name" class="color-highlight font-400 font-13">{$lang.prev_school_name}</label>
 			<i class="fa fa-times disabled invalid color-red-dark"></i>
 			<i class="fa fa-check disabled valid color-green-dark"></i>
 			<em>({$lang.required})</em>
 		</div>
 		<div class="input-style has-borders hnoas-icon input-style-always-active validate-field mb-4">
-			<input type="text" class="form-control validate-name" id="prev_school_address" name="prev_school_address" placeholder="{$lang.prev_school_address}" value="" autocomplete="off" >
+			<input type="text" class="form-control validate-name" id="prev_school_address" name="prev_school_address" placeholder="{$lang.prev_school_address}" value="" autocomplete="off" required>
 			<label for="prev_school_address" class="color-highlight font-400 font-13">{$lang.prev_school_address}</label>
 			<i class="fa fa-times disabled invalid color-red-dark"></i>
 			<i class="fa fa-check disabled valid color-green-dark"></i>
@@ -69,35 +69,35 @@
 	<div class="content mb-0">
 		<h4 class="mb-3">Data Pribadi</h4>
 		<div class="input-style has-borders hnoas-icon input-style-always-active validate-field mb-4">
-			<input type="text" class="form-control validate-name" id="fullname" name="fullname" placeholder="{$lang.fullname}" value="" autocomplete="off" >
+			<input type="text" class="form-control validate-name" id="fullname" name="fullname" placeholder="{$lang.fullname}" value="" autocomplete="off" required>
 			<label for="fullname" class="color-highlight font-400 font-13">{$lang.fullname}</label>
 			<i class="fa fa-times disabled invalid color-red-dark"></i>
 			<i class="fa fa-check disabled valid color-green-dark"></i>
 			<em>({$lang.required})</em>
 		</div>
 		<div class="input-style has-borders hnoas-icon input-style-always-active validate-tel mb-4">
-			<input type="number" class="form-control validate-name" id="nisn" name="nisn" placeholder="{$lang.nisn}" value="" autocomplete="off" >
+			<input type="number" class="form-control validate-name" id="nisn" name="nisn" placeholder="{$lang.nisn}" value="" autocomplete="off" required>
 			<label for="nisn" class="color-highlight font-400 font-13">{$lang.nisn}</label>
 			<i class="fa fa-times disabled invalid color-red-dark"></i>
 			<i class="fa fa-check disabled valid color-green-dark"></i>
 			<em>({$lang.required})</em>
 		</div>
 		<div class="input-style has-borders hnoas-icon input-style-always-active validate-password mb-4">
-			<input type="text" class="form-control validate-name" id="password" name="password" placeholder="{$lang.password}" value="" autocomplete="off" >
+			<input type="text" class="form-control validate-name" id="password" name="password" placeholder="{$lang.password}" value="" autocomplete="off" required>
 			<label for="password" class="color-highlight font-400 font-13">{$lang.password}</label>
 			<i class="fa fa-times disabled invalid color-red-dark"></i>
 			<i class="fa fa-check disabled valid color-green-dark"></i>
 			<em>({$lang.required})</em>
 		</div>
 		<div class="input-style has-borders hnoas-icon input-style-always-active validate-email mb-4">
-			<input type="email" class="form-control validate-name" id="email" name="email" placeholder="{$lang.email}" value="" autocomplete="off" >
+			<input type="email" class="form-control validate-name" id="email" name="email" placeholder="{$lang.email}" value="" autocomplete="off" required>
 			<label for="email" class="color-highlight font-400 font-13">{$lang.email}</label>
 			<i class="fa fa-times disabled invalid color-red-dark"></i>
 			<i class="fa fa-check disabled valid color-green-dark"></i>
 			<em>({$lang.required})</em>
 		</div>
 		<div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-			<select id="sex" name="sex" class="form-control validate-text" >
+			<select id="sex" name="sex" class="form-control validate-text" required>
 				<option value="L">Laki-laki</option>
 				<option value="P">Perempuan</option>
 			</select>
@@ -107,28 +107,28 @@
 			<em>({$lang.required})</em>
 		</div>
 		<div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-			<input type="text" name="birthday_place" class="form-control validate-tel" id="birthday_place" placeholder="{$lang.birthday_place}" >
+			<input type="text" name="birthday_place" class="form-control validate-tel" id="birthday_place" placeholder="{$lang.birthday_place}" autocomplete="off" required>
 			<label for="birthday_place" class="color-highlight font-400 font-13">{$lang.birthday_place}</label>
 			<i class="fa fa-times disabled invalid color-red-dark"></i>
 			<i class="fa fa-check disabled valid color-green-dark"></i>
 			<em>({$lang.required})</em>
 		</div>
 		<div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-			<input type="date" name="birthday" class="form-control validate-text" id="birthday" placeholder="{$lang.birthday}" >
+			<input type="date" name="birthday" class="form-control validate-text" id="birthday" placeholder="{$lang.birthday}" autocomplete="off" required>
 			<label for="birthday" class="color-highlight font-400 font-13">{$lang.birthday}</label>
 			<i class="fa fa-times disabled invalid color-red-dark"></i>
 			<i class="fa fa-check disabled valid color-green-dark"></i>
 			<em>({$lang.required})</em>
 		</div>
 		<div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-			<input type="number" name="phone" class="form-control validate-tel" id="phone" placeholder="{$lang.phone_number}" >
+			<input type="number" name="phone" class="form-control validate-tel" id="phone" placeholder="{$lang.phone_number}" autocomplete="off" required>
 			<label for="phone" class="color-highlight font-400 font-13">{$lang.phone_number}</label>
 			<i class="fa fa-times disabled invalid color-red-dark"></i>
 			<i class="fa fa-check disabled valid color-green-dark"></i>
 			<em>({$lang.required})</em>
 		</div>
 		<div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-			<select id="religion_id" name="religion_id" class="form-control validate-text" >
+			<select id="religion_id" name="religion_id" class="form-control validate-text" required>
 				{foreach from=$allReligions key=key item=ar}
 				<option value="{$key}">{$ar}</option>
 				{/foreach}
@@ -139,8 +139,8 @@
 			<em>({$lang.required})</em>
 		</div>
 		<div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-			<select id="special_treatment_id" name="special_treatment_id" class="form-control validate-text" >
-				<option value="">Tidak Ada</option>
+			<select id="special_treatment_id" name="special_treatment_id" class="form-control validate-text" required>
+				<option value="0">Tidak Ada</option>
 				{foreach from=$allSpecialNeeds key=key item=asn}
 				<option value="{$key}">{$asn}</option>
 				{/foreach}
@@ -151,7 +151,7 @@
 			<em>({$lang.required})</em>
 		</div>
 		<div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-			<textarea type="text" name="address_user" class="form-control validate-tel" id="address_user" placeholder="{$lang.address}" ></textarea>
+			<textarea type="text" name="address_user" class="form-control validate-tel" id="address_user" placeholder="{$lang.address}" autocomplete="off" required></textarea>
 			<label for="address_user" class="color-highlight font-400 font-13">{$lang.address}</label>
 			<i class="fa fa-times disabled invalid color-red-dark"></i>
 			<i class="fa fa-check disabled valid color-green-dark"></i>
@@ -160,7 +160,7 @@
 		<div class="row mb-0">
 			<div class="col-6">
 				<div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-					<input type="number" class="form-control validate-number" id="rt" name="rt" placeholder="RT" >
+					<input type="number" class="form-control validate-number" id="rt" name="rt" placeholder="RT" autocomplete="off" required>
 					<label for="rt" class="color-highlight">RT</label>
 					<i class="fa fa-times disabled invalid color-red-dark"></i>
 					<i class="fa fa-check disabled valid color-green-dark"></i>
@@ -169,7 +169,7 @@
 			</div>
 			<div class="col-6">
 				<div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-					<input type="number" class="form-control validate-number" id="rw" name="rw"  placeholder="RW" >
+					<input type="number" class="form-control validate-number" id="rw" name="rw"  placeholder="RW" autocomplete="off" required>
 					<label for="rw" class="color-highlight">RW</label>
 					<i class="fa fa-times disabled invalid color-red-dark"></i>
 					<i class="fa fa-check disabled valid color-green-dark"></i>
@@ -178,35 +178,35 @@
 			</div>
 		</div>
 		<div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-			<input type="text" name="sub_village" class="form-control validate-text" id="sub_village" placeholder="{$lang.sub_village}" >
+			<input type="text" name="sub_village" class="form-control validate-text" id="sub_village" placeholder="{$lang.sub_village}" autocomplete="off" required>
 			<label for="sub_village" class="color-highlight font-400 font-13">{$lang.sub_village}</label>
 			<i class="fa fa-times disabled invalid color-red-dark"></i>
 			<i class="fa fa-check disabled valid color-green-dark"></i>
 			<em>({$lang.required})</em>
 		</div>
 		<div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-			<input type="text" name="village" class="form-control validate-text" id="village" placeholder="{$lang.village}" >
+			<input type="text" name="village" class="form-control validate-text" id="village" placeholder="{$lang.village}" autocomplete="off" required>
 			<label for="village" class="color-highlight font-400 font-13">{$lang.village}</label>
 			<i class="fa fa-times disabled invalid color-red-dark"></i>
 			<i class="fa fa-check disabled valid color-green-dark"></i>
 			<em>({$lang.required})</em>
 		</div>
 		<div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-			<input type="text" name="sub_district" class="form-control validate-text" id="sub_district" placeholder="{$lang.sub_district}" >
+			<input type="text" name="sub_district" class="form-control validate-text" id="sub_district" placeholder="{$lang.sub_district}" autocomplete="off" required>
 			<label for="sub_district" class="color-highlight font-400 font-13">{$lang.sub_district}</label>
 			<i class="fa fa-times disabled invalid color-red-dark"></i>
 			<i class="fa fa-check disabled valid color-green-dark"></i>
 			<em>({$lang.required})</em>
 		</div>
 		<div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-			<input type="text" name="district" class="form-control validate-text" id="district" placeholder="{$lang.district}" >
+			<input type="text" name="district" class="form-control validate-text" id="district" placeholder="{$lang.district}" autocomplete="off" required>
 			<label for="district" class="color-highlight font-400 font-13">{$lang.district}</label>
 			<i class="fa fa-times disabled invalid color-red-dark"></i>
 			<i class="fa fa-check disabled valid color-green-dark"></i>
 			<em>({$lang.required})</em>
 		</div>
 		<div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-			<input type="number" name="postal_code" class="form-control validate-tel" id="postal_code" placeholder="{$lang.postal_code}" >
+			<input type="number" name="postal_code" class="form-control validate-tel" id="postal_code" placeholder="{$lang.postal_code}" autocomplete="off" required>
 			<label for="postal_code" class="color-highlight font-400 font-13">{$lang.postal_code}</label>
 			<i class="fa fa-times disabled invalid color-red-dark"></i>
 			<i class="fa fa-check disabled valid color-green-dark"></i>
@@ -218,7 +218,7 @@
 	<div class="content mb-0">
 		<h4 class="mb-3">Data Orang Tua/Wali</h4>
 		<div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-			<select id="parents_type" name="parents_type" class="form-control validate-text" >
+			<select id="parents_type" name="parents_type" class="form-control validate-text" required>
 				<option value="1">Kandung</option>
 				<option value="0">Wali</option>
 			</select>
@@ -228,15 +228,15 @@
 			<em>({$lang.required})</em>
 		</div>
 		<div class="input-style has-borders hnoas-icon input-style-always-active validate-field mb-4">
-			<input type="text" class="form-control validate-name" id="parents_father_name" name="parents_father_name" placeholder="{$lang.parents_father_name}" value="" autocomplete="off" >
+			<input type="text" class="form-control validate-name" id="parents_father_name" name="parents_father_name" placeholder="{$lang.parents_father_name}" value="" autocomplete="off" required>
 			<label for="parents_father_name" class="color-highlight font-400 font-13">{$lang.parents_father_name}</label>
 			<i class="fa fa-times disabled invalid color-red-dark"></i>
 			<i class="fa fa-check disabled valid color-green-dark"></i>
 			<em>({$lang.required})</em>
 		</div>
 		<div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-			<select id="parents_father_job_id" name="parents_father_job" class="form-control validate-text" >
-				<option value="">Tidak Ada</option>
+			<select id="parents_father_job_id" name="parents_father_job_id" class="form-control validate-text" required>
+				<option value="0">Tidak Ada</option>
 				{foreach from=$allEmployements key=key item=ae}
 				<option value="{$key}">{$ae}</option>
 				{/foreach}
@@ -247,24 +247,24 @@
 			<em>({$lang.required})</em>
 		</div>
 		<div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-			<input type="number" name="parents_father_phone" class="form-control validate-tel" id="parents_father_phone" placeholder="{$lang.parents_father_phone}" >
+			<input type="number" name="parents_father_phone" class="form-control validate-tel" id="parents_father_phone" placeholder="{$lang.parents_father_phone}" autocomplete="off" required>
 			<label for="parents_father_phone" class="color-highlight font-400 font-13">{$lang.parents_father_phone}</label>
 			<i class="fa fa-times disabled invalid color-red-dark"></i>
 			<i class="fa fa-check disabled valid color-green-dark"></i>
 			<em>({$lang.required})</em>
 		</div>
 		<div class="input-style has-borders hnoas-icon input-style-always-active validate-field mb-4">
-			<input type="text" class="form-control validate-name" id="parents_mother_name" name="parents_mother_name" placeholder="{$lang.parents_mother_name}" value="" autocomplete="off" >
+			<input type="text" class="form-control validate-name" id="parents_mother_name" name="parents_mother_name" placeholder="{$lang.parents_mother_name}" value="" autocomplete="off" required>
 			<label for="parents_mother_name" class="color-highlight font-400 font-13">{$lang.parents_mother_name}</label>
 			<i class="fa fa-times disabled invalid color-red-dark"></i>
 			<i class="fa fa-check disabled valid color-green-dark"></i>
 			<em>({$lang.required})</em>
 		</div>
 		<div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-			<select id="parents_mother_job_id" name="parents_mother_job_id" class="form-control validate-text" >
-				<option value="">Tidak Ada</option>
+			<select id="parents_mother_job_id" name="parents_mother_job_id" class="form-control validate-text" required>
+				<option value="0">Tidak Ada</option>
 				{foreach from=$allEmployements key=key item=ae}
-				<option value="{$key}" {if $key==$account_edit.parents_mother_job_id}selected{/if}>{$ae}</option>
+				<option value="{$key}">{$ae}</option>
 				{/foreach}
 			</select>
 			<label for="parents_mother_job_id" class="color-highlight font-400 font-13">{$lang.parents_mother_job}</label>
@@ -273,7 +273,7 @@
 			<em>({$lang.required})</em>
 		</div>
 		<div class="input-style has-borders no-icon input-style-always-active validate-field mb-4">
-			<input type="number" name="parents_mother_phone" class="form-control validate-tel" id="parents_mother_phone" placeholder="{$lang.parents_mother_phone}" >
+			<input type="number" name="parents_mother_phone" class="form-control validate-tel" id="parents_mother_phone" placeholder="{$lang.parents_mother_phone}" autocomplete="off" required>
 			<label for="parents_mother_phone" class="color-highlight font-400 font-13">{$lang.parents_mother_phone}</label>
 			<i class="fa fa-times disabled invalid color-red-dark"></i>
 			<i class="fa fa-check disabled valid color-green-dark"></i>
@@ -348,28 +348,37 @@ if (_0x7231x108ppdb["length"]) {
 	var ppdb_registration_number = document.getElementById('ppdb_registration_number');
 	var ppdb_cetak_formulir = document.getElementById('ppdb_cetak_formulir');
 	var _0x7231x109ppdb = document["getElementById"]('PPDBform');
-	var toastIDfail = document.getElementById('notification-fail');
-	var toastIDsuccess = document.getElementById('notification-success');
+	var notifIDfail = document.getElementById('notification-fail');
+	toastIDfail = new bootstrap.Toast(notifIDfail);
+	var notifIDsuccess = document.getElementById('notification-success');
+	toastIDsuccess = new bootstrap.Toast(notifIDsuccess);
 	var errorMsgEl = document.getElementById('ErrorMsg');
 	var SuccessMsgEl = document.getElementById('SuccessMsg');
 	_0x7231x109ppdb["onsubmit"] = function(_0x7231xa) {
 		_0x7231xa["preventDefault"]();
-		var inputs = _0x7231x109ppdb.querySelectorAll('input, textarea, select');
+		var inputs = _0x7231x109ppdb.querySelectorAll('input:not([type="hidden"]):not([disabled]), textarea, select');
 		var isValid = true;
 
 		inputs.forEach(function(input) {
-			if (input.value.trim() === '') {
-				isValid = false;
-				_0x7231x109ppdb["setAttribute"]('data-form', 'invalid');
-			} else {
-				_0x7231x109ppdb["setAttribute"]('data-form', 'valid');
+			if (input.offsetParent === null || input.closest('.d-none')) {
+				return;
+			}
+			if (input.hasAttribute('required') || input.closest('.validate-field') || input.closest('.validate-text')) {
+				if (input.value.trim() === '') {
+					isValid = false;
+					input.classList.add('is-invalid');
+				} else {
+					input.classList.remove('is-invalid');
+				}
 			}
 		});
+		console.log(isValid);
 		if (!isValid) {
-			toastIDfail = new bootstrap.Toast(toastIDfail);
 			toastIDfail.show();
 			errorMsgEl.innerHTML = "Gagal menyimpan, silahkan cek kembali data form dan pastikan semua form terisi.";
 			return false;
+		}else{
+			_0x7231x109ppdb["setAttribute"]('data-form', 'valid');
 		}
 			
 		if (_0x7231x109ppdb["getAttribute"]('data-form') === 'valid') {
@@ -382,7 +391,6 @@ if (_0x7231x108ppdb["length"]) {
 					try {
 						var response = JSON.parse(xhr.responseText);
 						if (response.result === 'success') {
-							toastIDsuccess = new bootstrap.Toast(toastIDsuccess);
 							toastIDsuccess.show();
 							SuccessMsgEl.innerHTML = response.msg;
 							ppdb_fullname.innerHTML = response.fullname;
@@ -390,14 +398,12 @@ if (_0x7231x108ppdb["length"]) {
 							ppdb_cetak_formulir.href = response.link;
 							result_ppdb.classList.remove("d-none");
 						}else{
-							toastIDfail = new bootstrap.Toast(toastIDfail);
 							toastIDfail.show();
 							errorMsgEl.innerHTML = response.msg;
 						}
 					} catch (e) {
 						console.log(e);
 						console.error('Gagal parse JSON:', e);
-						toastIDfail = new bootstrap.Toast(toastIDfail);
 						toastIDfail.show();
 						errorMsgEl.innerHTML = 'Gagal parse JSON:', e;
 					}
@@ -422,35 +428,20 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 // Flag
 let isFormChanged = false;
-
 document.addEventListener("DOMContentLoaded", function() {
     const form = document.querySelector("form");
-    
     if (form) {
         form.addEventListener("input", function() {
-            isFormChanged = true;
+        	isFormChanged = true;
         });
     }
-
     // back/refresh/close
     window.addEventListener("beforeunload", function(e) {
         if (isFormChanged) {
             e.preventDefault();
-            e.returnValue = "";
+            e.returnValue = "Data belum disimpan, apakah Anda yakin ingin meninggalkan halaman ini?";
 			preloader["classList"]["add"]('preloader-hide');
         }
-    });
-
-    // link/menu
-    document.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", function(e) {
-            if (isFormChanged) {
-                if (!confirm("Data belum disimpan, apakah Anda yakin ingin meninggalkan halaman ini?")) {
-                    e.preventDefault();
-					preloader["classList"]["add"]('preloader-hide');
-                }
-            }
-        });
     });
 });
 </script>

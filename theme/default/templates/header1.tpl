@@ -47,6 +47,16 @@
 <body class="theme-light" data-highlight="blue2">
 <div id="preloader"><div class="spinner-border color-highlight" role="status"></div></div>
 <div id="page">
+<div id="notif" data-dismiss="notif" data-bs-delay="5000" data-bs-autohide="true" class="notification notification-ios bg-dark-dark ms-2 me-2 mt-2 rounded-s">
+	<span class="notification-icon color-white rounded-s">
+		<i class="fa fa-bell color-yellow-dark"></i>
+		<em>Notifikasi</em>
+		<i data-dismiss="notif" class="fa fa-times-circle"></i>
+	</span>
+<h1 id="notif-result" class="font-15 color-white">Error/Sukses</h1>
+<p id="notif-message" class="pb-1"></p>
+<div class="progress active"></div>
+</div>
 
     <!-- header and footer bar go here-->
     <div class="header header-fixed header-auto-show header-logo-app">
@@ -61,9 +71,9 @@
     <div id="footer-bar" class="footer-bar-5">
         <a href='{"?p=ppdb"|surl}' class="ms-2 me-1 {if $pagetitle|stristr:'ppdb'}active-nav{/if}"><i data-feather="layers" data-feather-line="1" data-feather-size="21" data-feather-color="red-dark" data-feather-bg="red-fade-light"></i><span>PPDB</span></a>
         <a href='{"?p=category"|surl}' class="{if $pagetitle|stristr:'category' || $pagetitle|stristr:'alumni' || $pagetitle|stristr:'teachers'}active-nav{/if}"><i data-feather="grid" data-feather-line="1" data-feather-size="21" data-feather-color="brown-dark" data-feather-bg="brown-fade-light"></i><span>{$lang.category}</span></a>
-        <a href="{$settings.siteurl}" class="{if $pagetitle|stristr:'home' || $pagetitle|stristr:'profil' || $pagetitle|stristr:'rules' || $pagetitle|stristr:'login' || $pagetitle|stristr:'support' || $pagetitle|stristr:'result'}active-nav{/if}"><i data-feather="home" data-feather-line="1" data-feather-size="21" data-feather-color="blue-dark" data-feather-bg="blue-fade-light"></i><span class="mx-1">{$lang.dashboard}</span></a>
+        <a href="{$settings.siteurl}" class="{if $pagetitle|stristr:'home' || $pagetitle|stristr:'profil' || $pagetitle|stristr:'rules' || $pagetitle|stristr:'support' || $pagetitle|stristr:'result'}active-nav{/if}"><i data-feather="home" data-feather-line="1" data-feather-size="21" data-feather-color="blue-dark" data-feather-bg="blue-fade-light"></i><span class="mx-1">{$lang.dashboard}</span></a>
         <a href='{"?p=news"|surl}' class="ms-1 {if $pagetitle|stristr:'news'}active-nav{/if}"><i data-feather="radio" data-feather-line="1" data-feather-size="21" data-feather-color="green-dark" data-feather-bg="green-fade-light"></i><span>{$lang.news}</span></a>
-        <a href='{"?p=account"|surl}' class="ms-1 me-3 {if $pagetitle|stristr:'account' || $pagetitle|stristr:'view_account' || $pagetitle|stristr:'bukusaku' || $pagetitle|stristr:'classes' || $pagetitle|stristr:'schedule'}active-nav{/if}"><i data-feather="user" data-feather-line="1" data-feather-size="21" data-feather-color="mint-light" data-feather-bg="mint-fade-light"></i><span>{$lang.account}</span></a>
+        <a href='{"?p=account"|surl}' class="ms-1 me-3 {if $pagetitle|stristr:'account' || $pagetitle|stristr:'login' || $pagetitle|stristr:'view_account' || $pagetitle|stristr:'bukusaku' || $pagetitle|stristr:'classes' || $pagetitle|stristr:'exam' || $pagetitle|stristr:'schedule'}active-nav{/if}"><i data-feather="user" data-feather-line="1" data-feather-size="21" data-feather-color="mint-light" data-feather-bg="mint-fade-light"></i><span>{$lang.account}</span></a>
     </div>
 <!-- page content-->
 <div id="page-loader" class="loader-overlay d-none">

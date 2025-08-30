@@ -245,7 +245,7 @@ span.red {
 /*      Form Control File       */
 .form-control-file {
   width: 100%;
-  color: #5c1ac3; }
+  color: #fff; }
   .form-control-file::-webkit-file-upload-button {
     letter-spacing: 1px;
     padding: 9px 20px;

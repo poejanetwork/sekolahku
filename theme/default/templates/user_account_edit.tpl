@@ -1,25 +1,5 @@
 {include file="header1.tpl"}
 {if $account_edit}
-<div id="notification-fail" data-dismiss="notification-fail" data-bs-delay="3000" data-bs-autohide="true" class="notification notification-ios bg-dark-dark ms-2 me-2 mt-2 rounded-s fade hide">
-	<span class="notification-icon color-white rounded-s">
-		<i class="fa fa-bell color-yellow-dark"></i>
-		<em>Notifikasi</em>
-		<i data-dismiss="notification-fail" class="fa fa-times-circle"></i>
-	</span>
-<h1 class="font-15 color-white">Error!</h1>
-<p class="pb-1" id="ErrorMsg">
-</p>
-</div>
-<div id="notification-success" data-dismiss="notification-success" data-bs-delay="3000" data-bs-autohide="true" class="notification notification-ios bg-dark-dark ms-2 me-2 mt-2 rounded-s fade hide">
-	<span class="notification-icon color-white rounded-s">
-		<i class="fa fa-bell color-yellow-dark"></i>
-		<em>Notifikasi</em>
-		<i data-dismiss="notification-success" class="fa fa-times-circle"></i>
-	</span>
- <h1 class="font-15 color-white">Sukses!</h1>
- <p class="pb-1" id="SuccessMsg">
- </p>
-</div>
 <div class="card card-style">
 	<div class="content">
 	<h5 class="float-start font-16">{$lang.update} {$lang.account}</h5>
@@ -238,7 +218,7 @@
 		<div class="d-block">			
       		<input type="hidden" value="do_account_update" name="act">
       		<input type="hidden" value="{$account_edit.id}" name="sid" id="sid">
-			<button type="submit" class="btn btn-full w-100 bg-highlight rounded-sm shadow-xl btn-m text-uppercase font-900 mb-3">{$lang.save} {$lang.data} {$lang.account}</button>
+			<button type="submit" data-action="skip" class="btn btn-full w-100 bg-highlight rounded-sm shadow-xl btn-m text-uppercase font-900 mb-3">{$lang.save} {$lang.data} {$lang.account}</button>
 		</div>
 	</div>
 </div>
@@ -247,53 +227,41 @@
 {include file="footer.tpl"}
 {literal}
 <script>
-document["addEventListener"]('DOMContentLoaded', () => {
-var _0x7231x108acc = document["querySelectorAll"]('.AccountEditform');
-if (_0x7231x108acc["length"]) {
-	var ppdb_fullname = document.getElementById('ppdb_fullname');
-	var ppdb_registration_number = document.getElementById('ppdb_registration_number');
-	var ppdb_cetak_formulir = document.getElementById('ppdb_cetak_formulir');
-	var _0x7231x109acc = document["getElementById"]('AccountEditform');
-	var toastIDfail = document.getElementById('notification-fail');
-	var toastIDsuccess = document.getElementById('notification-success');
-	var errorMsgEl = document.getElementById('ErrorMsg');
-	var SuccessMsgEl = document.getElementById('SuccessMsg');
-	var sid = document.getElementById('sid');
-	_0x7231x109acc["onsubmit"] = function(_0x7231xa) {
-		_0x7231xa["preventDefault"]();
-		var inputs = _0x7231x109acc.querySelectorAll('input, textarea, select');
-			
-		if (sid.value.trim().length > 0) {
-			var formData = new FormData(_0x7231x109acc);
-			var formDataUrl = _0x7231x109acc["getAttribute"]('data-action');
-			var xhr = new XMLHttpRequest();
-			xhr.open("POST", formDataUrl, true);
-			xhr.onload = function () {
-				if (xhr.status === 200) {
-					try {
-						var response = JSON.parse(xhr.responseText);
-						if (response.result === 'success') {
-							toastIDsuccess = new bootstrap.Toast(toastIDsuccess);
-							toastIDsuccess.show();
-							SuccessMsgEl.innerHTML = response.msg;
-						}else{
-							toastIDfail = new bootstrap.Toast(toastIDfail);
-							toastIDfail.show();
-							errorMsgEl.innerHTML = response.msg;
-						}
-					} catch (e) {
-						console.log(e);
-						console.error('Gagal parse JSON:', e);
-						toastIDfail = new bootstrap.Toast(toastIDfail);
-						toastIDfail.show();
-						errorMsgEl.innerHTML = 'Gagal parse JSON:', e;
-					}
-				}
-			};
-			xhr.send(formData);
-		}
-	}
-};
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('AccountEditform');
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const sid = document.getElementById('sid');
+        if (!sid || sid.value.trim().length === 0) {
+            showAlert("Error", "ID tidak ditemukan!");
+            return;
+        }
+
+        const formData = new FormData(form);
+        const formDataUrl = form.getAttribute('data-action');
+
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", formDataUrl, true);
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                try {
+                    const response = JSON.parse(xhr.responseText);
+                    if (response.result === 'success') {
+                        showAlert("Sukses", response.msg);
+                    } else {
+                        showAlert("Error", response.msg);
+                    }
+                } catch (e) {
+                    console.error('Gagal parse JSON:', e);
+                    showAlert("Error", "Gagal memproses data dari server");
+                }
+            }
+        };
+        xhr.send(formData);
+    });
 });
 </script>
 {/literal}

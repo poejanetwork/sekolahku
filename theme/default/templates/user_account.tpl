@@ -54,33 +54,33 @@
 			<a href='{"?p=rules"|surl}' class="col-4">
 				<div class="card card-style text-center py-3 mx-0 mb-0">
 					<i class="fa fa-shield-alt font-24 color-brown-dark opacity-60"></i>
-					<p class="font-13 font-500 mb-n1 mt-2 color-theme">Peraturan</p>
+					<p class="font-13 font-500 mb-n1 mt-2 color-theme">{$lang.rules}</p>
 				</div>
 			</a>
 			<a href='{"?p=bukusaku"|surl}' class="col-4">
 				<div class="card card-style text-center py-3 mx-0 mb-0">
 					<i class="fa fa-book font-24 text-success opacity-60"></i>
-					<p class="font-13 font-500 mb-n1 mt-2 color-theme">Buku Saku</p>
+					<p class="font-13 font-500 mb-n1 mt-2 color-theme">{$lang.bukusaku}</p>
 				</div>
 			</a>
 		</div>
 		<div class="row">
-			<a href='{"?p=library"|surl}' class="col-4">
+			<a href='{"?p=exam"|surl}' class="col-4">
 				<div class="card card-style text-center py-3 mx-0 mb-0">
 					<i class="fa fa-book-reader color-yellow-dark font-24 opacity-60"></i>
-					<p class="font-13 font-500 mb-n1 mt-2 color-theme">Perpustakaan</p>
+					<p class="font-13 font-500 mb-n1 mt-2 color-theme">{$lang.exam}</p>
 				</div>
 			</a>
 			<a href='{"?p=schedule"|surl}' class="col-4">
 				<div class="card card-style text-center py-3 mx-0 mb-0">
 					<i class="fa fa-calendar-alt font-24 color-blue-dark opacity-60"></i>
-					<p class="font-13 font-500 mb-n1 mt-2 color-theme">Jadwal</p>
+					<p class="font-13 font-500 mb-n1 mt-2 color-theme">{$lang.schedule}</p>
 				</div>
 			</a>
-			<a href='{"?p=notes"|surl}' class="col-4">
+			<a href='{"?p=voting"|surl}' class="col-4">
 				<div class="card card-style text-center py-3 mx-0 mb-0">
-					<i class="fa fa-handshake font-24 color-green-dark opacity-60"></i>
-					<p class="font-13 font-500 mb-n1 mt-2 color-theme">Catatan</p>
+					<i class="fa fa-tasks font-24 color-green-dark opacity-60"></i>
+					<p class="font-13 font-500 mb-n1 mt-2 color-theme">{$lang.voting}</p>
 				</div>
 			</a>
 		</div>
@@ -88,11 +88,18 @@
 	</div>
 </div>
 
+<a href='{"?p=exam_account&id={$user.id}"|surl}' class="alert me-3 ms-3 mb-4 rounded-s bg-blue-dark d-block" role="alert">
+	<span class="alert-icon"><i class="fa fa-server font-18"></i></span>
+	<h4 class="font-15 font-600 color-white">Ujian</h4>
+	<strong class="alert-icon-text opacity-50">Lihat hasil ujian.</strong>
+	<p class="float-end mt-n2 color-white opacity-30"><i class="fa fa-user"></i></p>
+</a>
+
 <div class="card card-style">
 	<div class="content" data-menu="menu-video">
 		<div class="d-flex">
 			<div>
-				<img src="{$settings.siteurl}/{$theme}/assets/images/icons/logo.png" width="50" class="me-3">
+				<img data-src="{$settings.siteurl}/{$theme}/assets/images/icons/logo.png" width="50" class="preload-img me-3">
 			</div>
 			<div>
 				<h2 class="mb-0 pt-1">{$settings.sitename}</h2>
@@ -151,6 +158,16 @@
 
 
 {include file="footer.tpl"}
+{literal}
+<script>
+const userId = "{/literal}{$user.id}{literal}";
+const userType = "{/literal}{$user.login_as}{literal}";
+if (!window.hasSentLogin) {
+    window.hasSentLogin = true;
+    AndroidInterface.onLoginSuccess(userId,userType);
+}
+</script>
+{/literal}
 
         <div id="menu-video" class="menu menu-box-modal rounded-m"
              data-menu-height="450">
@@ -164,7 +181,7 @@
             <a href="javascript:void(0)" class="btn btn-center-xl btn-sm shadow-l rounded-s text-uppercase font-900 bg-green-dark">YAYASAN TARUNA MANDIRI PEKANBARU</a>
         </div>  
     
-		<div id="menu-visi" class="menu menu-box-bottom menu-box-detached rounded-m" data-menu-height="350" data-menu-effect="menu-over">
+		<div id="menu-visi" class="menu menu-box-bottom menu-box-detached rounded-m" data-menu-height="550" data-menu-effect="menu-over">
 
         <div class="card header-card shape-rounded" data-card-height="200">
             <div class="card-overlay bg-highlight opacity-95"></div>
@@ -189,7 +206,7 @@
         </div>
     </div>
 	
-	<div id="menu-misi" class="menu menu-box-bottom menu-box-detached rounded-m" data-menu-height="360" data-menu-effect="menu-over" style="display: block; height: 360px;">
+	<div id="menu-misi" class="menu menu-box-bottom menu-box-detached rounded-m" data-menu-height="550" data-menu-effect="menu-over" style="display: block; height: 360px;">
 
         <div class="card header-card shape-rounded" data-card-height="200">
             <div class="card-overlay bg-highlight opacity-95"></div>

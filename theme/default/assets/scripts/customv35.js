@@ -40,6 +40,7 @@ document["addEventListener"]('DOMContentLoaded', () => {
                 document["querySelectorAll"]('.greeting-text')[0]["insertAdjacentHTML"]('beforeend', _0x7231xe + ',<br>' + _0x7231x10)
             }
         };
+
         var _0x7231x14 = document["getElementsByClassName"]('menu-hider');
         if (!_0x7231x14["length"]) {
             var _0x7231x15 = document["createElement"]('div');
@@ -271,6 +272,12 @@ document["addEventListener"]('DOMContentLoaded', () => {
                     return;
                 }
                 const preloader = document.getElementById('preloader');
+                if (href.includes("cetak")) {
+                    if (preloader) {
+                        preloader.classList.add('preloader-hide');
+                    }
+                    return;
+                }
                 if (preloader) {
                     preloader.classList.remove('preloader-hide');
                     const menuMain = document.getElementById('menu-main');
@@ -281,6 +288,34 @@ document["addEventListener"]('DOMContentLoaded', () => {
                     if (menuHider["classList"]["contains"]('menu-active')) {
                         menuHider["classList"]["remove"]('menu-active')
                     };
+                }
+            });
+        });
+        document.querySelectorAll('button').forEach((_Btnlink) => {
+            _Btnlink.addEventListener('click', (e) => {
+                const btnType = _Btnlink.getAttribute('type') || 'button';
+                const btnAction = _Btnlink.getAttribute('data-action');
+                const btnRef = _Btnlink.getAttribute('data-ref');
+                const oldValue = _Btnlink.innerHTML;
+                _Btnlink.innerHTML = '<i class="fa fa-spinner fa-spin fa-pulse color-dark-dark me-1"></i> Memproses...';
+                _Btnlink.style.opacity = 0.5;
+                // Jika tombol punya data-action="skip" → lanjutkan normal, tanpa spinner
+                if (btnAction && btnAction === "skip" || btnRef) {
+                    setTimeout(() => {
+                        _Btnlink.innerHTML = oldValue;
+                        _Btnlink.style.opacity = 1;
+                    }, 1000);
+                    return; // Tidak melakukan apa-apa, biarkan lanjut submit / aksi normal
+                }
+                // Jika tombol BUKAN submit → reset otomatis setelah 3 detik
+                _Btnlink.disabled = true;
+                if (btnType !== 'submit') {
+                    setTimeout(() => {
+                        _Btnlink.innerHTML = oldValue;
+                        _Btnlink.disabled = false;
+                        _Btnlink.style.opacity = 1;
+                    }, 3000);
+                    e.preventDefault();
                 }
             });
         });
@@ -1960,3 +1995,13 @@ document["addEventListener"]('DOMContentLoaded', () => {
     };
     init_template()
 })
+
+function showAlert(res,msg) {
+    var toastID = document.getElementById('notif');
+    toastID = new bootstrap.Toast(toastID);
+    var toastRes = document.getElementById('notif-result');
+    var toastMsg = document.getElementById('notif-message');
+    toastRes["textContent"] = res;
+    toastMsg["textContent"] = msg;
+    toastID.show();
+}

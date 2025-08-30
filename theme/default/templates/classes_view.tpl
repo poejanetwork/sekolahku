@@ -3,7 +3,7 @@
     <div class="card-body">
     <div class="d-flex">
         <div>
-            <img src='{$class_detail.avatar|default:"{$settings.siteurl}/theme/default/assets/images/avatars/default_avatar.png"}' width="50" class="me-3">
+            <img class="rounded me-2 shadow-xl preload-img" data-src='{$class_detail.teacher_avatar|default:"{$settings.siteurl}/theme/default/assets/images/avatars/default_avatar.png"}' width="50" class="me-3">
         </div>
         <div>
             <h1 class="mb-0 pt-1">{$class_detail.teacher_name|default:"Belum Ada"}</h1>

@@ -8,7 +8,7 @@
         </p>
     </div>
 </div>
-<div class="content"><a href='{"?p=schedule&cetak"|surl}' target="_blank" class="btn btn-border btn-m btn-full mb-3 rounded-sm text-uppercase font-900 border-light border-5 bg-highlight"><i class="fa fa-print me-2"></i> Cetak {$lang.schedule}</a></div>
+<div class="content"><a href='{"?p=schedule&cetak"|surl}' class="btn btn-border btn-m btn-full mb-3 rounded-sm text-uppercase font-900 border-light border-5 bg-highlight"><i class="fa fa-print me-2"></i> Cetak {$lang.schedule}</a></div>
 {foreach from=$dayOrder item=do}
 {if isset($schedules[$do]) && $schedules[$do]|@count > 0}
 <div class="card card-style">
@@ -49,7 +49,7 @@
                                 {foreach from=$subs item=s}
                                     {assign var=parts value=$s|split:":"}
                                     {if $parts[0] == $cid}
-                                        {if $parts[1] != 0}
+                                        {if !empty($parts[1])}
                                         {$parts[1]|upper|escape}
                                         {else}
                                         -

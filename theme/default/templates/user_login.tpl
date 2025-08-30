@@ -1,4 +1,4 @@
-{include file="header.tpl"}
+{include file="header1.tpl"}
 {if $error}
 <div id="notification-1" data-dismiss="notification-1" data-bs-delay="3000" data-bs-autohide="true" class="notification notification-ios bg-dark-dark ms-2 me-2 mt-2 rounded-s fade show">
 	<span class="notification-icon color-white rounded-s">
@@ -91,23 +91,20 @@
 	<div class="input-style no-borders has-icon validate-field mb-4">
 		<i class="fa fa-lock"></i>
 		<input type="password" name="password" class="form-control validate-name" id="password" placeholder="{$lang.password}" required>
-		<label for="email" class="color-blue-dark font-10 mt-1">{$lang.password}</label>
+		<label for="password" class="color-blue-dark font-10 mt-1">{$lang.password}</label>
 		<i class="fa fa-times disabled invalid color-red-dark"></i>
 		<i class="fa fa-check disabled valid color-green-dark"></i>
 		<em>({$lang.required})</em>
 	</div>
-	<div class="input-style no-borders has-icon mb-4">
-        <i class="input-icon fa fa-school color-theme"></i>
-		<label for="login_as" class="color-highlight">{$lang.login_as}</label>
-		<select name="login_as" required id="login_as">
-			<option value="default" disabled="" selected="">{$lang.login_as}</option>
-			<option value="user">Siswa</option>
-			<option value="teacher">Pengajar</option>
-		</select>
-		<span><i class="fa fa-chevron-down"></i></span>
-		<i class="fa fa-check disabled valid color-green-dark"></i>
-		<i class="fa fa-check disabled invalid color-red-dark"></i>
-		<em></em>
+	<div class="package-container text-center mb-5">
+	<div class="package-heading">{$lang.login_as}</div>
+	<div class="package-tab-wrapper rounded">
+		<input type="radio" name="login_as" value="student" id="student" class="input" checked=""
+		/>
+		<label for="student" class="package-tab p-2 rounded font-12 font-600"> <i class="fa fa-user me-1"></i> Siswa </label>
+		<input type="radio" name="login_as" value="teacher" id="teacher" class="input" />
+		<label for="teacher" class="package-tab p-2 rounded font-12 font-600"> <i class="fa fa-user-graduate me-1"></i> Pengajar </label>
+	</div>
 	</div>
 	
 	{if $settings.use_tfa}

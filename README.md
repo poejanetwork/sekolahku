@@ -24,7 +24,8 @@ Aplikasi ini menawarkan antarmuka yang ramah pengguna untuk menangani berbagai d
 - Berita Sekolah: Publikasikan informasi, pengumuman, dan kegiatan terbaru.
 - Prestasi: Catat dan tampilkan pencapaian siswa maupun sekolah.
 - Rombel (Rombongan Belajar): Atur kelas, jurusan, dan kelompok belajar siswa.
-- Buku Saku: Panduan digital berisi tata tertib dan informasi aturan sekolah.
+- Buku Saku: Panduan digital berisi tata tertib dan informasi aturan sekolah serta Nilai Kredit Pelanggaran (NKP) siswa.
+- Ujian: Halaman ujian yang dapat menyelenggarakan ujian harian, bulanan dan ujian lainnya.
 - Akses Guru & Siswa: Hak akses berbeda sesuai peran masing-masing.
 - Multi User: Mendukung akun Admin, Staf, Guru, dan Siswa.
 - Keamanan Sistem: Login aman, enkripsi data, dan pengaturan hak akses.

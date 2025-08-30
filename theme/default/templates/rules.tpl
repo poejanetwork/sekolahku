@@ -64,7 +64,7 @@
 </div>
 {include file="footer.tpl"}
 
-<div id="menu-bab1" class="menu menu-box-bottom menu-box-detached rounded-m" data-menu-height="350" data-menu-effect="menu-over">
+<div id="menu-bab1" class="menu menu-box-bottom menu-box-detached rounded-m" data-menu-height="550" data-menu-effect="menu-over">
 
 	<div class="card header-card shape-rounded" data-card-height="200">
 		<div class="card-overlay bg-highlight opacity-95"></div>
@@ -86,14 +86,14 @@
 			<strong>4.</strong>	Setiap Taruna mempunyai sikap dan tingkah laku yang sesuai dengan kepribadian bangsa Indonesia.
 		</p>
 	</div>
-	<div class="row mb-0 justify-content-center mb-3">
+	<div class="row justify-content-center mb-5">
 		<div class="col-6">
 			<a data-menu="menu-bab2" href="javascript:void(0)" class="btn btn-sm me-3 rounded-s btn-full shadow-l bg-highlight font-900 text-uppercase">Bab II <i class="fa fa-arrow-right ms-2"></i></a>
 		</div>
 	</div>
 </div>
 
-<div id="menu-bab2" class="menu menu-box-bottom menu-box-detached rounded-m" data-menu-height="350" data-menu-effect="menu-over">
+<div id="menu-bab2" class="menu menu-box-bottom menu-box-detached rounded-m" data-menu-height="550" data-menu-effect="menu-over">
 
 	<div class="card header-card shape-rounded" data-card-height="200">
 		<div class="card-overlay bg-green-dark opacity-95"></div>
@@ -143,14 +143,14 @@
 			<strong>20.</strong> Menggunakan bahasa Indonesia dalam percakapan di sekolah.
 		</p>
 	</div>
-	<div class="row mb-0 justify-content-center mb-3">
+	<div class="row justify-content-center mb-5">
 		<div class="col-6">
 			<a data-menu="menu-bab3" href="javascript:void(0)" class="btn btn-sm me-3 rounded-s btn-full shadow-l bg-green-dark font-900 text-uppercase">Bab III <i class="fa fa-arrow-right ms-2"></i></a>
 		</div>
 	</div>
 </div>
 
-<div id="menu-bab3" class="menu menu-box-bottom menu-box-detached rounded-m" data-menu-height="350" data-menu-effect="menu-over">
+<div id="menu-bab3" class="menu menu-box-bottom menu-box-detached rounded-m" data-menu-height="550" data-menu-effect="menu-over">
 
 	<div class="card header-card shape-rounded" data-card-height="200">
 		<div class="card-overlay bg-red-dark opacity-95"></div>
@@ -188,14 +188,14 @@
 			<strong>23.</strong> Dilarang membawa kendaran roda dua untuk kelas x (satu).
 		</p>
 	</div>
-	<div class="row mb-0 justify-content-center mb-3">
+	<div class="row justify-content-center mb-5">
 		<div class="col-6">
 			<a data-menu="menu-bab4" href="javascript:void(0)" class="btn btn-sm me-3 rounded-s btn-full shadow-l bg-red-dark font-900 text-uppercase">Bab IV <i class="fa fa-arrow-right ms-2"></i></a>
 		</div>
 	</div>
 </div>
 
-<div id="menu-bab4" class="menu menu-box-bottom menu-box-detached rounded-m" data-menu-height="350" data-menu-effect="menu-over">
+<div id="menu-bab4" class="menu menu-box-bottom menu-box-detached rounded-m" data-menu-height="550" data-menu-effect="menu-over">
 
 	<div class="card header-card shape-rounded" data-card-height="200">
 		<div class="card-overlay bg-orange-dark opacity-95"></div>
@@ -220,5 +220,5 @@
 
 		</p>
 	</div>
-    <a href="#" class="close-menu btn btn-m btn-margins rounded-sm btn-full shadow-l bg-orange-dark text-uppercase font-900">Tutup</a>
+    <a href="#" class="close-menu btn btn-m btn-margins rounded-sm btn-full shadow-l bg-orange-dark text-uppercase font-900 mb-5">Tutup</a>
 </div>

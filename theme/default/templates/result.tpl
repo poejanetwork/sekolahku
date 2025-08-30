@@ -26,6 +26,7 @@
 <meta http-equiv="refresh" content="3; url={$result_link}" />
 {/if}
 {include file="footer.tpl"}
+{literal}
 <script>
 var process = document.querySelector("#process");
 var result = document.querySelector("#result");
@@ -36,3 +37,4 @@ window.addEventListener("load", function() {
 	}, 1000);
 });
 </script>
+{/literal}

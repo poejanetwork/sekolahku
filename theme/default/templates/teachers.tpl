@@ -11,7 +11,7 @@
 	<div class="content">
 		<div class="d-flex">
 			<div>
-				<img src="{$n.avatar}" width="50" class="me-3 bg-highlight rounded-xl">
+				<img data-src="{$n.avatar}" width="50" class="preload-img me-3 bg-highlight rounded-xl">
 			</div>
 			<div>
 				<h3 class="mb-0 pt-1">{$n.fullname}</h3>
