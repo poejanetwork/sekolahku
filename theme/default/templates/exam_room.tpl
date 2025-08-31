@@ -268,8 +268,6 @@ document.addEventListener('DOMContentLoaded', function () {
 			});
 			const data = await res.json();
 
-			console.log("data.status");
-			console.log(data.status);
 			if (data.status === 'success' && Array.isArray(data.data)) {
 				questionsContent.innerHTML = '';
 				localStorage.setItem('questionOrder', JSON.stringify(data.data));

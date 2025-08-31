@@ -80,18 +80,26 @@
 			</a>
 		</div>
 		<div class="row">
-			<a href='{"?p=exam"|surl}' class="col-4">
-				<div class="card card-style text-center py-3 mx-0 mb-0">
-					<i class="fa fa-book-reader color-yellow-dark font-24 opacity-60"></i>
-					<p class="font-13 font-500 mb-n1 mt-2 color-theme">{$lang.exam}</p>
-				</div>
-			</a>
 			<a href='{"?p=schedule"|surl}' class="col-4">
 				<div class="card card-style text-center py-3 mx-0 mb-0">
 					<i class="fa fa-calendar-alt font-24 color-blue-dark opacity-60"></i>
 					<p class="font-13 font-500 mb-n1 mt-2 color-theme">{$lang.schedule}</p>
 				</div>
 			</a>
+			<a href='{"?p=exam"|surl}' class="col-4">
+				<div class="card card-style text-center py-3 mx-0 mb-0">
+					<i class="fa fa-book-reader color-yellow-dark font-24 opacity-60"></i>
+					<p class="font-13 font-500 mb-n1 mt-2 color-theme">{$lang.exam}</p>
+				</div>
+			</a>
+			<a href='{"?p=exam_questions"|surl}' class="col-4">
+				<div class="card card-style text-center py-3 mx-0 mb-0">
+					<i class="fa fa-random color-orange-dark font-24 opacity-60"></i>
+					<p class="font-13 font-500 mb-n1 mt-2 color-theme">{$lang.question_bank}</p>
+				</div>
+			</a>
+		</div>
+		<div class="row">
 			<a href='{"?p=voting"|surl}' class="col-4">
 				<div class="card card-style text-center py-3 mx-0 mb-0">
 					<i class="fa fa-tasks font-24 color-green-dark opacity-60"></i>
