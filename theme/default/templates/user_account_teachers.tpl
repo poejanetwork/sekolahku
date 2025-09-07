@@ -29,13 +29,13 @@
 {/if}
 <div class="card bg-smataryellow mt-4 content rounded-m shadowl">
 	<div class="card-body">
-		<h4 class="color-white">Kartu Tanda Pengajar</h4>
+		<h4 class="color-white">Kartu Tanda Pengajar <a href='{"?p=edit_account"|surl}' class="float-end color-black rounded-xl font-900 font-16"><i class="fa fa-cog"></i></a></h4>
 
 	<div class="content m-0 mt-3">
 		<div class="vcard-field lh-lg mt-1"><strong class="font-12 text-white">NIP</strong><a href="javascript:void(0)">{$user.nip}</a><i class="fa fa-id-card color-white opacity-75"></i></div>
-		<div class="vcard-field lh-lg mt-1"><strong class="font-12 text-white">Kode Pengajar</strong><a href="javascript:void(0)">{$user.username|strtoupper}</a><i class="fa fa-id-card color-white opacity-75"></i></div>
-		<div class="vcard-field lh-lg mt-1"><strong class="font-12 text-white">{$lang.fullname}</strong><a href="javascript:void(0)">{$user.fullname}</a><i class="fa fa-user color-white opacity-75"></i></div>
-		<div class="vcard-field lh-lg mt-1"><strong class="font-12 text-white">Tempat/Tanggal Lahir</strong><a href="javascript:void(0)">{$user.birthday_place} / {$user.birthday|date_format:"%e %B %Y"}</a><i class="fa fa-map-marker-alt color-white opacity-75"></i></div>
+		<div class="vcard-field lh-lg mt-1"><strong class="font-12 text-white">{$lang.fullname} / Kode</strong><a href="javascript:void(0)">{$user.fullname} / {$user.username|strtoupper}</a><i class="fa fa-user color-white opacity-75"></i></div>
+		<div class="vcard-field lh-lg mt-1"><strong class="font-12 text-white">Mata Pelajaran</strong><a href="javascript:void(0)">{$user.major_name|ucfirst}</a> <i class="fa fa-book color-white opacity-75"></i></div>
+		<div class="vcard-field lh-lg mt-1"><strong class="font-12 text-white">Tempat / Tanggal Lahir</strong><a href="javascript:void(0)">{$user.birthday_place|ucfirst} / {$user.birthday}</a><i class="fa fa-map-marker-alt color-white opacity-75"></i></div>
 		<div class="vcard-field lh-lg mt-1 border-0"><strong class="font-12 text-white">Phone</strong><a href="tel:{$user.phone}">+{$user.phone}</a><i class="fa fa-phone color-white opacity-75"></i></div>
 	</div>
 
@@ -59,7 +59,7 @@
 <div class="content px-0 card-body py-0">
 	<div class="content m-0">
 	    
-		<div class="row">
+		<div class="row mb-3">
 			<a href='{"?p=rules"|surl}' class="col-4">
 				<div class="card card-style text-center py-3 mx-0 mb-0">
 					<i class="fa fa-shield-alt font-24 color-brown-dark opacity-60"></i>
@@ -72,20 +72,34 @@
 					<p class="font-13 font-500 mb-n1 mt-2 color-theme">{$lang.class}</p>
 				</div>
 			</a>
-			<a href='{"?p=bukusaku"|surl}' class="col-4">
-				<div class="card card-style text-center py-3 mx-0 mb-0">
-					<i class="fa fa-book font-24 text-success opacity-60"></i>
-					<p class="font-13 font-500 mb-n1 mt-2 color-theme">{$lang.bukusaku}</p>
-				</div>
-			</a>
-		</div>
-		<div class="row">
 			<a href='{"?p=schedule"|surl}' class="col-4">
 				<div class="card card-style text-center py-3 mx-0 mb-0">
 					<i class="fa fa-calendar-alt font-24 color-blue-dark opacity-60"></i>
 					<p class="font-13 font-500 mb-n1 mt-2 color-theme">{$lang.schedule}</p>
 				</div>
 			</a>
+		</div>
+		<div class="row mb-3">
+			<a href='{"?p=bukusaku"|surl}' class="col-4">
+				<div class="card card-style text-center py-3 mx-0 mb-0">
+					<i class="fa fa-book font-24 text-success opacity-60"></i>
+					<p class="font-13 font-500 mb-n1 mt-2 color-theme">{$lang.bukusaku}</p>
+				</div>
+			</a>
+			<a href='{"?p=attendance"|surl}' class="col-4">
+				<div class="card card-style text-center py-3 mx-0 mb-0">
+					<i class="fa fa-user-md font-24 color-instagram opacity-60"></i>
+					<p class="font-13 font-500 mb-n1 mt-2 color-theme">{$lang.attendance}</p>
+				</div>
+			</a>
+			<a href='{"?p=piket"|surl}' class="col-4">
+				<div class="card card-style text-center py-3 mx-0 mb-0">
+					<i class="fa fa-user-friends font-24 color-blue-light opacity-60"></i>
+					<p class="font-13 font-500 mb-n1 mt-2 color-theme">{$lang.piket}</p>
+				</div>
+			</a>
+		</div>
+		<div class="row mb-3">
 			<a href='{"?p=exam"|surl}' class="col-4">
 				<div class="card card-style text-center py-3 mx-0 mb-0">
 					<i class="fa fa-book-reader color-yellow-dark font-24 opacity-60"></i>
@@ -98,8 +112,6 @@
 					<p class="font-13 font-500 mb-n1 mt-2 color-theme">{$lang.question_bank}</p>
 				</div>
 			</a>
-		</div>
-		<div class="row">
 			<a href='{"?p=voting"|surl}' class="col-4">
 				<div class="card card-style text-center py-3 mx-0 mb-0">
 					<i class="fa fa-tasks font-24 color-green-dark opacity-60"></i>
@@ -111,43 +123,51 @@
 	</div>
 </div>
 
-<div class="card card-style">
-	<div class="content" data-menu="menu-video">
-		<div class="d-flex">
-			<div>
-				<img data-src="{$settings.siteurl}/{$theme}/assets/images/icons/logo.png" width="50" class="preload-img me-3">
-			</div>
-			<div>
-				<h2 class="mb-0 pt-1">{$settings.sitename}</h2>
-				<p class="color-highlight font-11 mt-n1 mb-3">Tentang Sekolah</p>
+<div class="card mt-2 entered loaded">
+	<div class="card-body">
+		<h4 class="color-white mb-3 font-24">Pejabat {$lang.piket}</h4>
+
+		{foreach from=$piketByDate key=date item=teachersOnDate}
+		{if $date == $smarty.now|date_format:'%Y-%m-%d'}
+		<div class="card">
+			<div class="content">
+				<h3>Piket Hari ini</h3>
+				<p class="mb-0">Tanggal {$piket_today}</p>
+				<div class="list-group list-custom-small">
+  					{foreach from=$teachersOnDate item=teacher}
+					<a href="#">
+						<img data-src="{$teacher.avatar}" alt="img" class="preload-img rounded-s">
+						<span>{$teacher.fullname}</span>
+						<i class="fa">{$teacher.username|strtoupper}</i>
+					</a>
+					{/foreach}
+				</div>
+				{if $isGuruPiketHariIni}
+				<a href='{"?p=account&attendance"|surl}' class="btn text-uppercase font-900 bg-highlight rounded-sm shadow-xl btn-m btn-full">Presensi Hari Ini</a>{/if}
 			</div>
 		</div>
-		<p>
-			<i class="fa fa-map-marker-alt"></i> {$settings.school_address}
-		</p>
-	</div>
-</div>
-        
-<div class="card-body py-0 d-none">
-	<div class="content m-0">
-	    
-        <div class="d-flex">
-            <div>
-                <p class="mb-n1 font-10">Our Company Ratings</p>
-                <h6 class="float-left">4.9</h6>
-                <i class="float-left color-yellow1-dark pt-1 pl-2 fa fa-star"></i>
-                <i class="float-left color-yellow1-dark pt-1 fa fa-star"></i>
-                <i class="float-left color-yellow1-dark pt-1 fa fa-star"></i>
-                <i class="float-left color-yellow1-dark pt-1 fa fa-star"></i>
-                <i class="float-left color-yellow1-dark pt-1 fa fa-star"></i>
-            </div>
-            <div class="ml-auto">
-                <a class="icon icon-s mt-2 mr-2 rounded-m bg-red2-dark color-white" href="#" data-menu="menu-video"><i class="fa fa-video"></i></a>
-                <a data-menu="menu-tips-1" class="icon icon-s mt-2 rounded-m bg-highlight color-white" href="#"><i class="fa fa-images"></i></a>
-            </div>
-        </div>
+		{else}
+		<div class="card">
+			<div class="content">
+				<h3>Piket Besok</h3>
+				<p class="mb-0">Tanggal {$piket_tomorrow}</p>
+				<div class="list-group list-custom-small">
+  					{foreach from=$teachersOnDate item=teacher}
+					<a href="#">
+						<img data-src="{$teacher.avatar}" alt="img" class="preload-img rounded-s">
+						<span>{$teacher.fullname}</span>
+						<i class="fa">{$teacher.username|strtoupper}</i>
+					</a>
+					{/foreach}
+				</div>
+			</div>
+		</div>
+		{/if}
+		{/foreach}
 		
 	</div>
+	<div class="card-overlay bg-highlight opacity-90"></div>
+	<div class="card-overlay dark-mode-tint"></div>
 </div>
 
 <div class="card card-style">
@@ -177,9 +197,8 @@
 <script>
 const userId = "{/literal}{$user.id}{literal}";
 const userType = "{/literal}{$user.login_as}{literal}";
-if (!window.hasSentLogin) {
-    window.hasSentLogin = true;
-    AndroidInterface.onLoginSuccess(userId,userType);
+if (typeof AndroidInterface !== "undefined" && AndroidInterface.onLoginSuccess) {
+    AndroidInterface.onLoginSuccess(userId, userType);
 }
 </script>
 {/literal}

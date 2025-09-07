@@ -29,13 +29,15 @@
 <body class="theme-light" data-highlight="blue2">
 <div id="preloader"><div class="spinner-border color-highlight" role="status"></div></div>
 <div id="page">
+<audio id="sound-sukses" src="{$settings.siteurl}/{$theme}/assets/sounds/success.mp3" preload="auto"></audio>
+<audio id="sound-error" src="{$settings.siteurl}/{$theme}/assets/sounds/error.mp3" preload="auto"></audio>
 <div id="notif" data-dismiss="notif" data-bs-delay="5000" data-bs-autohide="true" class="notification notification-ios bg-dark-dark ms-2 me-2 mt-2 rounded-s">
 	<span class="notification-icon color-white rounded-s">
 		<i class="fa fa-bell color-yellow-dark"></i>
 		<em>Notifikasi</em>
 		<i data-dismiss="notif" class="fa fa-times-circle"></i>
 	</span>
-<h1 id="notif-result" class="font-15 color-white">Error/Sukses</h1>
+<h1 id="notif-result" class="font-15">Error/Sukses</h1>
 <p id="notif-message" class="pb-1"></p>
 <div class="progress active"></div>
 </div>

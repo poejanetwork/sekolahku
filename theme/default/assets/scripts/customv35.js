@@ -2001,7 +2001,17 @@ function showAlert(res,msg) {
     toastID = new bootstrap.Toast(toastID);
     var toastRes = document.getElementById('notif-result');
     var toastMsg = document.getElementById('notif-message');
-    toastRes["textContent"] = res;
+    toastRes["textContent"] = res.toUpperCase();
     toastMsg["textContent"] = msg;
+    toastRes.classList.remove('color-green-light', 'color-red-light', 'color-white');
+    var color = res === 'Sukses' ? 'color-green-light' : res === 'Error' ? 'color-red-light' : 'color-white';
+    toastRes.classList.add(color);
     toastID.show();
+    var soundId = 'sound-' + res.toLowerCase();
+    var sound = document.getElementById(soundId);
+    if (sound) {
+        sound.currentTime = 0;
+        sound.play().catch(err => console.log("Sound error:", err));
+    }
+
 }

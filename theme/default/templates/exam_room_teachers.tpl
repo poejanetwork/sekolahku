@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			btnPause.classList.add('d-none');
 			btnStop.classList.add('d-none');
 			btnOut.classList.remove('d-none');
-		} else if (newStatus.toLowerCase() === 'not_yet') {
+		} else if (newStatus.toLowerCase() === 'ready') {
 			examStatusElem.classList.add('color-red-dark');
 			btnStart.classList.remove('d-none');
 		}

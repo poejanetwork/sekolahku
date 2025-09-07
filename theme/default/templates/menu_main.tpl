@@ -15,7 +15,7 @@
         </a>
         <a id="nav-welcome" href='{"?p=profil"|surl}'>
             <i class="fa fa-school color-yellow-dark"></i>
-            <span>{$lang.profile}</span>
+            <span>{$lang.school_profile}</span>
             <i class="fa fa-circle"></i>
         </a>
         <a href='{"?p=support"|surl}'>

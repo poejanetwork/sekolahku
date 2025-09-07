@@ -94,7 +94,7 @@
 	</div>
 	<div class="input-style has-borders no-icon input-style-active mt-2">
 		<select id="special_treatment_id" name="special_treatment_id" class="form-control validate-text" >
-			<option value="">Tidak Ada</option>
+			<option value="0">Tidak Ada</option>
 			{foreach from=$allSpecialNeeds key=key item=asn}
 			<option value="{$key}" {if $key==$account_edit.special_treatment_id}selected{/if}>{$asn}</option>
 			{/foreach}
@@ -172,7 +172,7 @@
 	</div>
 	<div class="input-style has-borders no-icon input-style-active mt-2">
 		<select id="parents_father_job_id" name="parents_father_job_id" class="form-control validate-text" >
-			<option value="">Tidak Ada</option>
+			<option value="0">Tidak Ada</option>
 			{foreach from=$allEmployements key=key item=ae}
 			<option value="{$key}" {if $key==$account_edit.parents_father_job_id}selected{/if}>{$ae}</option>
 			{/foreach}
@@ -192,7 +192,7 @@
 	</div>
 	<div class="input-style has-borders no-icon input-style-active mt-2">
 		<select id="parents_mother_job_id" name="parents_mother_job_id" class="form-control validate-text" >
-			<option value="">Tidak Ada</option>
+			<option value="0">Tidak Ada</option>
 			{foreach from=$allEmployements key=key item=ae}
 			<option value="{$key}" {if $key==$account_edit.parents_mother_job_id}selected{/if}>{$ae}</option>
 			{/foreach}

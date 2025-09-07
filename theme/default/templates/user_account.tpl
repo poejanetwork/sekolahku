@@ -77,6 +77,14 @@
 					<p class="font-13 font-500 mb-n1 mt-2 color-theme">{$lang.schedule}</p>
 				</div>
 			</a>
+			<a href='{"?p=attendance"|surl}' class="col-4">
+				<div class="card card-style text-center py-3 mx-0 mb-0">
+					<i class="fa fa-user-md font-24 color-instagram opacity-60"></i>
+					<p class="font-13 font-500 mb-n1 mt-2 color-theme">{$lang.attendance}</p>
+				</div>
+			</a>
+		</div>
+		<div class="row">
 			<a href='{"?p=voting"|surl}' class="col-4">
 				<div class="card card-style text-center py-3 mx-0 mb-0">
 					<i class="fa fa-tasks font-24 color-green-dark opacity-60"></i>
@@ -162,9 +170,8 @@
 <script>
 const userId = "{/literal}{$user.id}{literal}";
 const userType = "{/literal}{$user.login_as}{literal}";
-if (!window.hasSentLogin) {
-    window.hasSentLogin = true;
-    AndroidInterface.onLoginSuccess(userId,userType);
+if (typeof AndroidInterface !== "undefined" && AndroidInterface.onLoginSuccess) {
+    AndroidInterface.onLoginSuccess(userId, userType);
 }
 </script>
 {/literal}

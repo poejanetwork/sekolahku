@@ -55,8 +55,29 @@
     </div>
 </div>
 
+<div class="card entered loaded">
+	<div class="card-body pt-4">
+		<h4 class="color-white mb-0">Total Jumlah {$exam_questions|count} Soal</h4>
+		<p class="color-white mb-3 font-12">
+			Detail rincian soal per level
+		</p>
+		<div class="list-group list-boxes">
+			{foreach $exam_questions_per_level as $level => $jumlah}
+			<a href="#" class="bg-white border border-light rounded-s shadow-xs">
+				
+				<span>Level {$level}</span>
+				<strong>{$jumlah} Soal</strong>
+				<u class="color-green-dark">SOAL</u>
+				<i class="fa fa-book color-green-dark"></i>
+			</a>
+			{/foreach}	
+		</div>
+	</div>
+	<div class="card-overlay bg-highlight opacity-90"></div>
+	<div class="card-overlay dark-mode-tint"></div>
+</div>
+
 <div class="content">
-	<h5 class="font-16 font-500 text-center">Jumlah  {$exam_questions|count} Soal</h5>
 {foreach from=$exam_questions item=item name=p}
 <div class="bg-white card-style mb-3 mx-0 border-2 border-start border-primary">
 	<div class="d-flex pt-1 pb-1">
@@ -69,16 +90,28 @@
 			<h6 class="color-theme font-600">{$item.question_text}</h6>
 		</div>
 	</div>
+	<div class="text-center">
+		<img data-src="{$item.question_image}" class="preload-img owl-lazy img-fluid w-50 zoom-on-click" style="cursor: zoom-in;" loading="lazy">
+	</div>
 	<div class="content mb-2 mt-1">
 		<div class="d-flex">
 			<div class="w-100 align-self-center ps-3">
-				<h6 class="font-14 {if $item.option_a|lower|trim == $item.correct_answer|lower|trim}font-500 color-green-dark{else}font-400{/if}">A.<span class="ms-1">{$item.option_a}</span></h6>
+				{if $item.question_type=="true_false"}
+				<h6 class="font-14 {if in_array('benar', $item.correct_answer_array)}font-500 color-green-dark{else}font-400{/if}"><span class="ms-1">Benar</span></h6>
 				<div class="divider mb-2 mt-1"></div>
-				<h6 class="font-14 {if $item.option_b|lower|trim == $item.correct_answer|lower|trim}font-500 color-green-dark{else}font-400{/if}">B.<span class="ms-1">{$item.option_b}</span></h6>
+				<h6 class="font-14 {if in_array('salah', $item.correct_answer_array)}font-500 color-green-dark{else}font-400{/if}"><span class="ms-1">Salah</span></h6>
+				{elseif $item.question_type=="essay"}
 				<div class="divider mb-2 mt-1"></div>
-				<h6 class="font-14 {if $item.option_c|lower|trim == $item.correct_answer|lower|trim}font-500 color-green-dark{else}font-400{/if}">C.<span class="ms-1">{$item.option_c}</span></h6>
+				<h6 class="font-14 font-400"><span class="ms-1">{$item.correct_answer}</span></h6>
+				{else}
+				<h6 class="font-14 {if in_array('a', $item.correct_answer_array)}font-500 color-green-dark{else}font-400{/if}">A.<span class="ms-1">{$item.option_a}</span></h6>
 				<div class="divider mb-2 mt-1"></div>
-				<h6 class="font-14 {if $item.option_d|lower|trim == $item.correct_answer|lower|trim}font-500 color-green-dark{else}font-400{/if}">D.<span class="ms-1">{$item.option_d}</span></h6>
+				<h6 class="font-14 {if in_array('b', $item.correct_answer_array)}font-500 color-green-dark{else}font-400{/if}">B.<span class="ms-1">{$item.option_b}</span></h6>
+				<div class="divider mb-2 mt-1"></div>
+				<h6 class="font-14 {if in_array('c', $item.correct_answer_array)}font-500 color-green-dark{else}font-400{/if}">C.<span class="ms-1">{$item.option_c}</span></h6>
+				<div class="divider mb-2 mt-1"></div>
+				<h6 class="font-14 {if in_array('d', $item.correct_answer_array)}font-500 color-green-dark{else}font-400{/if}">D.<span class="ms-1">{$item.option_d}</span></h6>
+				{/if}
 			</div>
 		</div>      
 		<div class="divider mt-2 mb-3"></div>
@@ -131,6 +164,7 @@
 
 		</div>
 	<a href='{"?p=exam_questions&edit={$item.id}"|surl}' class="btn btn-xxs mb-3 rounded-s text-uppercase font-900 shadow-s border-blue-dark float-end bg-blue-light">Edit</a>  
+	<a href='javascript:void(0)' class="btn btn-xxs mb-3 me-2 rounded-s text-uppercase font-900 shadow-s border-green-dark float-end bg-green-light">{$item.question_type}</a> 
 	</div>          
 </div>
 {/foreach}
@@ -138,6 +172,24 @@
 
 {include file="footer.tpl"}
 {literal}
+<style>
+.zoom-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1050;
+}
+.zoom-overlay img {
+    max-width: 95%;
+    max-height: 95%;
+    border-radius: 10px;
+}
+</style>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     var examUpdateQuestionUrl = '{/literal}{"?p=exam_questions&update={$user.id}"|surl}{literal}';
@@ -174,6 +226,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 		});
     });
+
+	document.addEventListener("click", function(e) {
+		if (e.target.classList.contains("zoom-on-click")) {
+			const src = e.target.src;
+			const overlay = document.createElement("div");
+			overlay.classList.add("zoom-overlay");
+			overlay.innerHTML = `<img src="${src}">`;
+			document.body.appendChild(overlay);
+			overlay.addEventListener("click", () => overlay.remove());
+		}
+	});
+
 });
 </script>
 {/literal}

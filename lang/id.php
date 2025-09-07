@@ -8,6 +8,8 @@ $lang = array(
     // Index
 
     // menu
+    "absence" => "Ketidakhadiran",
+    "attendance" => "Kehadiran",
     "bind_telegram" => "Ikat Akun Telegram",
     "bukusaku" => "Buku Saku",
     "back" => "Kembali",
@@ -34,10 +36,14 @@ $lang = array(
     "notes" => "Catatan",
     "parents" => "Orang Tua",
     "profile" => "Profil",
+    "piket" => "Piket",
+    "school_profile" => "Profil Sekolah",
     "rules" => "Aturan",
     "register" => "Daftar Baru",
     "schedule" => "Jadwal",
     "lesson" => "Pelajaran",
+    "subjects" => "Mata Pelajaran",
+    "skills" => "Keahlian",
     "save" => "Simpan",
     "security" => "Keamanan",
     "support" => "Dukungan",
@@ -89,13 +95,19 @@ $lang = array(
     "nis" => "NIS",
     "nisn" => "NISN",
     "nip" => "NIP",
+    "niy" => "NIY",
     "nik" => "NIK",
+    "nuptk" => "NUPTK",
+    "npwp" => "NPWP",
     "settings" => "Pengaturan",
     "login_google" => "Masuk dengan Google",
     "register_google" => "Daftar dengan Google",
     "register_date" => "Tanggal Registrasi",
     "last_access" => "Akses terakhir",
     "phone_number" => "Nomor Handphone",
+    "marriage_status" => "Status Perkawinan",
+    "spouse_name" => "Nama Pasangan",
+    "spouse_job" => "Pekerjaan Pasangan",
 
     // Account Edit
     "change_avatar" => "Ubah Avatar Akun",
@@ -234,6 +246,7 @@ $lang = array(
 
     // pagename
     "pagename_account" => "Akun",
+    "pagename_edit_account" => "Edit Akun",
     "pagename_alumni" => "Alumni",
     "pagename_bind_telegram" => "Tautkan telegram",
     "pagename_classes" => "Kelas",
@@ -257,6 +270,8 @@ $lang = array(
     "pagename_schedule" => "Jadwal",
     "pagename_teachers" => "Pengajar",
     "pagename_profil" => "Profil",
+    "pagename_piket" => "Piket",
+    "pagename_attendance" => "Daftar Hadir",
     "pagename_ppdb" => "Penerimaan Peserta Didik Baru",
     "pagename_page_not_found" => "Halaman tidak ditemukan",
     "pagename_security" => "Keamanan Akun",

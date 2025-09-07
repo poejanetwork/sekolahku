@@ -6,26 +6,38 @@
 	</div>
 	<div class="card-overlay bg-black opacity-90"></div>
 </div>
-<div class="content">
-    {foreach from=$list_classes item=item name=p}
-    <a href='{"?p=classes&{$item.id}"|surl}' class="card card-style mb-3 mx-0">
-        <div class="d-flex pt-3 pb-3">
-            <div class="ps-3 ms-2 align-self-center">
-                <h1 class="center-text mb-0 pt-2">
-                    {$smarty.foreach.p.iteration}
-                </h1>
-            </div>
-            <div class="align-self-center mt-1 ps-4">
-                <h4 class="color-theme font-600">{$item.class_name}</h4>
-                <p class="mt-n2 font-11 color-highlight mb-0">
-                    Walas: {$item.teacher_name}
-                </p>
-            </div>
-            <div class="ms-auto align-self-center me-3">
-                <span class="badge {cycle values="bg-green-dark,bg-orange-dark"} color-white font-11 font-500 py-1 px-2">{$item.total_students} Siswa</span>
-            </div>
-        </div>
-    </a>
-    {/foreach}
+
+{foreach from=$list_classes_by_level item=items key=key}
+<div class="content mb-2">
+    <h5 class="float-start font-16 font-500">{$lang.class} {$lang.level} {$key}</h5>
+    <div class="clearfix"></div>
 </div>
+<div class="splide single-slider slider-no-arrows slider-no-dots homepage-slider splide--loop splide--ltr splide--draggable is-active mb-4" id="single-slider-{$key}" style="visibility: visible;">
+    <div class="splide__track">
+        <div class="splide__list">
+            {foreach from=$items item=item}
+            <div class="splide__slide">
+                <div data-card-width="300" class="mx-3 rounded-l shadow-l">
+                <div class="bg-theme rounded-m shadow-m p-3">
+                    <p class="font-16 font-700 mb-1">{$item.class_name}</p>
+                    <div class="w-100 align-self-center pb-3">
+                        <h6 class="font-14 font-500"><i class="fa fa-flag color-yellow-dark pe-2 pt-2 font-13"></i> Walas<span class="float-end">{$item.teacher_name}</span></h6>
+                        <div class="divider mb-2 mt-1"></div>
+                        <h6 class="font-14 font-500"><i class="fa fa-users color-dark pe-2 pt-2 font-13"></i> Jumlah Siswa<span class="float-end">{$item.total_students} Orang</span></h6>
+                    </div>
+                    <div class="d-block">
+                        <a href='{"?p=classes&{$item.id}"|surl}' class="btn bg-secondary btn-s text-uppercase font-900 rounded-s shadow-xl me-1">Detail</a>
+                        {if $item.walas}<a href='{"?p=classes&{$item.id}&attendance"|surl}' class="btn bg-primary btn-s text-uppercase font-900 rounded-s shadow-xl">Presensi</a>{/if}
+                        
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+            {/foreach}
+        </div>
+    </div>
+</div>
+{/foreach}
+
 {include file="footer.tpl"}

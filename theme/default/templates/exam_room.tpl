@@ -69,6 +69,25 @@
 {include file="footer_exam.tpl"}
 <div id="pageOverlay" class="d-none" style="position:fixed; top:0; left:0; width:100vw; height:100vh; background-color:rgba(0,0,0,0.6); z-index:9999;"></div>
 {literal}
+
+<style>
+.zoom-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1050;
+}
+.zoom-overlay img {
+    max-width: 95%;
+    max-height: 95%;
+    border-radius: 10px;
+}
+</style>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     var examRoomId = '{/literal}{$examroom.id}{literal}';
@@ -84,10 +103,9 @@ document.addEventListener('DOMContentLoaded', function () {
 	var majorId = document.getElementById('major_id');
 	var checkstartTime = localStorage.getItem('examStartTime');
 	var checkduration = parseInt(localStorage.getItem('examDuration')); // dalam detik
-	var storedQuestionOrder = localStorage.getItem('questionOrder');
     var examStatusElem = document.getElementById('examStatus');
 	var roomCode = document["getElementById"]('room_code');
-    var mainUrl = '{/literal}{$settings.siteurl}{literal}';
+    var mainUrl = '{/literal}{"?p=account"|surl}{literal}';
     var heartBeatUrl = '{/literal}{"?p=exam&heartbeat={$user.id}"|surl}{literal}';
     var studentViolationUrl = '{/literal}{"?p=exam&violation={$user.id}"|surl}{literal}';
     var studentViolationUjian = document.getElementById('user_violation');
@@ -99,13 +117,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	function updateStatusTextAndClass(newStatus, studentStatus) {
 		if (!examStatusElem) return;
-		
+
 		examStatusElem.classList.remove('color-green-light', 'color-yellow-dark', 'color-red-dark');
 		examStatusElem.textContent = newStatus.toUpperCase();
 		var studentStatusRes = studentStatus.data.status;
 		studentViolationUjian.textContent = studentStatus.data.exam_violation;
 
-		if (newStatus.toLowerCase() === 'not_yet') {
+		if (newStatus.toLowerCase() === 'ready') {
         	// Semua tombol tetap tersembunyi
 			ujianDimulai = false;
 		} else if (newStatus.toLowerCase() === 'pending') {
@@ -146,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			btnStartUjian.classList.add('d-none');
 			btnStopUjian.classList.add('d-none');
 			examQuestionsContainer.classList.add('d-none');
-			loaderMessageElem.innerHTML = '<i class="fa fa-spinner fa-spin fa-pulse color-dark-dark"></i> Pengawas menutup sesi ujian...';
+			loaderMessageElem.innerHTML = '<i class="fa fa-spinner fa-spin fa-pulse color-dark-dark"></i> Pengawas menutup sesi ujian. Mohon menunggu...';
 			ujianDimulai = true;
 			setTimeout(() => window.location.href = mainUrl, 5000);
 		}
@@ -309,6 +327,7 @@ document.addEventListener('DOMContentLoaded', function () {
 					}
 
 					questionElem2.addEventListener('click', () => {
+						preloader.classList.remove('preloader-hide');
 						openQuestionModal(questionId, answersKeyed);
 					});
 
@@ -372,6 +391,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		const modalBody = document.getElementById('questionModalBody');
 		modalBody.innerHTML = ''; // Kosongkan dulu
 		let questionOrder = [];
+		var storedQuestionOrder = localStorage.getItem('questionOrder');
 		if (storedQuestionOrder) {
 			questionOrder = JSON.parse(storedQuestionOrder);
 		}
@@ -379,6 +399,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		// Cari nomor urut soal berdasarkan id soal
 		const questionNumber = questionOrder.indexOf(question.id) >= 0 ? questionOrder.indexOf(question.id) + 1 : 0;
 
+    	// Ambil jawaban siswa (jika ada)
 		const studentAnswer = answersKeyed[question.id] || null;
 
 		// Tampilkan teks soal
@@ -386,24 +407,77 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		// Tampilkan gambar (jika ada)
 		if (question.question_image) {
-			html += `<img src="${question.question_image}" alt="Gambar Soal" class="img-fluid mb-3">`;
+			html += `<img data-src="${question.question_image}" alt="Gambar Soal" class="preload-img owl-lazy img-fluid mb-3 zoom-on-click" style="cursor: zoom-in;" loading="lazy">`;
 		}
 
-		// Tampilkan pilihan jawaban (asumsikan tipe choice)
-		const options = ['option_a', 'option_b', 'option_c', 'option_d'];
+		// Mulai form jawaban
 		html += '<form id="formAnswer">';
-		options.forEach((opt, idx) => {
-			if (question[opt]) {
-      			const checked = studentAnswer === question[opt] ? 'checked' : '';
+
+		// Menentukan tipe soal
+		const options = ['option_a', 'option_b', 'option_c', 'option_d'];
+		const type = question.question_type;
+		
+		if (type === 'choice') {
+			// === 1. PILIHAN GANDA (SATU JAWABAN) ===
+			const optionKeys = ['a', 'b', 'c', 'd'];
+
+			optionKeys.forEach((key, idx) => {
+				const opt = 'option_' + key;
+				if (question[opt]) {
+					const checked = studentAnswer === key ? 'checked' : '';
+					html += `
+					<div class="form-check icon-check">
+						<input class="form-check-input" type="radio" name="answer" id="answer${idx}" value="${key}" ${checked}>
+						<label class="form-check-label" for="answer${idx}">${question[opt]}</label>
+						<i class="icon-check-1 far fa-square color-gray-dark font-16"></i>
+						<i class="icon-check-2 far fa-check-square font-16 color-highlight"></i>
+					</div>`;
+				}
+			});
+		} else if (type === 'multiple_choice') {
+			const studentAnswersArray = Array.isArray(studentAnswer)
+				? studentAnswer
+				: typeof studentAnswer === 'string'
+					? studentAnswer.split(',')
+					: [];
+
+			const optionKeys = ['a', 'b', 'c', 'd'];
+
+			optionKeys.forEach((optKey, idx) => {
+				if (question['option_' + optKey]) {
+					const checked = studentAnswersArray.includes(optKey) ? 'checked' : '';
+					html += `
+					<div class="form-check icon-check">
+						<input class="form-check-input" type="checkbox" name="answer[]" id="answer${idx}" value="${optKey}" ${checked}>
+						<label class="form-check-label" for="answer${idx}">${question['option_' + optKey]}</label>
+						<i class="icon-check-1 far fa-square color-gray-dark font-16"></i>
+						<i class="icon-check-2 far fa-check-square font-16 color-highlight"></i>
+					</div>`;
+				}
+			});
+		} else if (type === 'true_false') {
+			// === 3. BENAR / SALAH ===
+			const tfOptions = ['benar', 'salah'];
+			tfOptions.forEach((opt, idx) => {
+				const checked = studentAnswer === opt ? 'checked' : '';
 				html += `
 				<div class="form-check icon-check">
-					<input class="form-check-input" type="radio" name="answer" id="answer${idx}" value="${question[opt]}" ${checked}>
-					<label class="form-check-label" for="answer${idx}">${question[opt]}</label>
+					<input class="form-check-input" type="radio" name="answer" id="answerTF${idx}" value="${opt}" ${checked}>
+					<label class="form-check-label" for="answerTF${idx}">${opt.charAt(0).toUpperCase() + opt.slice(1)}</label>
 					<i class="icon-check-1 far fa-square color-gray-dark font-16"></i>
-                    <i class="icon-check-2 far fa-check-square font-16 color-highlight"></i>
+					<i class="icon-check-2 far fa-check-square font-16 color-highlight"></i>
 				</div>`;
-			}
-		});
+			});
+
+		} else if (type === 'essay') {
+			// === 4. ESSAY ===
+			const currentAnswer = studentAnswer ? studentAnswer : '';
+			html += `
+			<div class="form-group">
+				<textarea name="answer" class="form-control" rows="5" placeholder="Tulis jawabanmu di sini...">${currentAnswer}</textarea>
+			</div>`;
+		}
+
 		html += '</form>';
 
 		modalBody.innerHTML = html;
@@ -411,21 +485,39 @@ document.addEventListener('DOMContentLoaded', function () {
 		// Simpan question id ke tombol save agar bisa kirim
 		const btnSave = document.getElementById('btnSaveAnswer');
 		btnSave.dataset.questionId = question.id;
+		btnSave.dataset.questionType = question.question_type;
+		preloader.classList.add('preloader-hide');
 	}
 
 	// simpan jawaban
 	document.getElementById('btnSaveAnswer').addEventListener('click', () => {
 	const baseAnswersUrl = '{/literal}{"?p=exam&save_answer&qid="|surl}{literal}';
     const questionId = document.getElementById('btnSaveAnswer').dataset.questionId;
+    const questionType = document.getElementById('btnSaveAnswer').dataset.questionType;
 	const AnswersIdUrl = baseAnswersUrl + encodeURIComponent(questionId);
     const form = document.getElementById('formAnswer');
     const formData = new FormData(form);
-    const answer = formData.get('answer');
+	let answer;
 
-    if (!answer) {
-		showAlert("Error",'Silakan pilih jawaban terlebih dahulu');
-        return;
-    }
+	// Kalau multiple_choice → ambil semua jawaban checkbox
+	if (questionType === 'multiple_choice') {
+		answer = formData.getAll('answer[]');  // <-- Ambil array jawaban
+		answer = answer.join(',')
+	} else {
+		answer = formData.get('answer'); // Single answer (choice, true_false, essay)
+	}
+
+	if (questionType === 'multiple_choice') {
+		if (!answer || answer.length === 0) {
+			showAlert("Error", 'Silakan pilih minimal satu jawaban');
+			return;
+		}
+	} else {
+		if (!answer || answer.trim() === '') {
+			showAlert("Error", 'Silakan pilih jawaban terlebih dahulu');
+			return;
+		}
+	}
 
     // Kirim jawaban ke server (kamu perlu participant_id dari sesi/user)
     fetch(AnswersIdUrl, {
@@ -470,6 +562,7 @@ document.addEventListener('DOMContentLoaded', function () {
     async function updateExamStatus() {
 		// Cek status user
 		const studentResult = await checkStudentExamRoom();
+		
         // Kirim update ke server via AJAX (fetch)
         fetch(checkStatusExamRoomUrl, {
             method: 'POST',
@@ -576,9 +669,21 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	});
 	
-	if (checkstartTime && checkduration && storedQuestionOrder) {
+	var firststoredQuestionOrder = localStorage.getItem('questionOrder');
+	if (checkstartTime && checkduration && firststoredQuestionOrder) {
 		fetchAndShowExamQuestions();
 	}
+
+	document.addEventListener("click", function(e) {
+		if (e.target.classList.contains("zoom-on-click")) {
+			const src = e.target.src;
+			const overlay = document.createElement("div");
+			overlay.classList.add("zoom-overlay");
+			overlay.innerHTML = `<img src="${src}">`;
+			document.body.appendChild(overlay);
+			overlay.addEventListener("click", () => overlay.remove());
+		}
+	});
 });
 </script>
 {/literal}
