@@ -35,7 +35,6 @@
 		<div class="vcard-field lh-lg mt-1"><strong class="font-12 text-white">NIP</strong><a href="javascript:void(0)">{$user.nip}</a><i class="fa fa-id-card color-white opacity-75"></i></div>
 		<div class="vcard-field lh-lg mt-1"><strong class="font-12 text-white">{$lang.fullname} / Kode</strong><a href="javascript:void(0)">{$user.fullname} / {$user.username|strtoupper}</a><i class="fa fa-user color-white opacity-75"></i></div>
 		<div class="vcard-field lh-lg mt-1"><strong class="font-12 text-white">Mata Pelajaran</strong><a href="javascript:void(0)">{$user.major_name|ucfirst}</a> <i class="fa fa-book color-white opacity-75"></i></div>
-		<div class="vcard-field lh-lg mt-1"><strong class="font-12 text-white">Tempat / Tanggal Lahir</strong><a href="javascript:void(0)">{$user.birthday_place|ucfirst} / {$user.birthday}</a><i class="fa fa-map-marker-alt color-white opacity-75"></i></div>
 		<div class="vcard-field lh-lg mt-1 border-0"><strong class="font-12 text-white">Phone</strong><a href="tel:{$user.phone}">+{$user.phone}</a><i class="fa fa-phone color-white opacity-75"></i></div>
 	</div>
 

@@ -58,7 +58,7 @@
 {/foreach}
 
 {* Set total pemilih tetap *}
-{assign var="totalPemilih" value=973}
+{assign var="totalPemilih" value=1046}
 
 {* Hitung total belum memilih *}
 {math assign="totalBelumMemilih" equation="x - y" x=$totalPemilih y=$totalSudahMemilih}
@@ -74,7 +74,7 @@
   <div class="content">
       <h4 class="text-center">Real Quick Count</h4>
       <p class="mt-n2 color-highlight text-center mb-2">Perhitungan kandidat</p>
-      <h3 class="text-center"><span id="totaljumlahsuaramasuk1">{$persenSuaraMasuk}</span>% Persen jumlah suara masuk</h3>
+      <h3 class="text-center"><span id="totaljumlahsuaramasuk1">{$persenSuaraMasuk}</span>% jumlah suara masuk</h3>
       <div class="progress rounded-sm shadow-xl border border-fade-green-dark" style="height:28px">
           <div id="totaljumlahsuaramasuk2" 
                class="progress-bar bg-green-dark text-start ps-3 color-white" 
@@ -197,7 +197,7 @@ function reloadQuickCount() {
     });
 
     // Total pemilih tetap
-    const totalPemilih = 973;
+    const totalPemilih = 1046;
 
     // Hitung total belum memilih
     const totalBelumMemilih = totalPemilih - totalSudahMemilih;

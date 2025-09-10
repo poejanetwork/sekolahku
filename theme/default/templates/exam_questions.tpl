@@ -97,9 +97,9 @@
 		<div class="d-flex">
 			<div class="w-100 align-self-center ps-3">
 				{if $item.question_type=="true_false"}
-				<h6 class="font-14 {if in_array('benar', $item.correct_answer_array)}font-500 color-green-dark{else}font-400{/if}"><span class="ms-1">Benar</span></h6>
+				<h6 class="font-14 {if in_array('benar', $item.correct_answer_array)}font-500 color-green-dark{else}font-400{/if}"><span class="ms-1">A. Benar</span></h6>
 				<div class="divider mb-2 mt-1"></div>
-				<h6 class="font-14 {if in_array('salah', $item.correct_answer_array)}font-500 color-green-dark{else}font-400{/if}"><span class="ms-1">Salah</span></h6>
+				<h6 class="font-14 {if in_array('salah', $item.correct_answer_array)}font-500 color-green-dark{else}font-400{/if}"><span class="ms-1">B. Salah</span></h6>
 				{elseif $item.question_type=="essay"}
 				<div class="divider mb-2 mt-1"></div>
 				<h6 class="font-14 font-400"><span class="ms-1">{$item.correct_answer}</span></h6>

@@ -44,7 +44,7 @@
 				</h1>
 			</div>
 			<div class="align-self-center mt-1 ps-4">
-				<h4 class="color-theme font-600">Tahun Pelajaran {$ac_year}</h4>
+				<h4 class="color-theme font-600">Tahun Ajaran {$ac_year}</h4>
 				<p class="mt-n2 font-11 color-highlight mb-0">
 					{foreach from=$semester_list item=details key=semester}
 						Semester {$semester}
@@ -52,7 +52,7 @@
 				</p>
 			</div>
 			<div class="ms-auto align-self-center me-3">
-				<span class="btn bg-green-dark color-white font-11 font-500 py-1 px-2 accordion-btn no-effect" data-bs-toggle="collapse" data-bs-target="#collapse{$smarty.foreach.loopname.index}">Lihat Hasil <i class="fa fa-arrow-down font-10"></i></span>
+				<span class="btn bg-green-dark color-white font-11 font-500 py-1 px-2 accordion-btn no-effect" data-bs-toggle="collapse" data-bs-target="#collapse{$smarty.foreach.loopname.index}">Hasil <i class="fa fa-arrow-down font-10"></i></span>
 			</div>
 		</div>
 	</div>

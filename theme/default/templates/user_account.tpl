@@ -25,20 +25,59 @@
 </p>
 </div>
 {/if}
-<div class="card bg-smataryellow mt-4 content rounded-m shadowl">
-	<div class="card-body">
-		<h4 class="color-white">Kartu Tanda Siswa</h4>
 
-	<div class="content m-0 mt-3">
-		<div class="vcard-field lh-lg mt-1"><strong class="font-12 text-white">NIS/NISN</strong><a href="javascript:void(0)">{$user.nis}/{$user.nisn}</a><i class="fa fa-id-card color-white opacity-75"></i></div>
-		<div class="vcard-field lh-lg mt-1"><strong class="font-12 text-white">{$lang.fullname}</strong><a href="javascript:void(0)">{$user.fullname}</a><i class="fa fa-user color-white opacity-75"></i></div>
-		<div class="vcard-field lh-lg mt-1"><strong class="font-12 text-white">Tempat/Tanggal Lahir</strong><a href="javascript:void(0)">{$user.birthday_place} / {$user.birthday|date_format:"%e %B %Y"}</a><i class="fa fa-map-marker-alt color-white opacity-75"></i></div>
-		<div class="vcard-field lh-lg mt-1 border-0"><strong class="font-12 text-white">Phone</strong><a href="tel:{$user.phone}">+{$user.phone}</a><i class="fa fa-phone color-white opacity-75"></i></div>
+<div class="card card-style">
+	<div class="content">
+		<div class="d-flex">
+			<div class="text-center">
+				<img src='{$user.avatar|default:"{$settings.siteurl}/theme/default/assets/images/avatars/default_avatar.png"}' width="50" class="mx-2 bg-highlight rounded-xl d-block">
+			</div>
+			<div>
+				<h2 class="mb-0 pt-1">{$user.fullname}</h2>
+				<p class="font-11 mt-n0 color-highlight">{$user.email}</p>
+			</div>
+		</div>
 	</div>
+</div>
 
-	</div>
-	<div class="card-overlay gradient-teal opacity-95 rounded-m shadow-l"></div>
-	<div class="card-overlay dark-mode-tint rounded-m shadow-l"></div>
+
+<div class="card card-style bg-theme pb-0">
+	<div class="content" id="tab-group-2">
+		<div class="tab-controls tabs-small tabs-rounded" data-highlight="bg-teal-dark">
+			<a href="#" data-active="" data-bs-toggle="collapse" data-bs-target="#data-identitas" class="bg-teal-dark no-click">Identitas</a>
+			<a href="#" data-bs-toggle="collapse" data-bs-target="#data-profile">Profile</a>
+			<a href="#" data-bs-toggle="collapse" data-bs-target="#data-lain">Ortu/Wali</a>
+		</div>
+		<div class="clearfix mb-3"></div>
+		<div data-bs-parent="#tab-group-2" class="collapse show" id="data-identitas">
+			<div class="content m-0 mt-3">
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">Kelas</strong><a href="javascript:void(0)">{$user.class_name}</a><i class="fa fa-id-badge color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">NIS</strong><a href="javascript:void(0)">{$user.nis}</a><i class="fa fa-id-card color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">NISN</strong><a href="javascript:void(0)">{$user.nisn}</a><i class="fa fa-id-card color-teal-dark opacity-75"></i></div>
+			</div>
+		</div>
+		<div data-bs-parent="#tab-group-2" class="collapse" id="data-profile">
+			<div class="content m-0 mt-3">
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.religion}</strong><a href="javascript:void(0)">{$user.religion_name}</a><i class="fa fa-id-badge color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.sex}</strong><a href="javascript:void(0)">{if $user.sex=="L"}Laki-laki{else}Perempuan{/if}</a><i class="fa fa-venus-mars color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">Tempat / Tanggal Lahir</strong><a href="javascript:void(0)">{$user.birthday_place} / {$user.birthday|date_format:"%e %B %Y"}</a><i class="fa fa-map-marker-alt color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">Email</strong><a href="mailto:{$user.email}">{$user.email}</a><i class="fa fa-envelope color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">No. HP</strong><a href="tel:{$user.phone}">+{$user.phone}</a><i class="fa fa-phone color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">Alamat</strong><a href="javascript:void(0)">{$user.address_user} RT.{$user.rt} RW.{$user.rw} Dusun {$user.sub_village} Desa {$user.village} Kec. {$user.sub_district} Kota/Kab. {$user.district} Kode Pos {$user.postal_code}</a><i class="fa fa-address-card color-teal-dark opacity-75"></i></div>
+			</div>
+		</div>
+		<div data-bs-parent="#tab-group-2" class="collapse" id="data-lain">
+			<div class="content m-0 mt-3">
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.parents_father_name}</strong><a href="javascript:void(0)">{$user.parents_father_name}</a><i class="fa fa-id-card color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.parents_father_job}</strong><a href="javascript:void(0)">{$user.parents_father_job_name}</a><i class="fa fa-id-card-alt color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.parents_father_phone}</strong><a href="tel:{$user.parents_father_phone}">+{$user.parents_father_phone}</a><i class="fa fa-phone color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.parents_mother_name}</strong><a href="javascript:void(0)">{$user.parents_mother_name}</a><i class="fa fa-id-card color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.parents_mother_job}</strong><a href="javascript:void(0)">{$user.parents_mother_job_name}</a><i class="fa fa-id-card-alt color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.parents_mother_phone}</strong><a href="tel:{$user.parents_mother_phone}">+{$user.parents_mother_phone}</a><i class="fa fa-phone color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.address_parents}</strong><a href="javascript:void(0)">{$user.address_parent}</a><i class="fa fa-address-card color-teal-dark opacity-75"></i></div>
+			</div>
+		</div>
+	</div>    
 </div>
 
 <div class="content px-0 card-body py-0">
@@ -117,28 +156,6 @@
 		<p>
 			<i class="fa fa-map-marker-alt"></i> {$settings.school_address}
 		</p>
-	</div>
-</div>
-        
-<div class="card-body py-0 d-none">
-	<div class="content m-0">
-	    
-        <div class="d-flex">
-            <div>
-                <p class="mb-n1 font-10">Our Company Ratings</p>
-                <h6 class="float-left">4.9</h6>
-                <i class="float-left color-yellow1-dark pt-1 pl-2 fa fa-star"></i>
-                <i class="float-left color-yellow1-dark pt-1 fa fa-star"></i>
-                <i class="float-left color-yellow1-dark pt-1 fa fa-star"></i>
-                <i class="float-left color-yellow1-dark pt-1 fa fa-star"></i>
-                <i class="float-left color-yellow1-dark pt-1 fa fa-star"></i>
-            </div>
-            <div class="ml-auto">
-                <a class="icon icon-s mt-2 mr-2 rounded-m bg-red2-dark color-white" href="#" data-menu="menu-video"><i class="fa fa-video"></i></a>
-                <a data-menu="menu-tips-1" class="icon icon-s mt-2 rounded-m bg-highlight color-white" href="#"><i class="fa fa-images"></i></a>
-            </div>
-        </div>
-		
 	</div>
 </div>
 

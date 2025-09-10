@@ -14,6 +14,7 @@ Aplikasi ini menawarkan antarmuka yang ramah pengguna untuk menangani berbagai d
 
 ## Fitur Utama
 
+- TERINTEGRASI DENGAN DATA DAPODIK
 - Data Siswa: Kelola data siswa dengan mudah, tambah, edit, dan hapus secara praktis.
 - Data Guru: Simpan profil lengkap guru beserta riwayat kerja.
 - Data Induk Sekolah: Dokumentasikan informasi umum dan latar belakang sekolah.

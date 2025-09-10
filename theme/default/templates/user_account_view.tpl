@@ -5,11 +5,12 @@
 		<div class="d-flex">
 			<div class="text-center">
 				<img src='{$account_view.avatar|default:"{$settings.siteurl}/theme/default/assets/images/avatars/default_avatar.png"}' width="50" class="mx-2 bg-highlight rounded-xl d-block">
-				{if $account_view.editable}<a class="badge text-uppercase px-1 py-1 bg-blue-dark" href='{"?p=account_edit&id={$account_view.id}"|surl}'>edit</a>{/if}
 			</div>
-			<div>
-				<h2 class="mb-0 pt-1">{$account_view.fullname}</h2>
-				<p class="font-11 mt-n0 color-highlight">{$account_view.email}</p>
+			<div class="align-self-center ps-1 mx-auto w-100">
+				<h5 class="mb-0 pt-1">{$account_view.fullname}</h5>
+				<div class="font-11 mt-n0 color-highlight">{$lang.nisn}: {$account_view.nisn} 
+					{if $account_view.editable}<a class="badge text-uppercase px-1 py-1 bg-blue-dark float-end" href='{"?p=account_edit&id={$account_view.id}"|surl}'>edit</a>{/if}
+				</div>
 			</div>
 		</div>
 	</div>
@@ -20,7 +21,8 @@
 		<div class="tab-controls tabs-small tabs-rounded" data-highlight="bg-teal-dark">
 			<a href="#" data-active="" data-bs-toggle="collapse" data-bs-target="#data-identitas" class="bg-teal-dark no-click">Identitas</a>
 			<a href="#" data-bs-toggle="collapse" data-bs-target="#data-profile">Profile</a>
-			<a href="#" data-bs-toggle="collapse" data-bs-target="#data-lain">{if $account_view.parents_type==1}Ortu{else}Wali{/if}</a>
+			<a href="#" data-bs-toggle="collapse" data-bs-target="#data-ortu">{if $account_view.parents_type}Orang Tua{else}Wali{/if}</a>
+			<a href="#" data-bs-toggle="collapse" data-bs-target="#data-lain" class="collapsed" aria-expanded="false">Lainnya</a>
 		</div>
 		<div class="clearfix mb-3"></div>
 		<div data-bs-parent="#tab-group-2" class="collapse show" id="data-identitas">
@@ -32,29 +34,51 @@
 		</div>
 		<div data-bs-parent="#tab-group-2" class="collapse" id="data-profile">
 			<div class="content m-0 mt-3">
-				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.religion}</strong><a href="javascript:void(0)">{$account_view.religion_name}</a><i class="fa fa-id-badge color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.religion}</strong><a href="javascript:void(0)">{$account_view.religion_id}</a><i class="fa fa-id-badge color-teal-dark opacity-75"></i></div>
 				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.sex}</strong><a href="javascript:void(0)">{if $account_view.sex=="L"}Laki-laki{else}Perempuan{/if}</a><i class="fa fa-venus-mars color-teal-dark opacity-75"></i></div>
 				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">Tempat / Tanggal Lahir</strong><a href="javascript:void(0)">{$account_view.birthday_place} / {$account_view.birthday|date_format:"%e %B %Y"}</a><i class="fa fa-map-marker-alt color-teal-dark opacity-75"></i></div>
-				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">Email</strong><a href="mailto:{$account_view.email}">{$account_view.email}</a><i class="fa fa-envelope color-teal-dark opacity-75"></i></div>
-				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">No. HP</strong><a href="tel:{$account_view.phone}">+{$account_view.phone}</a><i class="fa fa-phone color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.email}</strong><a href="mailto:{$account_view.email}">{$account_view.email}</a><i class="fa fa-envelope color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.mobile_phone}</strong><a href="tel:{$account_view.phone}">{$account_view.phone}</a><i class="fa fa-phone color-teal-dark opacity-75"></i></div>
+
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.weight}</strong><a href="javascript:void(0)">{$account_view.weight} Kg</a><i class="fa fa-id-card color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.height}</strong><a href="javascript:void(0)">{$account_view.height} Cm</a><i class="fa fa-id-card color-teal-dark opacity-75"></i></div>
+
 				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">Alamat</strong><a href="javascript:void(0)">{$account_view.address_user} RT.{$account_view.rt} RW.{$account_view.rw} Dusun {$account_view.sub_village} Desa {$account_view.village} Kec. {$account_view.sub_district} Kota/Kab. {$account_view.district} Kode Pos {$account_view.postal_code}</a><i class="fa fa-address-card color-teal-dark opacity-75"></i></div>
+			</div>
+		</div>
+		<div data-bs-parent="#tab-group-2" class="collapse" id="data-ortu">
+			<div class="content m-0 mt-3">
+				{if $account_view.parents_type}
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.parents_father_name}</strong><a href="javascript:void(0)">{$account_view.parents_father_name}</a><i class="fa fa-id-card color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.educations}</strong><a href="javascript:void(0)">{$account_view.parents_father_education_id}</a><i class="fa fa-id-card-alt color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.parents_father_job}</strong><a href="javascript:void(0)">{$account_view.parents_father_employment_id}</a><i class="fa fa-id-card-alt color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.parents_father_phone}</strong><a href="tel:{$account_view.parents_father_phone}">{$account_view.parents_father_phone}</a><i class="fa fa-phone color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.number} {$lang.nik}</strong><a href="javascript:void(0)">{$account_view.parents_father_nik}</a><i class="fa fa-id-card-alt color-teal-dark opacity-75"></i></div>
+
+				<div class="divider my-3"></div>
+
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.parents_mother_name}</strong><a href="javascript:void(0)">{$account_view.parents_mother_name}</a><i class="fa fa-id-card color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.educations}</strong><a href="javascript:void(0)">{$account_view.parents_mother_education_id}</a><i class="fa fa-id-card-alt color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.parents_mother_job}</strong><a href="javascript:void(0)">{$account_view.parents_mother_employment_id}</a><i class="fa fa-id-card-alt color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.parents_mother_phone}</strong><a href="tel:{$account_view.parents_mother_phone}">{$account_view.parents_mother_phone}</a><i class="fa fa-phone color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.number} {$lang.nik}</strong><a href="javascript:void(0)">{$account_view.parents_mother_nik}</a><i class="fa fa-id-card-alt color-teal-dark opacity-75"></i></div>
+				{else}
+				{/if}
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.address_parents}</strong><a href="javascript:void(0)">{$account_view.address_parent}</a><i class="fa fa-address-card color-teal-dark opacity-75"></i></div>
 			</div>
 		</div>
 		<div data-bs-parent="#tab-group-2" class="collapse" id="data-lain">
 			<div class="content m-0 mt-3">
-				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.parents_father_name}</strong><a href="javascript:void(0)">{$account_view.parents_father_name}</a><i class="fa fa-id-card color-teal-dark opacity-75"></i></div>
-				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.parents_father_job}</strong><a href="javascript:void(0)">{$account_view.parents_father_job_name}</a><i class="fa fa-id-card-alt color-teal-dark opacity-75"></i></div>
-				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.parents_father_phone}</strong><a href="tel:{$account_view.parents_father_phone}">+{$account_view.parents_father_phone}</a><i class="fa fa-phone color-teal-dark opacity-75"></i></div>
-				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.parents_mother_name}</strong><a href="javascript:void(0)">{$account_view.parents_mother_name}</a><i class="fa fa-id-card color-teal-dark opacity-75"></i></div>
-				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.parents_mother_job}</strong><a href="javascript:void(0)">{$account_view.parents_mother_job_name}</a><i class="fa fa-id-card-alt color-teal-dark opacity-75"></i></div>
-				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.parents_mother_phone}</strong><a href="tel:{$account_view.parents_mother_phone}">+{$account_view.parents_mother_phone}</a><i class="fa fa-phone color-teal-dark opacity-75"></i></div>
-				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.address_parents}</strong><a href="javascript:void(0)">{$account_view.address_parent}</a><i class="fa fa-address-card color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.special_treatment}</strong><a href="javascript:void(0)">{$account_view.special_treatment_id}</a><i class="fa fa-id-card color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.residence}</strong><a href="javascript:void(0)">{$account_view.residence_id}</a><i class="fa fa-id-card color-teal-dark opacity-75"></i></div>
+				<div class="vcard-field lh-lg mt-1"><strong class="font-12 color-teal-dark">{$lang.transportation}</strong><a href="javascript:void(0)">{$account_view.transportation_id}</a><i class="fa fa-id-card color-teal-dark opacity-75"></i></div>
 			</div>
 		</div>
+
 	</div>    
 </div>
 
-<a href='{"?p=exam_account&id={$account_view.id}"|surl}' class="alert me-3 ms-3 mb-4 rounded-s bg-blue-dark d-block" role="alert">
+<a href='{"?p=exam_account&id={$account_view.id}"|surl}' class="alert me-3 ms-3 mb-4 rounded-s bg-blue-dark d-none" role="alert">
 	<span class="alert-icon"><i class="fa fa-server font-18"></i></span>
 	<h4 class="font-15 font-600 color-white">Ujian</h4>
 	<strong class="alert-icon-text opacity-50">Lihat hasil ujian.</strong>
@@ -83,7 +107,8 @@
 		<div class="divider mt-3 mb-3"></div>
   		{/foreach}
 	{else}
-	<p class="mb-3">Belum ada prestasi yang tercatat.</p>
+		<div class="divider mb-3"></div>
+		<p class="mb-3">Belum ada prestasi yang tercatat.</p>
 	{/if}
 	</div>
 </div>

@@ -2729,5 +2729,4 @@ span.flatpickr-weekday {
     left: 50%;
     z-index: 9;
     width: 60%;
-
-}
+}.custom-checkbox .custom-control-input:indeterminate~.custom-control-label::before{border-color:#007bff;background-color:whitesmoke}

@@ -4,6 +4,7 @@ setTimeout(function() {
         preloader["classList"]["add"]('preloader-hide')
     }
 }, 150);
+
 document["addEventListener"]('DOMContentLoaded', () => {
     'use strict';
     let _0x7231x1 = false;
@@ -53,115 +54,57 @@ document["addEventListener"]('DOMContentLoaded', () => {
         document["querySelectorAll"]('.menu')["forEach"]((_0x7231xb) => {
             _0x7231xb["style"]["display"] = 'block'
         });
-        var _0x7231x16 = document["querySelectorAll"]('input');
-        if (_0x7231x16["length"]) {
-            var _0x7231x17 = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
-            var _0x7231x18 = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
-            var _0x7231x19 = /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u;
-            var _0x7231x1a = /[A-Za-z]{2}[A-Za-z]*[ ]?[A-Za-z]*/;
-            var _0x7231x1b = /^(0|[1-9]\d*)$/;
-            var _0x7231x1c = /^(http|https)?:\/\/[a-zA-Z0-9-\.]+\.[a-z]{2,4}/;
-            var _0x7231x1d = /[A-Za-z]{2}[A-Za-z]*[ ]?[A-Za-z]*/;
+  // Regex untuk validasi
+  const patterns = {
+    email: /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,}$/i,
+    tel: /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/,
+    name: /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u,
+    number: /^(0|[1-9]\d*)$/,
+    url: /^(http|https)?:\/\/[a-zA-Z0-9-\.]+\.[a-z]{2,}$/,
+    password: /^.{6,}$/, // minimal 6 karakter
+    text: /.+/ // apapun asal tidak kosong
+  };
 
-            function _0x7231x1e(_0x7231xb) {
-                _0x7231xb["parentElement"]["querySelectorAll"]('.valid')[0]["classList"]["remove"]('disabled');
-                _0x7231xb["parentElement"]["querySelectorAll"]('.invalid')[0]["classList"]["add"]('disabled')
-            }
+  // Fungsi set style border berdasarkan status
+  const setBorder = (el, valid) => {
+    const parent = el.closest(".input-style");
+    if (!parent) return;
 
-            function _0x7231x1f(_0x7231xb) {
-                _0x7231xb["parentElement"]["querySelectorAll"]('.valid')[0]["classList"]["add"]('disabled');
-                _0x7231xb["parentElement"]["querySelectorAll"]('.invalid')[0]["classList"]["remove"]('disabled')
-            }
+    parent.classList.remove("border-success", "border-danger", "border-1", "border-bottom");
 
-            function _0x7231x20(_0x7231xb) {
-                _0x7231xb["parentElement"]["querySelectorAll"]('em')[0]["classList"]["remove"]('disabled');
-                _0x7231xb["parentElement"]["querySelectorAll"]('.valid')[0]["classList"]["add"]('disabled');
-                _0x7231xb["parentElement"]["querySelectorAll"]('.invalid')[0]["classList"]["add"]('disabled')
-            }
-            var _0x7231x21 = document["querySelectorAll"]('.input-style input:not([type=\"date\"])');
-            _0x7231x21["forEach"]((_0x7231xb) => {
-                return _0x7231xb["addEventListener"]('keyup', (_0x7231xa) => {
-                    if (!_0x7231xb["value"] == "") {
-                        _0x7231xb["parentElement"]["classList"]["add"]('input-style-active');
-                        _0x7231xb["parentElement"]["querySelector"]('em')["classList"]["add"]('disabled')
-                    } else {
-                        _0x7231xb["parentElement"]["querySelectorAll"]('.valid')[0]["classList"]["add"]('disabled');
-                        _0x7231xb["parentElement"]["querySelectorAll"]('.invalid')[0]["classList"]["add"]('disabled');
-                        _0x7231xb["parentElement"]["classList"]["remove"]('input-style-active');
-                        _0x7231xb["parentElement"]["querySelector"]('em')["classList"]["remove"]('disabled')
-                    }
-                })
-            });
-            var _0x7231x22 = document["querySelectorAll"]('.input-style textarea');
-            _0x7231x22["forEach"]((_0x7231xb) => {
-                return _0x7231xb["addEventListener"]('keyup', (_0x7231xa) => {
-                    if (!_0x7231xb["value"] == "") {
-                        _0x7231xb["parentElement"]["classList"]["add"]('input-style-active');
-                        _0x7231xb["parentElement"]["querySelector"]('em')["classList"]["add"]('disabled')
-                    } else {
-                        _0x7231xb["parentElement"]["classList"]["remove"]('input-style-active');
-                        _0x7231xb["parentElement"]["querySelector"]('em')["classList"]["remove"]('disabled')
-                    }
-                })
-            });
-            var _0x7231x23 = document["querySelectorAll"]('.input-style select');
-            _0x7231x23["forEach"]((_0x7231xb) => {
-                return _0x7231xb["addEventListener"]('change', (_0x7231xa) => {
-                    if (_0x7231xb["value"] !== "default") {
-                        _0x7231xb["parentElement"]["classList"]["add"]('input-style-active');
-                        _0x7231xb["parentElement"]["querySelectorAll"]('.valid')[0]["classList"]["remove"]('disabled');
-                        _0x7231xb["parentElement"]["querySelectorAll"]('.invalid, em, span')[0]["classList"]["add"]('disabled')
-                    };
-                    if (_0x7231xb["value"] == "default") {
-                        _0x7231xb["parentElement"]["querySelectorAll"]('span, .valid, em')[0]["classList"]["add"]('disabled');
-                        _0x7231xb["parentElement"]["querySelectorAll"]('.invalid')[0]["classList"]["remove"]('disabled');
-                        _0x7231xb["parentElement"]["classList"]["add"]('input-style-active')
-                    }
-                })
-            });
-            var _0x7231x24 = document["querySelectorAll"]('.input-style input[type=\"date\"]');
-            _0x7231x24["forEach"]((_0x7231xb) => {
-                return _0x7231xb["addEventListener"]('change', (_0x7231xa) => {
-                    _0x7231xb["parentElement"]["classList"]["add"]('input-style-active');
-                    _0x7231xb["parentElement"]["querySelectorAll"]('.valid')[0]["classList"]["remove"]('disabled');
-                    _0x7231xb["parentElement"]["querySelectorAll"]('.invalid')[0]["classList"]["add"]('disabled')
-                })
-            });
-            var _0x7231x25 = document["querySelectorAll"]('.validate-field input, .validator-field textarea');
-            if (_0x7231x25["length"]) {
-                _0x7231x25["forEach"]((_0x7231xb) => {
-                    return _0x7231xb["addEventListener"]('keyup', (_0x7231xa) => {
-                        var _0x7231x26 = _0x7231xb["getAttribute"]('type');
-                        switch (_0x7231x26) {
-                            case 'name':
-                                _0x7231x19["test"](_0x7231xb["value"]) ? _0x7231x1e(_0x7231xb) : _0x7231x1f(_0x7231xb);
-                                break;
-                            case 'number':
-                                _0x7231x1b["test"](_0x7231xb["value"]) ? _0x7231x1e(_0x7231xb) : _0x7231x1f(_0x7231xb);
-                                break;
-                            case 'email':
-                                _0x7231x17["test"](_0x7231xb["value"]) ? _0x7231x1e(_0x7231xb) : _0x7231x1f(_0x7231xb);
-                                break;
-                            case 'text':
-                                _0x7231x1d["test"](_0x7231xb["value"]) ? _0x7231x1e(_0x7231xb) : _0x7231x1f(_0x7231xb);
-                                break;
-                            case 'url':
-                                _0x7231x1c["test"](_0x7231xb["value"]) ? _0x7231x1e(_0x7231xb) : _0x7231x1f(_0x7231xb);
-                                break;
-                            case 'tel':
-                                _0x7231x18["test"](_0x7231xb["value"]) ? _0x7231x1e(_0x7231xb) : _0x7231x1f(_0x7231xb);
-                                break;
-                            case 'password':
-                                _0x7231x1a["test"](_0x7231xb["value"]) ? _0x7231x1e(_0x7231xb) : _0x7231x1f(_0x7231xb);
-                                break
-                        };
-                        if (_0x7231xb["value"] === "") {
-                            _0x7231x20(_0x7231xb)
-                        }
-                    })
-                })
-            }
-        };
+    if (el.value.trim() === "") {
+      parent.classList.remove("input-style-active");
+    } else {
+      parent.classList.add("input-style-active", "border-1", "border-bottom");
+      parent.classList.add(valid ? "border-success" : "border-danger");
+    }
+  };
+
+  // === 1. Input dan Textarea ===
+  const inputs = document.querySelectorAll(".input-style input:not([type='date']), .input-style textarea");
+  inputs.forEach(input => {
+    input.addEventListener("keyup", () => {
+      const type = input.getAttribute("type") || "text";
+      const pattern = patterns[type] || patterns.text;
+      setBorder(input, pattern.test(input.value.trim()));
+    });
+  });
+
+  // === 2. Input type="date" ===
+  const dateInputs = document.querySelectorAll(".input-style input[type='date']");
+  dateInputs.forEach(input => {
+    input.addEventListener("change", () => {
+      setBorder(input, true);
+    });
+  });
+
+  // === 3. Select ===
+  const selects = document.querySelectorAll(".input-style select");
+  selects.forEach(select => {
+    select.addEventListener("change", () => {
+      setBorder(select, select.value !== "default");
+    });
+  });
         var _0x7231x27 = document["querySelectorAll"]('.otp');
         if (_0x7231x27[0]) {
             _0x7231x27["forEach"]((_0x7231xb) => {
@@ -291,34 +234,34 @@ document["addEventListener"]('DOMContentLoaded', () => {
                 }
             });
         });
-        document.querySelectorAll('button').forEach((_Btnlink) => {
-            _Btnlink.addEventListener('click', (e) => {
-                const btnType = _Btnlink.getAttribute('type') || 'button';
-                const btnAction = _Btnlink.getAttribute('data-action');
-                const btnRef = _Btnlink.getAttribute('data-ref');
-                const oldValue = _Btnlink.innerHTML;
-                _Btnlink.innerHTML = '<i class="fa fa-spinner fa-spin fa-pulse color-dark-dark me-1"></i> Memproses...';
-                _Btnlink.style.opacity = 0.5;
-                // Jika tombol punya data-action="skip" → lanjutkan normal, tanpa spinner
-                if (btnAction && btnAction === "skip" || btnRef) {
-                    setTimeout(() => {
-                        _Btnlink.innerHTML = oldValue;
-                        _Btnlink.style.opacity = 1;
-                    }, 1000);
-                    return; // Tidak melakukan apa-apa, biarkan lanjut submit / aksi normal
-                }
-                // Jika tombol BUKAN submit → reset otomatis setelah 3 detik
-                _Btnlink.disabled = true;
-                if (btnType !== 'submit') {
-                    setTimeout(() => {
-                        _Btnlink.innerHTML = oldValue;
-                        _Btnlink.disabled = false;
-                        _Btnlink.style.opacity = 1;
-                    }, 3000);
-                    e.preventDefault();
-                }
-            });
-        });
+
+// Inisialisasi global untuk semua button
+document.querySelectorAll('button').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    const type = btn.getAttribute('type') || 'button';
+
+    // Jika tombol sudah sedang loading, ignore klik berikutnya
+    if (btn.disabled) {
+      e.preventDefault();
+      return;
+    }
+
+    if (type !== 'submit') {
+      setButtonLoading(btn);
+      // Untuk tombol button, jalankan fungsi khusus jika ada
+      // Jika tidak ingin submit, cegah default behavior
+      e.preventDefault();
+      // Reset loading setelah 3 detik agar user bisa lihat respons tombol
+      setTimeout(() => {
+        resetButtonLoading(btn);
+      }, 3000);
+    }else{
+        // tombol submit maka kembalikan fungsi
+        return;
+    }
+  });
+});
+
         var _0x7231x35 = document["querySelectorAll"]('.hide-map');
         if (_0x7231x35["length"]) {
             var _0x7231x36 = document["querySelectorAll"]('.show-map');
@@ -791,7 +734,6 @@ document["addEventListener"]('DOMContentLoaded', () => {
                 };
                 const _0x7231x86 = _0x7231x82["target"]["files"];
                 const _0x7231x87 = _0x7231x86[0]["name"];
-                document["getElementsByClassName"]('file-data')[0]["classList"]["add"]('disabled');
                 document["getElementsByClassName"]('upload-file-data')[0]["classList"]["remove"]('disabled');
                 document["getElementsByClassName"]('upload-file-name')[0]["innerHTML"] = _0x7231x86[0]["name"];
                 document["getElementsByClassName"]('upload-file-modified')[0]["innerHTML"] = _0x7231x86[0]["lastModifiedDate"];
@@ -1993,7 +1935,78 @@ document["addEventListener"]('DOMContentLoaded', () => {
             })
         }
     };
-    init_template()
+    init_template();
+
+  const buttons = document.querySelectorAll('button[type="submit"]');
+  buttons.forEach((btn, index) => {
+    if (!btn.id) {
+      if (buttons.length === 1) {
+        btn.id = 'btnSubmitForm';
+      } else {
+        btn.id = 'btnSubmitForm_' + (index + 1);
+      }
+    }
+  });
+  const mainBtn = document.getElementById('btnSubmitForm');
+  if (!mainBtn) return;
+  mainBtn.addEventListener('click', async function (e) {
+    e.preventDefault();
+    const form = this.closest('form');
+    if (!form) return;
+
+    const token = await newToken();
+    if (!token) {
+        showAlert('Error', "Masalah keamanan!!! silakan refresh halaman.");
+        return;
+    }
+    const formData = new FormData(form);
+    formData.append("form_id", token.id);
+    formData.append("form_token", token.token);
+    formData.append("form_sig", token.sig);
+    const btn = this;
+
+    ajaxPOST(form.getAttribute('action'), formData, btn,
+        function(response) {
+        // Success callback
+        if (response.result === 'success') {
+            showAlert('Sukses', response.msg);
+            if(response.redirect) {
+                requestAnimationFrame(() => {
+                    setTimeout(() => window.location.href = response.redirect, 2000);
+                });
+            }else{
+            resetButtonLoading(btn);
+            }
+        } else {
+            let result = response.msg;
+            if (response.errors) {
+                if (Array.isArray(response.errors)) {
+                    result += "\n" + response.errors.join("\n");
+                } else if (typeof response.errors === "object") {
+                    let messages = [];
+                    for (const key in response.errors) {
+                    if (Array.isArray(response.errors[key])) {
+                        messages.push(...response.errors[key]);
+                    } else {
+                        messages.push(response.errors[key]);
+                    }
+                    }
+                    result += "\n" + messages.join("\n");
+                } else {
+                    result += "\n" + response.errors;
+                }
+            }
+          showAlert('Error', result);
+            resetButtonLoading(btn);
+        }
+        },
+        function(error) {
+            showAlert('Error', 'AJAX Error: ' + error);
+        }
+    );
+    });
+
+
 })
 
 function showAlert(res,msg) {
@@ -2013,5 +2026,106 @@ function showAlert(res,msg) {
         sound.currentTime = 0;
         sound.play().catch(err => console.log("Sound error:", err));
     }
+}
 
+// Fungsi untuk aktifkan loading tombol
+function setButtonLoading(btn) {
+  btn.dataset.originalHtml = btn.innerHTML;
+  btn.innerHTML = '<i class="fa fa-spinner fa-spin fa-pulse color-dark-dark me-1"></i> Memproses...';
+  btn.style.opacity = '0.5';
+  btn.disabled = true;
+}
+
+// Fungsi untuk reset tombol ke html awal
+function resetButtonLoading(btn) {
+  if (btn.dataset.originalHtml) {
+    btn.innerHTML = btn.dataset.originalHtml;
+  }
+  btn.style.opacity = '1';
+  btn.disabled = false;
+}
+
+async function newToken() {
+  const forms = document.querySelectorAll("form");
+  if (forms.length === 0) return null; // Tidak ada form, keluar
+
+  const url = "?proof"; // ambil token baru
+  try {
+    const res = await fetch(url, { credentials: 'same-origin' });
+    const data = await res.json();
+
+    if (!data || data.response !== 'success' || !data.token) return null;
+    
+    // Update meta
+    const setMeta = (name, value) => {
+      let el = document.querySelector(`meta[name="${name}"]`);
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute("name", name);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", value);
+    };
+
+    setMeta("form_id", data.token.id);
+    setMeta("form_token", data.token.token);
+    setMeta("form_sig", data.token.sig);
+    
+    return data.token;
+  } catch (err) {
+    console.error("Gagal mengambil token:", err);
+    return null;
+  }
+}
+
+/**
+ * Fungsi ajaxPOST global
+ * @param {string} url - URL endpoint
+ * @param {FormData|object} data - data/formData yang dikirim
+ * @param {HTMLElement} btn - tombol yang memicu, untuk loading
+ * @param {function} onSuccess - callback saat sukses (response JSON)
+ * @param {function} onError - callback saat error
+ */
+function ajaxPOST(url, data, btn, onSuccess, onError) {
+  setButtonLoading(btn);
+    const csrfId = document.querySelector('meta[name="form_id"]').getAttribute('content');
+    const csrfToken = document.querySelector('meta[name="form_token"]').getAttribute('content');
+    const csrfSig = document.querySelector('meta[name="form_sig"]').getAttribute('content');
+    
+  if (!csrfToken) {
+    resetButtonLoading(btn);
+    if (onError) onError('CSRF token tidak ditemukan');
+    return;
+  }
+
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", url, true);
+  xhr.setRequestHeader('X-CSRF-Id', csrfId);
+  xhr.setRequestHeader('X-CSRF-Token', csrfToken);
+  xhr.setRequestHeader('X-CSRF-Sig', csrfSig);
+  xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+
+      if (xhr.status === 200) {
+        try {
+            console.log(xhr.responseText);
+          const response = JSON.parse(xhr.responseText);
+          if (onSuccess) onSuccess(response);
+        } catch(e) {
+          if (onError) onError('Failed to parse JSON: ' + e.message);
+        }
+      } else {
+        if (onError) onError('Request failed with status ' + xhr.status);
+      }
+    }
+  };
+
+  if (data instanceof FormData) {
+    xhr.send(data);
+  } else {
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify(data));
+  }
 }

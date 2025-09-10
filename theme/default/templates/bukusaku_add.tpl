@@ -1,21 +1,5 @@
 {include file="header1.tpl"}
-{if $error}
-<div id="notification-1" data-dismiss="notification-1" data-bs-delay="3000" data-bs-autohide="true" class="notification notification-ios bg-dark-dark ms-2 me-2 mt-2 rounded-s fade show">
-	<span class="notification-icon color-white rounded-s">
-		<i class="fa fa-bell color-yellow-dark"></i>
-		<em>Notifikasi</em>
-		<i data-dismiss="notification-1" class="fa fa-times-circle"></i>
-	</span>
-{if $error.details}
-<h1 class="font-15 color-white">Error!</h1>
-<p class="pb-1">
-{$lang.error_details}
-</p>
-{/if}
-</div>
-{/if}
-<form class="form_settings" method="post" id="form" autocomplete="off">
-  {$token}
+<form class="form_settings" method="post" id="form" autocomplete="off" action='{"?p=bukusaku"|surl}'>
 <div class="card card-style">
 	<div class="content mb-0">
 		<h3 class="font-600">Tambah Pelanggaran Baru</h3>

@@ -26,28 +26,64 @@
 </div>
 
 <div class="card card-style">
+    <div class="content">
+        <h3 class="font-600">Kelas {$class_detail.class_name}</h3>
+        <p class="font-11 mt-n2 color-highlight">Jumlah {$class_detail.total_students} siswa</p>
+    </div>
+</div>
+
+<div class="card card-style">
 <div class="content">
-    <h5 class="float-start font-16">Kelas {$class_detail.class_name} ({$class_detail.total_students} siswa)</h5>
     <div class="clearfix"></div>
-    {foreach from=$class_detail.students item=student name=p}
-        <div class="d-flex">
+    {foreach from=$class_detail.students key=key item=student name=p}
+        <a href='javascript:void(0)' class="d-flex" data-menu="menu-action-profile{$key}">
             <div>
-                <img src='{$student.avatar|default:"{$settings.siteurl}/theme/default/assets/images/avatars/default_avatar.png"}' width="50" class="me-3">
+                <img src='{$student.avatar|default:"{$settings.siteurl}/theme/default/assets/images/avatars/default_avatar.png"}' width="50" class="me-1">
             </div>
-            <a href='{"?p=account_view&id={$student.id}"|surl}' class="align-self-center ps-3">
+            <div class="align-self-center ps-1 mx-auto w-100">
                 <h5 class="font-600 font-14 mb-n2">{$student.name}</h5>
-                <span class="color-theme font-11">NISN: {$student.nisn}</span>
-            </a>
-            <div class="align-self-center ms-auto">
-                {if $student.is_manager == 1}
-                <h5 class="color-green-dark mb-0 text-end">Ketua Kelas</h5>
-                {/if}
-                <span class="color-theme d-block text-end">#{$smarty.foreach.p.iteration} {if $student.editable}<a class="badge text-uppercase px-1 py-1 bg-blue-dark" href='{"?p=account_edit&id={$student.id}"|surl}'>edit</a>{/if}</span>
+                <div class="color-theme font-11">NISN: {$student.nisn}
+                    <div class="align-self-center float-end text-end">
+                        {if $student.is_manager == 1}
+                        <h5 class="color-green-dark mb-0 text-end">Ketua Kelas</h5>
+                        {/if}
+                        <span class="color-theme d-block text-end">#{$smarty.foreach.p.iteration}</span>
+                    </div>
+                </div>
             </div>
-        </div>
+        </a>
         <div class="divider mt-3 mb-3"></div>
     {/foreach}
                         
 </div>
 </div>
 {include file="footer.tpl"}
+{foreach from=$class_detail.students key=key item=student name=p}
+<div id="menu-action-profile{$key}" class="menu menu-box-bottom menu-box-detached rounded-m" data-menu-height="250" data-menu-effect="menu-over">
+    <h4 class="font-700 my-2 mx-3">{$student.name}</h4>
+    <div class="divider divider-margins mb-0"></div>
+    <div class="list-group list-custom-small ps-1 pe-3">
+
+        <a href='{"?p=account_view&id={$student.id}"|surl}' class="external-link">
+            <i class="mx-0 fa fa-dot-circle color-google"></i>
+            <span class="font-13">{$lang.view_account}</span>
+            <i class="fa fa-angle-right"></i>
+        </a>
+
+        {if $student.editable}
+        <a href='{"?p=account_edit&id={$student.id}"|surl}' class="external-link">
+            <i class="mx-0 fa fa-dot-circle color-google"></i>
+            <span class="font-13">{$lang.edit_account}</span>
+            <i class="fa fa-angle-right"></i>
+        </a>
+        {/if}
+
+        <a href='{"?p=exam_account&id={$student.id}"|surl}' class="external-link">
+            <i class="mx-0 fa fa-dot-circle color-google"></i>
+            <span class="font-13">{$lang.exam_account}</span>
+            <i class="fa fa-angle-right"></i>
+        </a>
+        
+    </div>
+</div>
+{/foreach}

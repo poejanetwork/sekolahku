@@ -10,14 +10,14 @@
 	</div>
 </div>
 
-<form action='{"?p=exam_questions"|surl}' class="form_settings" method="post">
+<form action='{"?p=exam_questions"|surl}' class="form_settings" method="post" enctype="multipart/form-data">
     {$token}
 <div class="content">
 <div class="bg-white card-style mb-3 mx-0 border-2 border-start border-primary">
 	<div class="content mb-0">
 		<div class="input-style input-style-always-active no-borders has-icon validate-field mb-4">
 			<i class="fa fa-dot-circle color-highlight"></i>
-			<select name="question_type" class="form-control" id="question_type" onchange="changeQuestionType(this.value)">
+			<select name="question_type" class="form-control" id="question_type" required>
 				<option value="choice">Pilihan Ganda</option>
 				<option value="multiple_choice">Pilihan Jawaban Ganda</option>
 				<option value="true_false">Benar/Salah</option>
@@ -27,7 +27,7 @@
 		</div>
 		<div class="input-style input-style-always-active no-borders has-icon validate-field mb-4">
 			<i class="fa fa-sticky-note color-highlight"></i>
-			<input name="question_text" type="text" class="form-control" id="question_text" placeholder="Masukkan pertanyaan" value="">
+			<input name="question_text" type="text" class="form-control" id="question_text" placeholder="Masukkan pertanyaan" value="" required>
 			<label for="question_text" class="text-uppercase font-700 font-10">Pertanyaan</label>
 		</div>
 	<div id="options-container">
@@ -212,12 +212,12 @@
 	</div>
 		<div class="input-style input-style-always-active no-borders has-icon validate-field mb-4">
 			<i class="fa fa-dot-circle color-highlight"></i>
-			<input name="points" type="number" step="1" min="1" class="form-control" id="points" placeholder="Masukkan skor/poin jika benar" value="1">
+			<input name="points" type="number" step="1" min="1" class="form-control" id="points" placeholder="Masukkan skor/poin jika benar" value="1" required>
 			<label for="points" class="text-uppercase font-700 font-10">Skor/Poin</label>
 		</div>
 		<div class="input-style input-style-always-active no-borders has-icon validate-field mb-4">
 			<i class="fa fa-dot-circle color-highlight"></i>
-			<select name="level" class="form-control" id="level">
+			<select name="level" class="form-control" id="level" required>
 				{foreach from=$allLevels item=level}
 				<option value="{$level}">{$level}</option>
 				{/foreach}
@@ -236,29 +236,29 @@
 			Silahkan upload gambar soal (jika dibutuhkan). Kosongkan jika tidak.
 		</p>
 		<div class="file-data pb-5">
-			<input type="file" id="file-upload" class="upload-file bg-highlight shadow-s rounded-s " accept="image/*">
-			<p class="upload-file-text color-white">Upload Image</p>
+			<input name="question_image" type="file" id="file-upload" class="upload-file bg-highlight shadow-s rounded-s " accept="image/*">
+			<p class="upload-file-text color-white">Pilih Gambar</p>
 		</div>
 		<div class="list-group list-custom-large upload-file-data disabled">
 			<img id="image-data" src="images/empty.png" class="img-fluid" style="width:100%; display:block; height:300px">
 			<a href="#" class="border-0">
 				<i class="fa font-14 fa-info-circle color-blue-dark"></i>
-				<span>File Name</span>
+				<span>Nama File</span>
 				<strong class="upload-file-name">JS Populated</strong>
 			</a>
 			<a href="#" class="border-0">
 				<i class="fa font-14 fa-weight-hanging color-brown-dark"></i>
-				<span>File Size</span>
+				<span>Ukuran File</span>
 				<strong class="upload-file-size">JS Populated</strong>
 			</a>
 			<a href="#" class="border-0">
 				<i class="fa font-14 fa-tag color-red-dark"></i>
-				<span>File Type</span>
+				<span>Tipe File</span>
 				<strong class="upload-file-type">JS Populated</strong>
 			</a>
 			<a href="#" class="border-0 pb-4">
 				<i class="fa font-14 fa-clock color-blue-dark"></i>
-				<span>Modified Date</span>
+				<span>Tanggal Data</span>
 				<strong class="upload-file-modified">JS Populated</strong>
 			</a>
 		</div>

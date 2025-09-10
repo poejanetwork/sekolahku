@@ -10,7 +10,7 @@
 	</div>
 </div>
 
-<form action='{"?p=exam_questions"|surl}' class="form_settings" method="post">
+<form action='{"?p=exam_questions"|surl}' class="form_settings" method="post" enctype="multipart/form-data">
     {$token}
 <div class="content">
 <div class="bg-white card-style mb-3 mx-0 border-2 border-start border-primary">
@@ -168,14 +168,23 @@
 </div>
 </div>
 
+{if $exam_questions.question_image != ''}
 <div class="card card-style">
 	<div class="content mb-0">
-		<h4>Upload Gambar</h4>
+	<h4>Gambar Soal</h4>
+	<img id="image-datas" data-src="{$exam_questions.question_image}" class="img-fluid preload-img">
+	</div>
+</div>
+{/if}
+
+<div class="card card-style">
+	<div class="content mb-0">
+		<h4>Upload Gambar Baru</h4>
 		<p>
 			Silahkan upload gambar soal (jika dibutuhkan). Kosongkan jika tidak.
 		</p>
 		<div class="file-data pb-5">
-			<input type="file" id="file-upload" class="upload-file bg-highlight shadow-s rounded-s " accept="image/*">
+			<input name="question_image" type="file" id="file-upload" class="upload-file bg-highlight shadow-s rounded-s " accept="image/*">
 			<p class="upload-file-text color-white">Upload Image</p>
 		</div>
 		<div class="list-group list-custom-large upload-file-data disabled">
@@ -204,6 +213,7 @@
 	</div>
 </div>
 	<div class="content mb-3">
+		<input type="hidden" value="{$exam_questions.question_image}" name="old_question_image" id="old_question_image">
 		<input type="hidden" value="{$exam_questions.id}" name="id">
 		<input type="hidden" value="{$exam_questions.major_id}" name="major_id">
 		<input type="hidden" value="do_edit" name="act">

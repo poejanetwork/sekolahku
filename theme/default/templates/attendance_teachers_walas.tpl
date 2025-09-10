@@ -51,7 +51,7 @@
                 </h1>
             </div>
             <div class="align-self-center ps-3">
-                <h5 class="font-600 font-14 mb-n1">{$students.fullname}</h5>
+                <h5 class="font-600 font-14 mb-n1"><a class="color-black" href='{"?p=account_view&id={$students.id}"|surl}'>{$students.fullname}</a></h5>
                 <input type="hidden" name="student_id[{$class_detail.class_id}][]" value="{$students.id}">
             </div>
             <div class="my-auto ms-auto">
